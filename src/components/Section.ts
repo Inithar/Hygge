@@ -1,13 +1,14 @@
 import { styled } from "styled-components";
+import { media } from "../styles/helpers";
 
 export const Section = styled.section`
   margin-bottom: 10.4rem;
 
-  ${({ theme }) => theme.media.sm} {
+  ${media("sm")} {
     margin-bottom: 11.2rem;
   }
 
-  ${({ theme }) => theme.media.lg} {
+  ${media("lg")} {
     margin-bottom: 14.4rem;
   }
 `;
