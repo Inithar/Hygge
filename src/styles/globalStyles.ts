@@ -46,6 +46,13 @@ export const GlobalStyles = createGlobalStyle`
     max-width: 100%;
   }
 
+  button:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  a:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.primary};
+  }
+
   @font-face {
     font-family: "MontserratRegular";
     src: url("/fonts/Montserrat-Regular.ttf");
