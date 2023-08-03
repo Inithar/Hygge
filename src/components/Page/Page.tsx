@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
-import { Wrapper } from "./Page.styled";
+import { Main } from "./Page.styled";
 
 import { Header } from "../Header/Header";
 import { Footer } from "../Footer/Footer";
@@ -14,12 +14,12 @@ export const Page = () => {
   }, [pathname]);
 
   return (
-    <Wrapper>
+    <>
       <Header />
-      <main>
+      <Main>
         <Outlet />
-      </main>
+      </Main>
       <Footer />
-    </Wrapper>
+    </>
   );
 };

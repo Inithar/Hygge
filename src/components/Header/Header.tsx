@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { useDisableBodyScroll } from "../../hooks/useDisableBodyScroll";
 
-import { StyledHeader, Burger, Icons, Container, Navigation } from "./Header.styled";
+import { StyledHeader, Burger, Icons, Container, Navigation, Wrapper } from "./Header.styled";
 import { Logo } from "../Logo/Logo";
 import { Icon } from "../Icon/Icon";
 import { Search } from "../Search/Search";
@@ -16,6 +16,18 @@ import { links } from "../../data/header";
 
 export const Header = () => {
   const [isNavigationActive, setIsNavigationActive] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollPosition(window.scrollY);
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   useDisableBodyScroll(isNavigationActive);
 
   const { width } = useWindowSize();
@@ -29,44 +41,46 @@ export const Header = () => {
 
   return (
     <FocusTrap active={isNavigationActive} breakpoint="md">
-      <StyledHeader>
-        <Logo size="md" />
+      <Wrapper scrollPosition={scrollPosition}>
+        <StyledHeader>
+          <Logo size="md" />
 
-        <Container id={containerId} isActive={isNavigationActive} aria-hidden={isContainerHidden}>
-          {!isMediumScreen && <Search />}
+          <Container id={containerId} isActive={isNavigationActive} aria-hidden={isContainerHidden}>
+            {!isMediumScreen && <Search />}
 
-          <Navigation>
-            <ul>
-              {links.map(({ title, url }) => (
-                <li key={crypto.randomUUID()}>
-                  <NavLink
-                    to={url}
-                    onClick={handleNavigationClose}
-                    tabIndex={isMediumScreen || isNavigationActive ? 0 : -1}
-                  >
-                    {title}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </Navigation>
-        </Container>
+            <Navigation>
+              <ul>
+                {links.map(({ title, url }) => (
+                  <li key={crypto.randomUUID()}>
+                    <NavLink
+                      to={url}
+                      onClick={handleNavigationClose}
+                      tabIndex={isMediumScreen || isNavigationActive ? 0 : -1}
+                    >
+                      {title}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </Navigation>
+          </Container>
 
-        {/* TODO add functionality to icons */}
-        <Icons>
-          {isMediumScreen && <Icon src="/icons/search.svg" iconSize="md" />}
-          <Icon src="/icons/cart.svg" iconSize="md" />
-          <Icon src="/icons/user.svg" iconSize="md" />
-        </Icons>
+          {/* TODO add functionality to icons */}
+          <Icons>
+            {isMediumScreen && <Icon src="/icons/search.svg" iconSize="md" />}
+            <Icon src="/icons/cart.svg" iconSize="md" />
+            <Icon src="/icons/user.svg" iconSize="md" />
+          </Icons>
 
-        <Burger
-          onClick={handleNavigationToggle}
-          isActive={isNavigationActive}
-          aria-expanded={isNavigationActive}
-          aria-controls={containerId}
-          aria-label="Mobile Navigation Button"
-        />
-      </StyledHeader>
+          <Burger
+            onClick={handleNavigationToggle}
+            isActive={isNavigationActive}
+            aria-expanded={isNavigationActive}
+            aria-controls={containerId}
+            aria-label="Mobile Navigation Button"
+          />
+        </StyledHeader>
+      </Wrapper>
     </FocusTrap>
   );
 };

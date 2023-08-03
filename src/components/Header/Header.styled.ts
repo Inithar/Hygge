@@ -3,16 +3,30 @@ import { media } from "../../styles/helpers";
 
 type BurgerProps = { isActive: boolean };
 type ContainerProps = { isActive: boolean };
+type WrapperProps = { scrollPosition: number };
 
-export const StyledHeader = styled.header`
+export const Wrapper = styled.div<WrapperProps>`
   position: sticky;
   top: 0;
+  z-index: 999;
+
+  ${({ theme, scrollPosition }) =>
+    scrollPosition > 50 &&
+    css`
+      background-color: ${theme.colors.basic.white};
+      box-shadow: ${theme.shadows.lg};
+      transition: background-color 0.3s, box-shadow 0.3s;
+    `}
+`;
+
+export const StyledHeader = styled.header`
   display: grid;
   grid-template-columns: 1fr auto auto;
   align-items: center;
   gap: 2.4rem;
-  margin-bottom: 5.6rem;
+  margin: 0 auto 5.6rem;
   padding-inline: 2.4rem;
+  max-width: 134.4rem;
   height: 8rem;
 
   ${media("sm")} {
@@ -65,16 +79,16 @@ export const Navigation = styled.nav`
     gap: 2.4rem;
   }
 
-  & > a:link,
-  & > a:visited {
+  a:link,
+  a:visited {
     font-size: ${({ theme }) => theme.fontSizes["2xl"]};
     transition: color 0.3s;
   }
 
-  & > a:hover,
-  & > a:active,
-  & > a.active:link,
-  & > a.active:visited {
+  a:hover,
+  a:active,
+  a.active:link,
+  a.active:visited {
     color: ${({ theme }) => theme.colors.primary};
   }
 
@@ -83,8 +97,8 @@ export const Navigation = styled.nav`
       flex-direction: row;
     }
 
-    & > a:link,
-    & > a:visited {
+    a:link,
+    a:visited {
       font-size: ${({ theme }) => theme.fontSizes.xl};
     }
   }
