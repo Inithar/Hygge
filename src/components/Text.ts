@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-import { Color, FontFamily, setColor, setFontFamily } from "../styles/helpers";
+import { Color, FontFamily, setColor, setFontFamily, setFontSize } from "../styles/helpers";
 import { theme } from "../styles/theme";
 
 type TextProps = {
@@ -14,20 +14,12 @@ const {
   fontSizes: { xs, sm, md, lg, xl, "2xl": xxl },
 } = theme;
 
-const setFontSize = (smallScreen: string, mediumScreen?: string) => css`
-  font-size: ${smallScreen};
-
-  ${({ theme }) => theme.media.md} {
-    font-size: ${mediumScreen};
-  }
-`;
-
 const fontSizes = {
-  xs: setFontSize(xs),
-  sm: setFontSize(sm),
-  md: setFontSize(md, lg),
-  lg: setFontSize(lg, xl),
-  xl: setFontSize(xl, xxl),
+  xs: setFontSize({ smallScreen: xs }),
+  sm: setFontSize({ smallScreen: sm }),
+  md: setFontSize({ smallScreen: md, largeScreen: lg }),
+  lg: setFontSize({ smallScreen: lg, largeScreen: xl }),
+  xl: setFontSize({ smallScreen: xl, largeScreen: xxl }),
 };
 
 export const Text = styled.p<TextProps>`
