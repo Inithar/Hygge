@@ -1,6 +1,6 @@
 import { IconBox, IconBoxProps } from "./Icon.styled";
 
-type IconProps = IconBoxProps & {
+export type IconProps = IconBoxProps & {
   src: string;
   alt?: string;
 };
