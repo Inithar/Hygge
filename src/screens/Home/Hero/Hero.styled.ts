@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import { Section } from "../../../../components/Section";
-import { media } from "../../../../styles/helpers";
+import { Section } from "../../../components/Section";
+import { media } from "../../../styles/helpers";
 
 export const StyledSection = styled(Section)`
   position: relative;

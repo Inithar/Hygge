@@ -1,9 +1,9 @@
-import { LinkButton } from "../../../../components/Button";
-import { Picture } from "../../../../components/Picture";
-import { SectionTitle } from "../../../../components/SectionTitle/SectionTitle";
+import { LinkButton } from "../../../components/Button";
+import { Picture } from "../../../components/Picture";
+import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import { StyledSection, Details, PictureContainer } from "./Hero.styled";
 
-import { hero } from "../../../../data/home";
+import { hero } from "../../../data/home";
 
 export const Hero = () => (
   <StyledSection>
