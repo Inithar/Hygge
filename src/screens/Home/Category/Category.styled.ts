@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import { rgba } from "../../../styles/helpers";
+import { rgba, skeletonAnimation } from "../../../styles/helpers";
 
 export const StyledLink = styled(Link)`
   display: flex;
@@ -22,4 +22,13 @@ export const StyledLink = styled(Link)`
     background-color: ${({ theme }) => rgba(theme.colors.accent.one, 0.24)};
     border-color: ${({ theme }) => theme.colors.primary};
   }
+`;
+
+export const CategorySkeleton = styled.div`
+  // override inline styles from react-slick 
+  width: 12.8rem !important;
+  height: 12.8rem;
+  border-radius: ${({ theme }) => theme.borderRadius.sm};
+
+  ${skeletonAnimation}
 `;

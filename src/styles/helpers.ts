@@ -1,15 +1,8 @@
-import { css } from "styled-components";
+import { css, keyframes } from "styled-components";
 
 import { theme } from "./theme";
 import { transformObject } from "../utils/transformObject";
 import { Breakpoint } from "../constants/breakpoints";
-
-export type Position = {
-  top?: string;
-  right?: string;
-  bottom?: string;
-  left?: string;
-};
 
 export type Color = keyof typeof availableColors;
 export type FontFamily = keyof typeof availableFonts;
@@ -21,14 +14,6 @@ export const media = (breakpoint: Breakpoint) => theme.media[breakpoint];
 
 export const setColor = (color: Color) => availableColors[color];
 export const setFontFamily = (font: FontFamily) => availableFonts[font];
-export const setPositionValue = (value: string | undefined) => (value === undefined ? "unset" : value);
-
-export const setPosition = (position: Position) => css`
-  top: ${setPositionValue(position?.top)};
-  right: ${setPositionValue(position?.right)};
-  bottom: ${setPositionValue(position?.bottom)};
-  left: ${setPositionValue(position?.left)};
-`;
 
 export const setFontSize = (fontSize: { smallScreen: string; mediumScreen?: string; largeScreen?: string }) => css`
   font-size: ${fontSize.smallScreen};
@@ -53,3 +38,18 @@ export const rgba = (hex: string, alpha: number) => {
     return `rgba(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}, ${alpha})`;
   }
 };
+
+const skeletonLoading = keyframes`
+  0% {
+    background-color: #CBCFD1;
+  }
+
+  100% {
+    background-color: #F0F3F5;
+  }
+`;
+
+export const skeletonAnimation = css`
+  opacity: 0.7;
+  animation: ${skeletonLoading} 1s linear infinite alternate;
+`;
