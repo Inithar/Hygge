@@ -6,6 +6,8 @@ import { Breakpoint } from "../constants/breakpoints";
 
 export type Color = keyof typeof availableColors;
 export type FontFamily = keyof typeof availableFonts;
+export type FontSize = keyof typeof theme.fontSizes;
+export type BorderRadius = keyof typeof theme.borderRadius;
 
 const availableColors = transformObject(theme.colors);
 const availableFonts = transformObject(theme.fontFamilies);
