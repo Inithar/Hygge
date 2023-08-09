@@ -3,8 +3,8 @@ import { Text } from "../../../components/Text";
 import { StyledLink } from "./Category.styled";
 
 type CategoryProps = {
-  icon: string | null;
-  name: string | null;
+  icon: string;
+  name: string;
 };
 
 export const Category = ({ icon, name }: CategoryProps) => (

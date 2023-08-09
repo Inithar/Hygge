@@ -30,6 +30,10 @@ export const Socials = styled.div`
   display: flex;
   gap: 2.4rem;
   margin-top: 0.8rem;
+
+  & > a {
+    border-radius: 50%;
+  }
 `;
 
 export const Box = styled.div`

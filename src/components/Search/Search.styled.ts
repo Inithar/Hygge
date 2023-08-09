@@ -24,7 +24,7 @@ export const Form = styled.form`
       border: 2px solid ${theme.colors.accent.one};
       border-radius: ${theme.borderRadius.sm};
 
-      &:focus {
+      &:focus-visible {
         border-color: ${theme.colors.primary};
       }
 

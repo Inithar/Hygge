@@ -38,7 +38,7 @@ export const StyledTextFiled = styled.div<StyledTextFiledProps>`
       box-shadow: ${isDark ? "none" : theme.shadows.md};
     `}
 
-    &:focus {
+    &:focus-visible {
       border-color: ${({ theme }) => theme.colors.primary};
     }
 
