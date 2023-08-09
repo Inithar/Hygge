@@ -8,7 +8,7 @@ export type BadgeColor = keyof typeof availableColors;
 export type StyledBadgeProps = {
   size?: keyof typeof sizes;
   color: BadgeColor;
-  fill?: boolean;
+  solid?: boolean;
 };
 
 const availableColors = {
@@ -53,9 +53,9 @@ export const StyledBadge = styled.div<StyledBadgeProps>`
 
   ${({ size }) => sizes[size || "sm"]};
 
-  ${({ color, fill }) => css`
-    color: ${setColor(fill ? "basicWhite" : (availableColors[color] as Color))};
-    background-color: ${rgba(setColor(availableColors[color] as Color), fill ? 1 : 0.1)};
-    border: ${fill ? `2px solid ${setColor("basicWhite")}` : "none"};
+  ${({ color, solid }) => css`
+    color: ${setColor(solid ? "basicWhite" : (availableColors[color] as Color))};
+    background-color: ${rgba(setColor(availableColors[color] as Color), solid ? 1 : 0.1)};
+    border: ${solid ? `2px solid ${setColor("basicWhite")}` : "none"};
   `}
 `;

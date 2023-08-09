@@ -37,12 +37,12 @@ export const ProductItem = ({ id, name, image, price, sale, category, isNew }: P
     <StyledProductItem>
       <BadgeContainer>
         {isNew && (
-          <Badge fill color="green">
+          <Badge solid color="green">
             NEW IN
           </Badge>
         )}
 
-        {sale && <Badge fill color="red">{`${sale.toString()}% OFF`}</Badge>}
+        {sale && <Badge solid color="red">{`${sale.toString()}% OFF`}</Badge>}
       </BadgeContainer>
 
       <Container>
