@@ -40,3 +40,24 @@ export const whyUsSectionData = {
     },
   ],
 };
+
+export const reviews = [
+  {
+    profileImg: "/images/profile-pic.png",
+    name: "Amy",
+    surname: "Smith",
+    review: "This is the best website I have ordered something from. I highly recommend.",
+  },
+  {
+    profileImg: "/images/profile-pic.png",
+    name: "Amy",
+    surname: "Smith",
+    review: "This is the best website I have ordered something from. I highly recommend.",
+  },
+  {
+    profileImg: "/images/profile-pic.png",
+    name: "Amy",
+    surname: "Smith",
+    review: "This is the best website I have ordered something from. I highly recommend.",
+  },
+];
