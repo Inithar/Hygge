@@ -12,26 +12,72 @@ export interface Database {
       categories: {
         Row: {
           active: boolean | null
-          created_at: string | null
-          icon: string | null
+          color: string
+          created_at: string
+          icon: string
           id: number
-          name: string | null
+          name: string
         }
         Insert: {
           active?: boolean | null
-          created_at?: string | null
-          icon?: string | null
+          color: string
+          created_at?: string
+          icon: string
           id?: number
-          name?: string | null
+          name: string
         }
         Update: {
           active?: boolean | null
-          created_at?: string | null
-          icon?: string | null
+          color?: string
+          created_at?: string
+          icon?: string
           id?: number
-          name?: string | null
+          name?: string
         }
         Relationships: []
+      }
+      products: {
+        Row: {
+          category: number
+          created_at: string
+          display: boolean | null
+          id: number
+          images: string[]
+          name: string
+          new: boolean
+          price: number
+          sale: number | null
+        }
+        Insert: {
+          category: number
+          created_at?: string
+          display?: boolean | null
+          id?: number
+          images: string[]
+          name: string
+          new?: boolean
+          price: number
+          sale?: number | null
+        }
+        Update: {
+          category?: number
+          created_at?: string
+          display?: boolean | null
+          id?: number
+          images?: string[]
+          name?: string
+          new?: boolean
+          price?: number
+          sale?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "products_category_fkey"
+            columns: ["category"]
+            referencedRelation: "categories"
+            referencedColumns: ["id"]
+          }
+        ]
       }
     }
     Views: {
