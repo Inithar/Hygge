@@ -1,7 +1,5 @@
 const customMediaQuery = (minWidth: string) => `@media screen and (min-width: ${minWidth})`;
 
-const customValue = (val: string) => `${val}`;
-
 const media = {
   custom: customMediaQuery,
   xs: customMediaQuery("36em"),
