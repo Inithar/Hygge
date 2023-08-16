@@ -36,9 +36,6 @@ export const Header = () => {
   const containerId = crypto.randomUUID();
   const isContainerHidden = isMediumScreen ? false : !isNavigationActive;
 
-  const handleNavigationToggle = () => setIsNavigationActive((prev) => !prev);
-  const handleNavigationClose = () => setIsNavigationActive(false);
-
   return (
     <FocusTrap active={isNavigationActive} breakpoint="md">
       <Wrapper scrollPosition={scrollPosition}>
@@ -54,7 +51,7 @@ export const Header = () => {
                   <li key={crypto.randomUUID()}>
                     <NavLink
                       to={url}
-                      onClick={handleNavigationClose}
+                      onClick={() => setIsNavigationActive(false)}
                       tabIndex={isMediumScreen || isNavigationActive ? 0 : -1}
                     >
                       {title}
@@ -73,7 +70,7 @@ export const Header = () => {
           </Icons>
 
           <Burger
-            onClick={handleNavigationToggle}
+            onClick={() => setIsNavigationActive((prev) => !prev)}
             isActive={isNavigationActive}
             aria-expanded={isNavigationActive}
             aria-controls={containerId}

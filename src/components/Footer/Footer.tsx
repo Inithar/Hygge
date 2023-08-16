@@ -16,7 +16,7 @@ export const Footer = () => {
   const { width } = useWindowSize();
   const currentYear = new Date().getFullYear();
 
-  const getIconProps = (src: string): IconProps => {
+  function getIconProps(src: string): IconProps {
     const isMobile = width < breakpoints.md;
 
     return {
@@ -25,7 +25,7 @@ export const Footer = () => {
       paddingSize: isMobile ? undefined : "sm",
       variation: isMobile ? undefined : "fill",
     };
-  };
+  }
 
   return (
     <StyledFooter>

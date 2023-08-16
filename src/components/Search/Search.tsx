@@ -4,9 +4,9 @@ import { Icon } from "../Icon/Icon";
 import { Form } from "./Search.styled";
 
 export const Search = () => {
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-  };
+  }
 
   return (
     <Form onSubmit={handleSubmit}>

@@ -10,7 +10,7 @@ type ObjectKeys<T extends GenericObject> = keyof T extends infer K
     : never
   : never;
 
-export const transformObject = <T extends GenericObject>(obj: T, prefix: string = "") => {
+export function transformObject<T extends GenericObject>(obj: T, prefix: string = "") {
   const object: Record<ObjectKeys<T>, string> = {};
 
   for (const key in obj) {
@@ -28,4 +28,4 @@ export const transformObject = <T extends GenericObject>(obj: T, prefix: string 
   }
 
   return object;
-};
+}

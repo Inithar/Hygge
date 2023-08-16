@@ -17,21 +17,21 @@ export const Slider = ({ settings, children, gap }: SliderProps) => {
   const [sliderRef, setSliderRef] = useState<SlickSlider | null>(null);
   const clickableRef = useRef(true);
 
-  const handleClick = (e: MouseEvent) => {
+  function handleClick(e: MouseEvent) {
     if (!clickableRef.current) {
       e.stopPropagation();
       e.preventDefault();
     }
 
     clickableRef.current = true;
-  };
+  }
 
-  const swipeEvent = () => {
+  function swipeEvent() {
     if (sliderRef?.innerSlider?.list) {
       sliderRef.innerSlider.list.onclick = handleClick;
       clickableRef.current = false;
     }
-  };
+  }
 
   return (
     <Container gap={gap}>
