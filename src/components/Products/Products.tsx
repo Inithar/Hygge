@@ -28,20 +28,20 @@ export const Products = ({ numberOfProductSkeletons }: ProductsProps) => {
 
   let filteredProducts = products;
 
-  if (searchParams.get("category")) {
-    const selectedCategories = searchParams.get("category")?.split(",");
-    filteredProducts = products?.filter((product) => selectedCategories?.includes(product.category.name));
-  }
-
   if (searchParams.get("brand")) {
     const selectedBrands = searchParams.get("brand")?.split(",");
-    filteredProducts = products?.filter((product) => selectedBrands?.includes(product.brand.name));
+    filteredProducts = filteredProducts?.filter((product) => selectedBrands?.includes(product.brand.name));
+  }
+
+  if (searchParams.get("category")) {
+    const selectedCategories = searchParams.get("category")?.split(",");
+    filteredProducts = filteredProducts?.filter((product) => selectedCategories?.includes(product.category.name));
   }
 
   if (searchParams.get("price")) {
     const selectedPrices = searchParams.get("price")?.split(",");
 
-    filteredProducts = products?.filter(({ sale, price }) => {
+    filteredProducts = filteredProducts?.filter(({ sale, price }) => {
       const filteredSelectedPrices = selectedPrices?.filter((priceRange) => {
         const [min, max] = priceRange.split("-");
         return isInPriceRange(priceAfterSale(price, sale), Number(min), Number(max));
