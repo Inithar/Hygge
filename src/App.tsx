@@ -9,6 +9,7 @@ import { theme } from "./styles/theme";
 
 import { Page } from "./components/Page/Page";
 import { Home } from "./screens/Home/Home";
+import { Products } from "./screens/Products/Products";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ export const App = () => (
           <Routes>
             <Route element={<Page />}>
               <Route path="/" element={<Home />} />
+              <Route path="/products" element={<Products />} />
             </Route>
           </Routes>
         </BrowserRouter>

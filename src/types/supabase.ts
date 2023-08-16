@@ -9,6 +9,24 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
+      brands: {
+        Row: {
+          created_at: string
+          id: number
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          name: string
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          name?: string
+        }
+        Relationships: []
+      }
       categories: {
         Row: {
           active: boolean | null
@@ -38,6 +56,7 @@ export interface Database {
       }
       products: {
         Row: {
+          brand: number
           category: number
           created_at: string
           display: boolean | null
@@ -49,6 +68,7 @@ export interface Database {
           sale: number | null
         }
         Insert: {
+          brand?: number
           category: number
           created_at?: string
           display?: boolean | null
@@ -60,6 +80,7 @@ export interface Database {
           sale?: number | null
         }
         Update: {
+          brand?: number
           category?: number
           created_at?: string
           display?: boolean | null
@@ -71,6 +92,12 @@ export interface Database {
           sale?: number | null
         }
         Relationships: [
+          {
+            foreignKeyName: "products_brand_fkey"
+            columns: ["brand"]
+            referencedRelation: "brands"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "products_category_fkey"
             columns: ["category"]

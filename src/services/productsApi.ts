@@ -1,11 +1,11 @@
 import { supabase } from "../lib/supabase";
-import { ProductWithCategory } from "../types/collection";
+import { PopulateProduct } from "../types/collection";
 
 export const getProducts = async () => {
   const { data: products, error } = await supabase
     .from("products")
-    .select(`*, category("name", "color")`)
-    .returns<ProductWithCategory[]>();
+    .select(`*, category("name", "color"), brand("name")`)
+    .returns<PopulateProduct[]>();
 
   if (error) {
     throw new Error("Products could not be loaded");
