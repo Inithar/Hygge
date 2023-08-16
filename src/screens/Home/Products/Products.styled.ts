@@ -1,29 +1,19 @@
 import styled from "styled-components";
 
+import { Section } from "../../../components/Section";
 import { media } from "../../../styles/helpers";
 
-export const ProductsContainer = styled.div`
-  display: grid;
-  row-gap: 5.6rem;
-  margin-block: 5.6rem;
-
-  ${media("xs")} {
-    gap: 6.4rem 5.6rem;
-    grid-template-columns: repeat(2, 1fr);
+export const StyledSection = styled(Section)`
+  h2 {
+    margin-bottom: 5.6rem;
   }
 
   ${media("sm")} {
-    margin-block: 6.4rem;
-  }
-
-  ${media("md")} {
-    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 6.4rem;
   }
 
   ${media("xl")} {
-    gap: 7.2rem 4.8rem;
-    margin-block: 7.2rem;
-    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 7.2rem;
   }
 `;
 
