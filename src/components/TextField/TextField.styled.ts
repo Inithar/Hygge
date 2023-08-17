@@ -60,7 +60,7 @@ export const StyledTextFiled = styled.div<StyledTextFiledProps>`
   & > p {
     margin-top: 0.8rem;
     height: 1.6rem;
-    font-size: ${({ theme }) => theme.fontSizes.custom("1.2rem")};
+    font-size: 1.2rem;
     color: ${({ theme }) => theme.colors.accent.two};
     opacity: ${({ isError }) => (isError ? 1 : 0)};
     transition: opacity 0.3s;
