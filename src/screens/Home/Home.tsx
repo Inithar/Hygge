@@ -5,6 +5,7 @@ import { WhyUs } from "./WhyUs/WhyUs";
 import { Reviews } from "../../components/Reviews/Reviews";
 
 import { reviews } from "../../data/home";
+import { Newsletter } from "../../components/Newsletter/Newsletter";
 
 export const Home = () => (
   <>
@@ -13,5 +14,6 @@ export const Home = () => (
     <Products />
     <WhyUs />
     <Reviews reviews={reviews} />
+    <Newsletter />
   </>
 );
