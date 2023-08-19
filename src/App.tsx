@@ -10,6 +10,7 @@ import { theme } from "./styles/theme";
 import { Page } from "./components/Page/Page";
 import { Home } from "./screens/Home/Home";
 import { Products } from "./screens/Products/Products";
+import { About } from "./screens/About/About";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ export const App = () => (
             <Route element={<Page />}>
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />
+              <Route path="/about" element={<About />} />
             </Route>
           </Routes>
         </BrowserRouter>
