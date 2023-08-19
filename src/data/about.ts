@@ -17,6 +17,16 @@ export const whenItStartedSectionData = {
     desktop: "/images/about/how-it-started-desktop.png",
     alt: "Cosmetics",
   },
+  reasons: [
+    {
+      title: "Natural Ingredients Only",
+      body: "10 years ago, when one of the co-founders came up with the idea of making skincare and beauty products using only natural ingredients, he did not even think twice.",
+    },
+    {
+      title: "Affordable Pricing Strategy",
+      body: "One of our main goals from the start was to offer high quality products that would also have affordable prices. We just can’t believe that we have finally achieved this and now we are proud of it.",
+    },
+  ],
 };
 
 export const valuesSectionData = {

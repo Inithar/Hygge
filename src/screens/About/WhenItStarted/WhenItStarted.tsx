@@ -35,31 +35,17 @@ export const WhenItStarted = () => {
       </Left>
 
       <Right>
-        <Box>
-          <Dot />
-          <TextContainer>
-            <Text color="primary" fontSize="lg" fontFamily="montserratSemiBold">
-              Natural Ingredients Only
-            </Text>
-            <Text fontSize="lg">
-              10 years ago, when one of the co-founders came up with the idea of making skincare and beauty products
-              using only natural ingredients, he did not even think twice.
-            </Text>
-          </TextContainer>
-        </Box>
-
-        <Box>
-          <Dot />
-          <TextContainer>
-            <Text color="primary" fontSize="lg" fontFamily="montserratSemiBold">
-              Natural Ingredients Only
-            </Text>
-            <Text fontSize="lg">
-              One of our main goals from the start was to offer high quality products that would also have affordable
-              prices. We just can’t believe that we have finally achieved this and now we are proud of it.
-            </Text>
-          </TextContainer>
-        </Box>
+        {whenItStartedSectionData.reasons.map(({ title, body }) => (
+          <Box key={crypto.randomUUID()}>
+            <Dot />
+            <TextContainer>
+              <Text color="primary" fontSize="lg" fontFamily="montserratSemiBold">
+                {title}
+              </Text>
+              <Text fontSize="lg">{body}</Text>
+            </TextContainer>
+          </Box>
+        ))}
       </Right>
     </StyledSection>
   );
