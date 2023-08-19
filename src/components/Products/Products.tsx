@@ -13,9 +13,13 @@ export const Products = ({ numberOfProductSkeletons }: ProductsProps) => {
   const [searchParams] = useSearchParams();
 
   if (isLoading) {
-    return [...Array(numberOfProductSkeletons ?? 8).keys()].map(() => (
-      <ProductItemSkeleton key={crypto.randomUUID()} />
-    ));
+    return (
+      <ProductsContainer>
+        {[...Array(numberOfProductSkeletons ?? 8).keys()].map(() => (
+          <ProductItemSkeleton key={crypto.randomUUID()} />
+        ))}
+      </ProductsContainer>
+    );
   }
 
   function isInPriceRange(price: number, min: number, max?: number) {
