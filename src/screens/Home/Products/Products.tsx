@@ -1,12 +1,12 @@
 import { useWindowSize } from "../../../hooks/useWindowSize";
 
+import { Section } from "../../../components/Section";
 import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import { LinkButton } from "../../../components/Button";
 import { Products as ProductsGrid } from "../../../components/Products/Products";
-import { Container, StyledSection } from "./Products.styled";
+import { Container } from "./Products.styled";
 
 import { breakpoints } from "../../../constants/breakpoints";
-
 import { productsSectionData } from "../../../data/home";
 
 export const Products = () => {
@@ -14,11 +14,12 @@ export const Products = () => {
   const isMobile = width < breakpoints.xs;
 
   return (
-    <StyledSection>
+    <Section>
       <SectionTitle
         title={productsSectionData.sectionTitle}
         subtitle={productsSectionData.sectionSubtitle}
         align={isMobile ? "center" : "start"}
+        margin
       />
 
       <ProductsGrid />
@@ -26,6 +27,6 @@ export const Products = () => {
       <Container>
         <LinkButton to="/products">{productsSectionData.button}</LinkButton>
       </Container>
-    </StyledSection>
+    </Section>
   );
 };

@@ -1,12 +1,13 @@
-import { Picture } from "../../../components/Picture";
+import { Section } from "../../../components/Section";
 import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
-import { Container, StyledSection } from "./Hero.styled";
+import { Picture } from "../../../components/Picture";
+import { Container } from "./Hero.styled";
 
 import { heroSectionData } from "../../../data/about";
 
 export const Hero = () => (
-  <StyledSection>
-    <SectionTitle title={heroSectionData.sectionTitle} subtitle={heroSectionData.sectionSubtitle} />
+  <Section>
+    <SectionTitle title={heroSectionData.sectionTitle} subtitle={heroSectionData.sectionSubtitle} margin />
 
     <Container>
       <Picture
@@ -15,5 +16,5 @@ export const Hero = () => (
         sources={[{ srcSet: heroSectionData.img.desktop, breakpoint: "xs" }]}
       />
     </Container>
-  </StyledSection>
+  </Section>
 );

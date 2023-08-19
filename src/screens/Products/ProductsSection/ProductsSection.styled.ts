@@ -1,28 +1,9 @@
 import styled, { css } from "styled-components";
-import { Section } from "../../../components/Section";
 import { media } from "../../../styles/helpers";
 
 type FiltersProps = {
   isActive: boolean;
 };
-
-export const StyledSection = styled(Section)`
-  h2 {
-    margin-bottom: 5.6rem;
-  }
-
-  ${media("sm")} {
-    h2 {
-      margin-bottom: 6.4rem;
-    }
-  }
-
-  ${media("xl")} {
-    h2 {
-      margin-bottom: 7.2rem;
-    }
-  }
-`;
 
 export const Container = styled.div`
   position: relative;

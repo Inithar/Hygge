@@ -7,7 +7,12 @@ import { whyUsSectionData } from "../../../data/home";
 
 export const WhyUs = () => (
   <Section>
-    <SectionTitle title={whyUsSectionData.sectionTitle} subtitle={whyUsSectionData.sectionSubtitle} align="center" />
+    <SectionTitle
+      title={whyUsSectionData.sectionTitle}
+      subtitle={whyUsSectionData.sectionSubtitle}
+      align="center"
+      margin
+    />
 
     <Container>
       {whyUsSectionData.features.map((feature) => (

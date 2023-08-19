@@ -6,11 +6,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5.6rem;
-  margin-top: 5.6rem;
-
-  ${media("sm")} {
-    margin-top: 6.4rem;
-  }
 
   ${media("md")} {
     flex-direction: row;

@@ -4,11 +4,12 @@ import { useSearchParams } from "react-router-dom";
 import { useCategories } from "../../../hooks/useCategories";
 import { useBrands } from "../../../hooks/useBrands";
 
+import { Section } from "../../../components/Section";
 import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import { Select } from "../../../components/Select/Select";
 import { Products as ProductsGrid } from "../../../components/Products/Products";
 import { SelectTag } from "../../../components/SelectTag/SelectTag";
-import { StyledSection, Filters, FiltersButton, Container, SelectTags } from "./ProductsSection.styled";
+import { Filters, FiltersButton, Container, SelectTags } from "./ProductsSection.styled";
 
 import { productsSectionData } from "../../../data/products";
 
@@ -87,8 +88,8 @@ export const ProductsSection = () => {
     );
 
   return (
-    <StyledSection>
-      <SectionTitle title={productsSectionData.sectionTitle} subtitle={productsSectionData.sectionSubtitle} />
+    <Section>
+      <SectionTitle title={productsSectionData.sectionTitle} subtitle={productsSectionData.sectionSubtitle} margin />
 
       <Container>
         <FiltersButton isActive={isFiltersOpen} onClick={() => setIsFiltersOpen((prev) => !prev)}>
@@ -133,6 +134,6 @@ export const ProductsSection = () => {
       <SelectTags>{selectTagsArr.flat()}</SelectTags>
 
       <ProductsGrid numberOfProductSkeletons={12} />
-    </StyledSection>
+    </Section>
   );
 };

@@ -1,11 +1,12 @@
+import { useWindowSize } from "../../../hooks/useWindowSize";
+
 import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
+import { Text } from "../../../components/Text";
+import { Picture } from "../../../components/Picture";
 import { Box, Container, Dot, Left, Right, StyledSection, TextContainer } from "./WhenItStarted.styled";
 
-import { whenItStartedSectionData } from "../../../data/about";
-import { Picture } from "../../../components/Picture";
-import { Text } from "../../../components/Text";
-import { useWindowSize } from "../../../hooks/useWindowSize";
 import { breakpoints } from "../../../constants/breakpoints";
+import { whenItStartedSectionData } from "../../../data/about";
 
 export const WhenItStarted = () => {
   const { width } = useWindowSize();
@@ -18,6 +19,7 @@ export const WhenItStarted = () => {
           title={sectionTitle}
           subtitle={sectionSubtitle}
           align={width < breakpoints.lg ? "center" : "start"}
+          margin
         />
 
         <Container>

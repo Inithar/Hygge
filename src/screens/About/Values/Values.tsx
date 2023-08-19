@@ -1,13 +1,18 @@
-import { Feature } from "../../../components/Feature/Feature";
+import { Section } from "../../../components/Section";
 import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
+import { Feature } from "../../../components/Feature/Feature";
 import { Container, ValueBox } from "./Values.styled";
-import { StyledSection } from "../Hero/Hero.styled";
 
 import { valuesSectionData } from "../../../data/about";
 
 export const Values = () => (
-  <StyledSection>
-    <SectionTitle title={valuesSectionData.sectionTitle} subtitle={valuesSectionData.sectionSubtitle} align="center" />
+  <Section>
+    <SectionTitle
+      title={valuesSectionData.sectionTitle}
+      subtitle={valuesSectionData.sectionSubtitle}
+      align="center"
+      margin
+    />
 
     <Container>
       {valuesSectionData.values.map((value) => (
@@ -16,5 +21,5 @@ export const Values = () => (
         </ValueBox>
       ))}
     </Container>
-  </StyledSection>
+  </Section>
 );
