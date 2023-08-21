@@ -47,8 +47,6 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   button:focus-visible,
-  textarea:focus-visible,
-  select:focus-visible,
   a:focus-visible {
     outline: 2px solid ${({ theme }) => theme.colors.primary};
   }
