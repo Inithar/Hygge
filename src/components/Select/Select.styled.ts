@@ -1,46 +1,77 @@
 import styled, { css } from "styled-components";
 import { media, setFontFamily } from "../../styles/helpers";
 
-export const Container = styled.div`
-  position: relative;
-  min-width: 16rem;
+const borderRadiusStyles = css<{ isBodyOpen: boolean }>`
+  transition: border-radius 0.3s;
+  border-radius: ${({ theme: { borderRadius }, isBodyOpen }) =>
+    isBodyOpen ? `${borderRadius.sm} ${borderRadius.sm} 0 0` : borderRadius.sm};
+
+  ${media("sm")} {
+    border-radius: ${({ theme: { borderRadius }, isBodyOpen }) =>
+      isBodyOpen ? `${borderRadius.md} ${borderRadius.md} 0 0` : borderRadius.md};
+  }
 `;
 
-export const Head = styled.div<{ isBodyOpen: boolean }>`
+export const Label = styled.p`
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+
+  ${media("sm")} {
+    margin-bottom: 1.6rem;
+    font-size: ${({ theme }) => theme.fontSizes.sm};
+  }
+`;
+
+export const Container = styled.div<{ isBodyOpen: boolean }>`
+  position: relative;
+  min-width: 16rem;
+  box-shadow: ${({ theme }) => theme.shadows.md};
+
+  ${borderRadiusStyles}
+
+  // Head
+  & > div {
+    border-bottom-color: ${({ theme, isBodyOpen }) => (isBodyOpen ? "transparent" : theme.colors.accent.one)};
+    transition: border-bottom-color 0.3s;
+
+    ${borderRadiusStyles}
+
+    & > img {
+      transition: transform 0.3s;
+      transform: rotate(${({ isBodyOpen }) => (isBodyOpen ? "180deg" : "0deg")});
+    }
+  }
+
+  // Body
+  & > ul {
+    visibility: ${({ isBodyOpen }) => (isBodyOpen ? "visible" : "hidden")};
+  }
+`;
+
+export const Head = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1.6rem;
   padding: 1.2rem 1.4rem;
   cursor: pointer;
-  transition: border-bottom-color 0.3s, border-radius 0.3s;
   white-space: nowrap;
 
-  ${({ theme: { fontSizes, fontFamilies, borderRadius, colors }, isBodyOpen }) => css`
+  ${({ theme: { fontSizes, fontFamilies, colors } }) => css`
     font-size: ${fontSizes.sm};
     font-family: ${fontFamilies.montserrat.semiBold};
     border: 2px solid ${colors.accent.one};
-    border-bottom-color: ${isBodyOpen ? "transparent" : colors.accent.one};
-    border-radius: ${isBodyOpen ? `${borderRadius.sm} ${borderRadius.sm} 0 0` : borderRadius.sm};
   `}
 
-  & > img {
-    transition: transform 0.3s;
-    transform: rotate(${({ isBodyOpen }) => (isBodyOpen ? "180deg" : "0deg")});
-  }
-
   ${media("sm")} {
-    padding: 1.6rem 2.2rem;
     gap: 3.2rem;
-
-    ${({ theme: { fontSizes, borderRadius }, isBodyOpen }) => css`
-      font-size: ${fontSizes.lg};
-      border-radius: ${isBodyOpen ? `${borderRadius.md} ${borderRadius.md} 0 0` : borderRadius.md};
-    `};
+    padding: 1.6rem 2.2rem;
+    font-size: ${({ theme }) => theme.fontSizes.lg};
   }
 `;
 
-export const Body = styled.ul<{ isOpen: boolean }>`
+export const Body = styled.ul`
   position: absolute;
   top: calc(100% - 2px);
   padding: 1rem 1.4rem;
@@ -49,8 +80,7 @@ export const Body = styled.ul<{ isOpen: boolean }>`
   border-style: solid;
   z-index: 999;
 
-  ${({ theme: { colors, borderRadius }, isOpen }) => css`
-    visibility: ${isOpen ? "visible" : "hidden"};
+  ${({ theme: { colors, borderRadius } }) => css`
     background-color: ${colors.basic.white};
     border-color: ${colors.accent.one};
     border-radius: 0 0 ${borderRadius.sm} ${borderRadius.sm};
@@ -58,6 +88,7 @@ export const Body = styled.ul<{ isOpen: boolean }>`
 
   ${media("sm")} {
     padding: 1.6rem 2.2rem;
+    border-radius: ${({ theme: { borderRadius } }) => `0 0 ${borderRadius.md} ${borderRadius.md}`};
   }
 `;
 

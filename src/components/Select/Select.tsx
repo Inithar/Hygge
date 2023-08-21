@@ -1,5 +1,5 @@
-import { useState, MouseEvent } from "react";
-import { Body, Container, Head, Option } from "./Select.styled";
+import { useState, MouseEvent, useRef } from "react";
+import { Body, Container, Head, Label, Option } from "./Select.styled";
 
 export type SelectOption = {
   label: string;
@@ -15,16 +15,18 @@ type MultipleSelectProps = {
 type SingleSelectProps = {
   multiple?: false;
   selected?: string;
-  onChange: (value: string | undefined) => void;
+  onChange: (value: string) => void;
 };
 
 type SelectProps = {
   options: SelectOption[];
-  placeholder: string;
+  placeholder?: string;
+  label?: string;
 } & (SingleSelectProps | MultipleSelectProps);
 
-export const Select = ({ multiple, selected, options, placeholder, onChange }: SelectProps) => {
+export const Select = ({ multiple, selected, options, placeholder, label, onChange }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const selectRef = useRef<HTMLDivElement>(null);
 
   function isOptionSelected(option: SelectOption) {
     return multiple ? selected.includes(option.value) : selected === option.value;
@@ -50,24 +52,34 @@ export const Select = ({ multiple, selected, options, placeholder, onChange }: S
   }
 
   return (
-    <Container onClick={() => setIsOpen((prev) => !prev)} onBlur={() => setIsOpen(false)} tabIndex={0}>
-      <Head isBodyOpen={isOpen}>
-        <span>{multiple ? placeholder : options.find((o) => isOptionSelected(o))?.label ?? placeholder}</span>
-        <img src="/icons/arrow-down.svg" alt="arrow icon" />
-      </Head>
+    <div>
+      {label && <Label onClick={() => selectRef.current?.focus()}>{label}</Label>}
 
-      <Body isOpen={isOpen}>
-        {options.map((option) => (
-          <Option
-            isSelected={isOptionSelected(option)}
-            onClick={(e) => handleOptionClick(e, option)}
-            key={option.value}
-          >
-            <span>{option.label}</span>
-            <img src="/icons/checkmark.svg" alt="checkmark icon" />
-          </Option>
-        ))}
-      </Body>
-    </Container>
+      <Container
+        ref={selectRef}
+        isBodyOpen={isOpen}
+        onClick={() => setIsOpen((prev) => !prev)}
+        onBlur={() => setIsOpen(false)}
+        tabIndex={0}
+      >
+        <Head>
+          <span>{multiple ? placeholder : options.find((o) => isOptionSelected(o))?.label ?? placeholder}</span>
+          <img src="/icons/arrow-down.svg" alt="arrow icon" />
+        </Head>
+
+        <Body>
+          {options.map((option) => (
+            <Option
+              isSelected={isOptionSelected(option)}
+              onClick={(e) => handleOptionClick(e, option)}
+              key={option.value}
+            >
+              <span>{option.label}</span>
+              <img src="/icons/checkmark.svg" alt="checkmark icon" />
+            </Option>
+          ))}
+        </Body>
+      </Container>
+    </div>
   );
 };
