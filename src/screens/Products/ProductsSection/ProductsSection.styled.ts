@@ -43,11 +43,12 @@ export const FiltersButton = styled.button<{ isActive: boolean }>`
   max-width: fit-content;
   background-color: transparent;
 
-  ${({ theme: { fontSizes, fontFamilies, colors, borderRadius } }) => css`
+  ${({ theme: { fontSizes, fontFamilies, colors, borderRadius, shadows } }) => css`
     font-size: ${fontSizes.sm};
     font-family: ${fontFamilies.montserrat.semiBold};
     border: 2px solid ${colors.accent.one};
     border-radius: ${borderRadius.sm};
+    box-shadow: ${shadows.md};
   `}
 
   & > img {
