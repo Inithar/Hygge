@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import { useCart } from "../../hooks/useCart";
+
 import { Badge } from "../Badge/Badge";
 import { BadgeColor } from "../Badge/Badge.styled";
 import { Skeleton } from "../Skeleton";
@@ -31,7 +33,20 @@ type ProductProps = {
 };
 
 export const ProductItem = ({ id, name, image, price, sale, category, isNew }: ProductProps) => {
+  const { addToCart } = useCart();
+
   const currentPrice = sale ? Math.floor(((100 - sale) / 100) * price) : price;
+
+  function handleAddToCart() {
+    addToCart({
+      id,
+      name,
+      image,
+      currentPrice,
+      oldPrice: sale ? price : undefined,
+      qty: 1,
+    });
+  }
 
   return (
     <StyledProductItem>
@@ -50,7 +65,9 @@ export const ProductItem = ({ id, name, image, price, sale, category, isNew }: P
           <img src={image} alt={`Picture of ${name} product`} />
         </Link>
 
-        <AddToCartBtn aria-label={`Add ${name} to cart`}>Add to Cart</AddToCartBtn>
+        <AddToCartBtn onClick={handleAddToCart} aria-label={`Add ${name} to cart`}>
+          Add to Cart
+        </AddToCartBtn>
       </Container>
 
       <ProductData>

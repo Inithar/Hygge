@@ -16,12 +16,7 @@ export const StyledCounter = styled.div`
     place-items: center;
     height: 2rem;
     background-color: transparent;
-    outline: none;
-    border: 2px solid transparent;
-
-    &:focus-visible {
-      border-color: ${({ theme }) => theme.colors.primary};
-    }
+    border: none;
   }
 
   & > input {

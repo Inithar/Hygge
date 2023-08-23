@@ -12,6 +12,8 @@ import { Home } from "./screens/Home/Home";
 import { Products } from "./screens/Products/Products";
 import { About } from "./screens/About/About";
 import { Contact } from "./screens/Contact/Contact";
+import { Cart } from "./screens/Cart/Cart";
+import { CartProvider } from "./context/cart";
 
 const queryClient = new QueryClient();
 
@@ -19,19 +21,22 @@ export const App = () => (
   <QueryClientProvider client={queryClient}>
     <StyleSheetManager shouldForwardProp={isPropValid}>
       <ThemeProvider theme={theme}>
-        <ReactQueryDevtools initialIsOpen={false} />
-        <GlobalStyles />
+        <CartProvider>
+          <ReactQueryDevtools initialIsOpen={false} />
+          <GlobalStyles />
 
-        <BrowserRouter>
-          <Routes>
-            <Route element={<Page />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
+          <BrowserRouter>
+            <Routes>
+              <Route element={<Page />}>
+                <Route path="/" element={<Home />} />
+                <Route path="/products" element={<Products />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/cart" element={<Cart />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </CartProvider>
       </ThemeProvider>
     </StyleSheetManager>
   </QueryClientProvider>

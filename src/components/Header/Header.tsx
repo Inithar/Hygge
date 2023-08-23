@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { useDisableBodyScroll } from "../../hooks/useDisableBodyScroll";
@@ -65,7 +65,9 @@ export const Header = () => {
           {/* TODO add functionality to icons */}
           <Icons>
             {isMediumScreen && <Icon src="/icons/search.svg" iconSize="md" />}
-            <Icon src="/icons/cart.svg" iconSize="md" />
+            <Link to="/cart">
+              <Icon src="/icons/cart.svg" iconSize="md" />
+            </Link>
             <Icon src="/icons/user.svg" iconSize="md" />
           </Icons>
 
