@@ -42,7 +42,7 @@ export const StyledSection = styled(Section)`
       transform: unset;
 
       button {
-        border: 2px solid ${({ theme }) => theme.colors.basic.black};
+        border: 0.2rem solid ${({ theme }) => theme.colors.basic.black};
       }
     }
   }
@@ -86,7 +86,7 @@ export const ProfileImg = styled.img`
   padding: 0.6rem;
   width: 8rem;
   height: 8rem;
-  border: 2px solid ${({ theme }) => theme.colors.primary};
+  border: 0.2rem solid ${({ theme }) => theme.colors.primary};
   border-radius: 50%;
 
   ${media("md")} {

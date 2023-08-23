@@ -3,12 +3,10 @@ import { Picture } from "../../../components/Picture";
 import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import { StyledSection, Details, PictureContainer } from "./Hero.styled";
 
-import { heroSectionData } from "../../../data/home";
-
 export const Hero = () => (
   <StyledSection>
     <Details>
-      <SectionTitle title={heroSectionData.sectionTitle} subtitle={heroSectionData.sectionSubtitle} />
+      <SectionTitle title="We Offer the Best Products for your Skin" subtitle="Skincare Products" />
       <LinkButton to="/products" aria-label="Shop Now - Link to products page">
         Shop Now
       </LinkButton>
@@ -16,9 +14,9 @@ export const Hero = () => (
 
     <PictureContainer>
       <Picture
-        src={heroSectionData.img.mobile}
-        alt={heroSectionData.img.alt}
-        sources={[{ srcSet: heroSectionData.img.desktop, breakpoint: "xs" }]}
+        src="/images/home/hero-mobile.png"
+        alt="Skin care products"
+        sources={[{ srcSet: "/images/home/hero-desktop.png", breakpoint: "xs" }]}
       />
     </PictureContainer>
   </StyledSection>

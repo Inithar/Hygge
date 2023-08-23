@@ -49,13 +49,13 @@ export const StyledBadge = styled.div<StyledBadgeProps>`
   display: inline-block;
   font-family: ${theme.fontFamilies.montserrat.bold};
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.05rem;
 
   ${({ size }) => sizes[size || "sm"]};
 
   ${({ color, solid }) => css`
     color: ${setColor(solid ? "basicWhite" : (availableColors[color] as Color))};
     background-color: ${rgba(setColor(availableColors[color] as Color), solid ? 1 : 0.1)};
-    border: ${solid ? `2px solid ${setColor("basicWhite")}` : "none"};
+    border: ${solid ? `0.2rem solid ${setColor("basicWhite")}` : "none"};
   `}
 `;

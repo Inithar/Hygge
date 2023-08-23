@@ -10,21 +10,15 @@ import { Button } from "../../../components/Button";
 import { TextareaField } from "../../../components/TextareaFiled/TextareaField";
 import { StyledForm, StyledSection } from "./Form.styled";
 
-import { formSectionData } from "../../../data/contact";
+import { subjectOptions } from "../../../data/contact";
 
 export type FormValues = z.infer<typeof FormSchema>;
 
-const {
-  sectionTitle,
-  sectionSubtitle,
-  form: { fullName, email, subjectOptions, message, buttonText },
-} = formSectionData;
-
 const FormSchema = z.object({
-  fullName: z.string().min(3, { message: fullName.error }),
-  email: z.string().min(1, { message: email.error.required }).email(email.error.incorrect),
+  fullName: z.string().min(3, { message: "Full name is required" }),
+  email: z.string().min(1, { message: "Email is required" }).email("Email address is incorrect"),
   subject: z.string(),
-  message: z.string().min(1, { message: message.error }),
+  message: z.string().min(1, { message: "Message is required" }),
 });
 
 export const Form = () => {
@@ -47,21 +41,21 @@ export const Form = () => {
 
   return (
     <StyledSection>
-      <SectionTitle title={sectionTitle} subtitle={sectionSubtitle} margin />
+      <SectionTitle title="Please fill out the contact form" subtitle="Reach Out to Us" margin />
 
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
         <TextField
           id="fullName"
-          label={fullName.label}
+          label="Full Name"
           error={errors.fullName?.message}
-          inputProps={{ ...register("fullName"), placeholder: fullName.placeholder }}
+          inputProps={{ ...register("fullName"), placeholder: "John Smith" }}
         />
 
         <TextField
           id="email"
-          label={email.label}
+          label="Email Address"
           error={errors.email?.message}
-          inputProps={{ ...register("email"), placeholder: email.placeholder }}
+          inputProps={{ ...register("email"), placeholder: "johnsmith@gmail.com" }}
         />
 
         <Select
@@ -73,16 +67,16 @@ export const Form = () => {
 
         <TextareaField
           id="message"
-          label={message.label}
+          label="Message"
           error={errors.message?.message}
           textareaProps={{
             ...register("message"),
-            placeholder: message.placeholder,
+            placeholder: "Hi, I am just wondering where can I find your refund policy?",
             rows: 5,
           }}
         />
 
-        <Button>{buttonText}</Button>
+        <Button>Send</Button>
       </StyledForm>
     </StyledSection>
   );

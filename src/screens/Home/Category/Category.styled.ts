@@ -12,7 +12,7 @@ export const StyledLink = styled(Link)`
   padding: 2.6rem 1rem;
   width: 12.8rem;
   background-color: ${({ theme }) => theme.colors.accent.one};
-  border: 2px solid transparent;
+  border: 0.2rem solid transparent;
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   transition: background-color 0.3s, border-color 0.5s;
 

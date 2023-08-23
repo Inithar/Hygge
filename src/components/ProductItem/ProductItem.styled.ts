@@ -47,8 +47,8 @@ export const AddToCartBtn = styled.button`
     padding: 1.2rem 2.4rem;
     min-width: 15rem;
     border: none;
-    outline: 2px solid transparent;
-    outline-offset: 3px;
+    outline: 0.2rem solid transparent;
+    outline-offset: 0.3rem;
     opacity: 0;
     transition: outline-color 0.3s, opacity 0.3s;
 

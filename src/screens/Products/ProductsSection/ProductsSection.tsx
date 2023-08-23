@@ -11,7 +11,7 @@ import { Products as ProductsGrid } from "../../../components/Products/Products"
 import { SelectTag } from "../../../components/SelectTag/SelectTag";
 import { Filters, FiltersButton, Container, SelectTags } from "./ProductsSection.styled";
 
-import { productsSectionData } from "../../../data/products";
+import { sortByOptions, priceRangeOptions } from "../../../data/products";
 
 type Filter<T> = T extends "sort" ? string | undefined : string[];
 
@@ -89,7 +89,7 @@ export const ProductsSection = () => {
 
   return (
     <Section>
-      <SectionTitle title={productsSectionData.sectionTitle} subtitle={productsSectionData.sectionSubtitle} margin />
+      <SectionTitle title="Explore our Products" subtitle="Our Products" margin />
 
       <Container>
         <FiltersButton isActive={isFiltersOpen} onClick={() => setIsFiltersOpen((prev) => !prev)}>
@@ -118,7 +118,7 @@ export const ProductsSection = () => {
             multiple
             placeholder="Price Range"
             selected={filters.price}
-            options={productsSectionData.priceRangeOptions}
+            options={priceRangeOptions}
             onChange={(value) => handleFilterChange("price", value)}
           />
         </Filters>
@@ -126,7 +126,7 @@ export const ProductsSection = () => {
         <Select
           placeholder="Sort By"
           selected={filters.sort}
-          options={productsSectionData.sortByOptions}
+          options={sortByOptions}
           onChange={(value) => handleFilterChange("sort", value!)}
         />
       </Container>

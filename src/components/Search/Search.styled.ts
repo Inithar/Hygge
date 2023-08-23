@@ -21,7 +21,7 @@ export const Form = styled.form`
     ${({ theme }) => css`
       font-family: ${theme.fontFamilies.montserrat.semiBold};
       font-size: ${theme.fontSizes.sm};
-      border: 2px solid ${theme.colors.accent.one};
+      border: 0.2rem solid ${theme.colors.accent.one};
       border-radius: ${theme.borderRadius.sm};
 
       &:focus-visible {

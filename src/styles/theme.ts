@@ -51,17 +51,17 @@ const colors = {
 };
 
 const borderRadius = {
-  xs: "16px",
-  sm: "24px",
-  md: "32px",
-  lg: "48px",
-  xl: "56px",
+  xs: "1.6rem",
+  sm: "2.4rem",
+  md: "3.2rem",
+  lg: "4.8rem",
+  xl: "5.6rem",
 };
 
 const shadows = {
-  sm: "0 1px 2px rgba(0, 0, 0, 0.04)",
-  md: "0 6px 24px rgba(0, 0, 0, 0.06)",
-  lg: "0 24px 32px rgba(0, 0, 0, 0.12)",
+  sm: "0 0.1rem 0.2rem rgba(0, 0, 0, 0.04)",
+  md: "0 0.6rem 2.4rem rgba(0, 0, 0, 0.06)",
+  lg: "0 2.4rem 3.2rem rgba(0, 0, 0, 0.12)",
 };
 
 export const theme = {

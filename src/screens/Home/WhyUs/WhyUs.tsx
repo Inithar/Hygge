@@ -3,19 +3,14 @@ import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import { Feature } from "../../../components/Feature/Feature";
 import { Container, Features } from "./WhyUs.styled";
 
-import { whyUsSectionData } from "../../../data/home";
+import { features } from "../../../data/home";
 
 export const WhyUs = () => (
   <Section>
-    <SectionTitle
-      title={whyUsSectionData.sectionTitle}
-      subtitle={whyUsSectionData.sectionSubtitle}
-      align="center"
-      margin
-    />
+    <SectionTitle title="Why People Choose Us" subtitle="Why Us" align="center" margin />
 
     <Container>
-      {whyUsSectionData.features.map((feature) => (
+      {features.map((feature) => (
         <Features key={crypto.randomUUID()}>
           <Feature {...feature} align="center" />
         </Features>

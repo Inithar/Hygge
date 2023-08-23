@@ -28,7 +28,7 @@ export const StyledTextAreaFiled = styled.div<StyledTextAreaFiledProps>`
       font-size: ${theme.fontSizes.sm};
       font-family: ${theme.fontFamilies.montserrat.semiBold};
       background-color: ${theme.colors.basic.white};
-      border: 2px solid ${isError ? rgba(theme.colors.accent.two, 0.6) : theme.colors.accent.one};
+      border: 0.2rem solid ${isError ? rgba(theme.colors.accent.two, 0.6) : theme.colors.accent.one};
       border-radius: ${theme.borderRadius.md};
       box-shadow: ${theme.shadows.md};
     `}

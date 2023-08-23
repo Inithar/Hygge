@@ -36,7 +36,7 @@ export const Container = styled.div<{ gap?: string }>`
         padding: 0;
         background-color: ${({ theme }) => theme.colors.primary};
         border-radius: 50%;
-        outline: 2px solid transparent;
+        outline: 0.2rem solid transparent;
         transition: background-color 0.3s, outline-color 0.3s;
 
         &::before {

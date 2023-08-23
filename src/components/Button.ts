@@ -17,7 +17,7 @@ const variations = {
 
   secondary: css`
     background-color: transparent;
-    border: 2px solid ${({ theme }) => theme.colors.accent.one};
+    border: 0.2rem solid ${({ theme }) => theme.colors.accent.one};
     box-shadow: ${({ theme }) => theme.shadows.md};
   `,
 };

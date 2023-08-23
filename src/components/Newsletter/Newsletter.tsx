@@ -10,7 +10,6 @@ import { SectionTitle } from "../SectionTitle/SectionTitle";
 import { Form, StyledSection } from "./Newsletter.styled";
 
 import { breakpoints } from "../../constants/breakpoints";
-import { newsletterSectionData } from "../../data/shared";
 
 export type FormValues = z.infer<typeof FormSchema>;
 
@@ -36,11 +35,7 @@ export const Newsletter = () => {
 
   return (
     <StyledSection>
-      <SectionTitle
-        title={newsletterSectionData.sectionTitle}
-        subtitle={newsletterSectionData.sectionSubTitle}
-        align="center"
-      />
+      <SectionTitle title={"Sign Up to Our Newsletter"} subtitle={"Our Newsletter"} align="center" />
 
       <Form onSubmit={handleSubmit(onSubmit)}>
         <TextField

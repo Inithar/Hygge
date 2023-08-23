@@ -8,7 +8,7 @@ export const StyledItem = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 3.2rem;
-  border: 2px solid ${({ theme }) => theme.colors.accent.one};
+  border: 0.2rem solid ${({ theme }) => theme.colors.accent.one};
   border-radius: ${({ theme }) => theme.borderRadius.md};
 
   ${media("xs")} {
@@ -120,7 +120,7 @@ export const Controls = styled.div`
     justify-content: center;
     padding: 1.2rem;
     background-color: transparent;
-    border: 2px solid ${({ theme }) => theme.colors.accent.one};
+    border: 0.2rem solid ${({ theme }) => theme.colors.accent.one};
     border-radius: 50%;
     box-shadow: ${({ theme }) => theme.shadows.md};
 

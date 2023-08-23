@@ -117,8 +117,8 @@ export const Burger = styled.button<BurgerProps>`
   color: ${({ theme }) => theme.colors.basic.black};
   background-color: transparent;
   border: none;
-  border-top: 2.5px solid ${({ theme }) => theme.colors.basic.black};
-  border-bottom: 2.5px solid ${({ theme }) => theme.colors.basic.black};
+  border-top: 0.25rem solid ${({ theme }) => theme.colors.basic.black};
+  border-bottom: 0.25rem solid ${({ theme }) => theme.colors.basic.black};
   transition: border-color 0.3s;
 
   &::before,
@@ -129,7 +129,7 @@ export const Burger = styled.button<BurgerProps>`
     left: 50%;
     display: block;
     width: 100%;
-    height: 2px;
+    height: 0.2rem;
     background-color: ${({ theme }) => theme.colors.basic.black};
     transform: translate(-50%, -50%);
     transition: transform 0.3s;

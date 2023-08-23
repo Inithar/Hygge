@@ -6,7 +6,7 @@ export const StyledReceipt = styled.div`
   display: flex;
   flex-direction: column;
   padding: 3.2rem;
-  border: 2px solid ${({ theme }) => theme.colors.accent.one};
+  border: 0.2rem solid ${({ theme }) => theme.colors.accent.one};
   border-radius: ${({ theme }) => theme.borderRadius.md};
 
   & > a {

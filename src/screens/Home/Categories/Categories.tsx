@@ -9,8 +9,6 @@ import { StyledSection } from "./Categories.styled";
 
 import { breakpoints } from "../../../constants/breakpoints";
 
-import { categoriesSectionData } from "../../../data/home";
-
 const sliderSettings = {
   className: "slider variable-width",
   arrows: true,
@@ -31,11 +29,7 @@ export const Categories = () => {
 
   return (
     <StyledSection>
-      <SectionTitle
-        title={categoriesSectionData.sectionTitle}
-        subtitle={categoriesSectionData.sectionSubtitle}
-        align={isMobile ? "center" : "start"}
-      />
+      <SectionTitle title="Browse by Category" subtitle="The Categories" align={isMobile ? "center" : "start"} />
 
       <Slider settings={sliderSettings} gap="3.2rem">
         {isLoading

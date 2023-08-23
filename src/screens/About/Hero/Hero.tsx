@@ -3,17 +3,15 @@ import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import { Picture } from "../../../components/Picture";
 import { Container } from "./Hero.styled";
 
-import { heroSectionData } from "../../../data/about";
-
 export const Hero = () => (
   <Section>
-    <SectionTitle title={heroSectionData.sectionTitle} subtitle={heroSectionData.sectionSubtitle} margin />
+    <SectionTitle title={"All About Us"} subtitle={"Learn More"} margin />
 
     <Container>
       <Picture
-        src={heroSectionData.img.mobile}
-        alt={heroSectionData.img.alt}
-        sources={[{ srcSet: heroSectionData.img.desktop, breakpoint: "xs" }]}
+        src="/images/about/hero-mobile.png"
+        alt="Cosmetics"
+        sources={[{ srcSet: "/images/about/hero-desktop.png", breakpoint: "xs" }]}
       />
     </Container>
   </Section>

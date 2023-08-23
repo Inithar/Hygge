@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import { Container, Method, StyledSection } from "./Methods.styled";
 
-import { methodsSectionData } from "../../../data/contact";
+import { methods } from "../../../data/contact";
 
 export const Methods = () => {
   const emailPattern = /\b[\w.-]+@[\w.-]+\.\w+\b/;
@@ -14,10 +14,10 @@ export const Methods = () => {
 
   return (
     <StyledSection>
-      <SectionTitle title={methodsSectionData.sectionTitle} subtitle={methodsSectionData.sectionSubtitle} margin />
+      <SectionTitle title="We are always here to help you" subtitle="Ask Questions" margin />
 
       <Container>
-        {methodsSectionData.methods.map(({ title, body }) => {
+        {methods.map(({ title, body }) => {
           const email = body.match(emailPattern);
           let bodyWithEmail;
 

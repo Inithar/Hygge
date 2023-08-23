@@ -7,7 +7,7 @@ export const StyledCounter = styled.div`
   align-items: center;
   padding: 0.8rem 1.6rem;
   min-width: 13.6rem;
-  border: 2px solid ${({ theme }) => theme.colors.accent.one};
+  border: 0.2rem solid ${({ theme }) => theme.colors.accent.one};
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   box-shadow: ${({ theme }) => theme.shadows.md};
 
@@ -25,7 +25,7 @@ export const StyledCounter = styled.div`
     font-family: ${({ theme }) => theme.fontFamilies.montserrat.bold};
     font-size: ${({ theme }) => theme.fontSizes.xl};
     line-height: 1;
-    border: 2px solid transparent;
+    border: 0.2rem solid transparent;
     outline: none;
 
     &:focus-visible {

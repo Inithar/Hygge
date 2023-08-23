@@ -33,7 +33,7 @@ export const StyledTextFiled = styled.div<StyledTextFiledProps>`
       font-size: ${theme.fontSizes.sm};
       font-family: ${theme.fontFamilies.montserrat.semiBold};
       background-color: ${setColor(isDark ? "accentOne" : "basicWhite")};
-      border: 2px solid ${isError ? rgba(theme.colors.accent.two, 0.6) : theme.colors.accent.one};
+      border: 0.2rem solid ${isError ? rgba(theme.colors.accent.two, 0.6) : theme.colors.accent.one};
       border-radius: ${theme.borderRadius.md};
       box-shadow: ${isDark ? "none" : theme.shadows.md};
     `}

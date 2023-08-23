@@ -7,8 +7,6 @@ import { Text } from "../Text";
 
 import { breakpoints } from "../../constants/breakpoints";
 
-import { reviewsSectionData } from "../../data/shared";
-
 type ReviewsProps = {
   reviews: {
     profileImg: string;
@@ -34,8 +32,8 @@ export const Reviews = ({ reviews }: ReviewsProps) => {
   return (
     <StyledSection>
       <SectionTitle
-        title={reviewsSectionData.sectionTitle}
-        subtitle={reviewsSectionData.sectionSubTitle}
+        title={"What our Customers are Saying"}
+        subtitle={"Our Reviews"}
         align={isMobile ? "center" : "start"}
       />
 

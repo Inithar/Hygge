@@ -6,36 +6,35 @@ import { Picture } from "../../../components/Picture";
 import { Box, Container, Dot, Left, Right, StyledSection, TextContainer } from "./WhenItStarted.styled";
 
 import { breakpoints } from "../../../constants/breakpoints";
-import { whenItStartedSectionData } from "../../../data/about";
+import { reasons } from "../../../data/about";
 
 export const WhenItStarted = () => {
   const { width } = useWindowSize();
-  const { sectionTitle, sectionSubtitle, img } = whenItStartedSectionData;
 
   return (
     <StyledSection>
       <Left>
         <SectionTitle
-          title={sectionTitle}
-          subtitle={sectionSubtitle}
+          title="How and When it has All Started"
+          subtitle="How it has Started"
           align={width < breakpoints.lg ? "center" : "start"}
           margin
         />
 
         <Container>
           <Picture
-            src={img.mobile}
-            alt={img.alt}
+            src="/images/about/how-it-started-mobile.png"
+            alt="Cosmetics"
             sources={[
-              { srcSet: img.desktop, breakpoint: "lg" },
-              { srcSet: img.tablet, breakpoint: "xs" },
+              { srcSet: "/images/about/how-it-started-desktop.png", breakpoint: "lg" },
+              { srcSet: "/images/about/how-it-started-tablet.png", breakpoint: "xs" },
             ]}
           />
         </Container>
       </Left>
 
       <Right>
-        {whenItStartedSectionData.reasons.map(({ title, body }) => (
+        {reasons.map(({ title, body }) => (
           <Box key={crypto.randomUUID()}>
             <Dot />
             <TextContainer>

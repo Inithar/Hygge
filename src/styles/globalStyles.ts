@@ -48,7 +48,7 @@ export const GlobalStyles = createGlobalStyle`
 
   button:focus-visible,
   a:focus-visible {
-    outline: 2px solid ${({ theme }) => theme.colors.primary};
+    outline: 0.2rem solid ${({ theme }) => theme.colors.primary};
   }
 
   @font-face {

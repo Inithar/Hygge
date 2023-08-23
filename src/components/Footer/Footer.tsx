@@ -10,7 +10,7 @@ import { StyledFooter, Box, Links, Socials } from "./Footer.styled";
 
 import { breakpoints } from "../../constants/breakpoints";
 
-import { data } from "../../data/footer";
+import { socials, boxes } from "../../data/footer";
 
 export const Footer = () => {
   const { width } = useWindowSize();
@@ -31,10 +31,10 @@ export const Footer = () => {
     <StyledFooter>
       <Box>
         <Logo size="sm" />
-        <Text fontSize="xs">&copy; {`${currentYear} ${data.text}`}</Text>
+        <Text fontSize="xs">&copy; {`${currentYear} - All rights reserved`}</Text>
 
         <Socials>
-          {data.socials.map(({ icon, href }) => (
+          {socials.map(({ icon, href }) => (
             <Link to={href} key={crypto.randomUUID()}>
               <Icon {...getIconProps(icon)} />
             </Link>
@@ -42,7 +42,7 @@ export const Footer = () => {
         </Socials>
       </Box>
 
-      {data.boxes.map(({ heading, links }) => (
+      {boxes.map(({ heading, links }) => (
         <Box key={crypto.randomUUID()}>
           <Heading as="h4">{heading}</Heading>
 

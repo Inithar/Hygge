@@ -24,7 +24,7 @@ const variations = {
 
   outline: css`
     background-color: transparent;
-    border: 2px solid ${({ theme }) => theme.colors.basic.black};
+    border: 0.2rem solid ${({ theme }) => theme.colors.basic.black};
   `,
 };
 

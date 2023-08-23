@@ -7,7 +7,6 @@ import { Products as ProductsGrid } from "../../../components/Products/Products"
 import { Container } from "./Products.styled";
 
 import { breakpoints } from "../../../constants/breakpoints";
-import { productsSectionData } from "../../../data/home";
 
 export const Products = () => {
   const { width } = useWindowSize();
@@ -15,17 +14,12 @@ export const Products = () => {
 
   return (
     <Section>
-      <SectionTitle
-        title={productsSectionData.sectionTitle}
-        subtitle={productsSectionData.sectionSubtitle}
-        align={isMobile ? "center" : "start"}
-        margin
-      />
+      <SectionTitle title="Explore our Products" subtitle="Our Products" align={isMobile ? "center" : "start"} margin />
 
       <ProductsGrid />
 
       <Container>
-        <LinkButton to="/products">{productsSectionData.button}</LinkButton>
+        <LinkButton to="/products">View All</LinkButton>
       </Container>
     </Section>
   );

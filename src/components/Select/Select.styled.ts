@@ -61,7 +61,7 @@ export const Head = styled.div`
   ${({ theme: { fontSizes, fontFamilies, colors } }) => css`
     font-size: ${fontSizes.sm};
     font-family: ${fontFamilies.montserrat.semiBold};
-    border: 2px solid ${colors.accent.one};
+    border: 0.2rem solid ${colors.accent.one};
   `}
 
   ${media("sm")} {
@@ -73,10 +73,10 @@ export const Head = styled.div`
 
 export const Body = styled.ul`
   position: absolute;
-  top: calc(100% - 2px);
+  top: calc(100% - 0.2rem);
   padding: 1rem 1.4rem;
   width: 100%;
-  border-width: 0 2px 2px;
+  border-width: 0 0.2rem 0.2rem;
   border-style: solid;
   z-index: 999;
 

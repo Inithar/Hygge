@@ -3,7 +3,7 @@ import { css } from "styled-components";
 export const visuallyHidden = css`
   position: absolute;
   top: 0;
-  margin: -1px;
+  margin: -0.1rem;
   width: 0.1rem;
   height: 0.1rem;
   border: 0;

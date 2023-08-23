@@ -46,7 +46,7 @@ export const FiltersButton = styled.button<{ isActive: boolean }>`
   ${({ theme: { fontSizes, fontFamilies, colors, borderRadius, shadows } }) => css`
     font-size: ${fontSizes.sm};
     font-family: ${fontFamilies.montserrat.semiBold};
-    border: 2px solid ${colors.accent.one};
+    border: 0.2rem solid ${colors.accent.one};
     border-radius: ${borderRadius.sm};
     box-shadow: ${shadows.md};
   `}

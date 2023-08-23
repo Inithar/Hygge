@@ -8,8 +8,7 @@ type CategoryProps = {
 };
 
 export const Category = ({ icon, name }: CategoryProps) => (
-  // TODO add the correct path
-  <StyledLink to={"/products"} draggable="false">
+  <StyledLink to={`/products?category=${name}`} draggable="false">
     <Icon src={icon ?? ""} alt={`${name} icon`} iconSize="lg" />
     <Text fontSize="sm" fontFamily={"montserratSemiBold"}>
       {name}
