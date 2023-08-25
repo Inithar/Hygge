@@ -15,6 +15,7 @@ import { Contact } from "./screens/Contact/Contact";
 import { Cart } from "./screens/Cart/Cart";
 import { CartProvider } from "./context/cart";
 import { Faq } from "./screens/Faq/Faq";
+import { TermsAndConditions } from "./screens/TermsAndConditions/TermsAndConditions";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ export const App = () => (
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/faq" element={<Faq />} />
+                <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
               </Route>
             </Routes>
           </BrowserRouter>

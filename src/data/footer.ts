@@ -29,11 +29,11 @@ export const boxes = [
   {
     heading: "Legal",
     links: [
-      { label: "Terms of Service", href: "" },
-      { label: "Privacy Policy", href: "" },
-      { label: "Return Policy", href: "" },
-      { label: "Shipping", href: "" },
-      { label: "Data Protection", href: "" },
+      { label: "Terms of Service", href: "/terms-and-conditions" },
+      { label: "Privacy Policy", href: "/terms-and-conditions" },
+      { label: "Return Policy", href: "/terms-and-conditions" },
+      { label: "Shipping", href: "/terms-and-conditions" },
+      { label: "Data Protection", href: "/terms-and-conditions" },
     ],
   },
   {
