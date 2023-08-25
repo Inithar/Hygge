@@ -39,9 +39,9 @@ export const boxes = [
   {
     heading: "Company",
     links: [
-      { label: "About", href: "" },
-      { label: "Faq", href: "" },
-      { label: "Contact", href: "" },
+      { label: "About", href: "/about" },
+      { label: "Faq", href: "/faq" },
+      { label: "Contact", href: "/contact" },
       { label: "Careers", href: "" },
       { label: "Vision", href: "" },
       { label: "Culture", href: "" },
