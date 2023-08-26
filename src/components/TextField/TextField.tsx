@@ -19,7 +19,7 @@ type TextFiledProps = {
 export const TextField = ({ id, label, error, inputProps, dark = false, labelHidden = false }: TextFiledProps) => (
   <StyledTextFiled isDark={dark} isLabelHidden={labelHidden} isError={Boolean(error)}>
     <label htmlFor={id}>{label}</label>
-    <input id={id} {...(inputProps ?? {})} />
+    <input {...inputProps} id={id} />
     <p>{error}</p>
   </StyledTextFiled>
 );
