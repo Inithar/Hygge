@@ -13,8 +13,11 @@ import { FocusTrap } from "../FocusTrap";
 import { breakpoints } from "../../constants/breakpoints";
 
 import { links } from "../../data/header";
+import { useUser } from "../../hooks/useUser";
 
 export const Header = () => {
+  const { isAuthenticated } = useUser();
+
   const [isNavigationActive, setIsNavigationActive] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -68,7 +71,9 @@ export const Header = () => {
             <Link to="/cart">
               <Icon src="/icons/cart.svg" iconSize="md" />
             </Link>
-            <Icon src="/icons/user.svg" iconSize="md" />
+            <Link to={isAuthenticated ? "/account" : "/login"}>
+              <Icon src="/icons/user.svg" iconSize="md" />
+            </Link>
           </Icons>
 
           <Burger

@@ -2,6 +2,8 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
+import { useLogin } from "../../hooks/useLogin";
+
 import { Section } from "../../components/Section";
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
 import { TextField } from "../../components/TextField/TextField";
@@ -25,8 +27,10 @@ export const Login = () => {
     shouldFocusError: false,
   });
 
+  const { login, isLoading } = useLogin();
+
   function onSubmit(data: FormValues) {
-    console.log(data);
+    login(data);
   }
 
   return (
@@ -49,7 +53,7 @@ export const Login = () => {
         />
 
         <Buttons>
-          <Button>Login</Button>
+          <Button disabled={isLoading}>Login</Button>
           <LinkButton to="/register" variation="secondary">
             Create Account
           </LinkButton>

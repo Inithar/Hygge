@@ -8,6 +8,8 @@ import { GlobalStyles } from "./styles/globalStyles";
 import { theme } from "./styles/theme";
 
 import { PageLayout } from "./layouts/PageLayout/PageLayout";
+import { RootLayout } from "./layouts/RootLayout/RootLayout";
+import { AuthLayout } from "./layouts/AuthLayout/AuthLayout";
 import { Home } from "./screens/Home/Home";
 import { Products } from "./screens/Products/Products";
 import { About } from "./screens/About/About";
@@ -31,16 +33,21 @@ export const App = () => (
 
           <BrowserRouter>
             <Routes>
-              <Route element={<PageLayout />}>
-                <Route path="/" element={<Home />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/faq" element={<Faq />} />
-                <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/login" element={<Login />} />
+              <Route element={<RootLayout />}>
+                <Route element={<PageLayout />}>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/products" element={<Products />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="/faq" element={<Faq />} />
+                  <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+
+                  <Route element={<AuthLayout />}>
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/login" element={<Login />} />
+                  </Route>
+                </Route>
               </Route>
             </Routes>
           </BrowserRouter>
