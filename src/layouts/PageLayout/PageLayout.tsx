@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
-import { Main } from "./Page.styled";
+import { Main } from "./PageLayout.styled";
 
-import { Header } from "../Header/Header";
-import { Footer } from "../Footer/Footer";
+import { Header } from "../../components/Header/Header";
+import { Footer } from "../../components/Footer/Footer";
 
-export const Page = () => {
+export const PageLayout = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
