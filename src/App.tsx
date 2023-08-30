@@ -20,6 +20,7 @@ import { Faq } from "./screens/Faq/Faq";
 import { TermsAndConditions } from "./screens/TermsAndConditions/TermsAndConditions";
 import { Register } from "./screens/Register/Register";
 import { Login } from "./screens/Login/Login";
+import { Checkout } from "./screens/Checkout/Checkout";
 
 const queryClient = new QueryClient();
 
@@ -42,10 +43,11 @@ export const App = () => (
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/faq" element={<Faq />} />
                   <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+                  <Route path="/checkout" element={<Checkout />} />
 
                   <Route element={<AuthLayout />}>
                     <Route path="/register" element={<Register />} />
-                    <Route path="/login" element={<Login />} />
+                    <Route path="/login" element={<Login />} />R
                   </Route>
                 </Route>
               </Route>

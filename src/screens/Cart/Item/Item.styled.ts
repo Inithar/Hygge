@@ -59,6 +59,7 @@ export const Details = styled.div`
   }
 
   & > h3 {
+    text-align: center;
     margin-bottom: 1.6rem;
   }
 
@@ -66,6 +67,7 @@ export const Details = styled.div`
     &,
     & > h3 {
       align-items: start;
+      text-align: start;
     }
   }
 
