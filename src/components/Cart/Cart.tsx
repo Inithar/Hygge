@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+
 import { useCart } from "../../hooks/useCart";
+
 import { Heading } from "../Heading";
+import { LinkButton } from "../Button";
 import {
   Item,
   Items,
@@ -13,15 +16,19 @@ import {
   Current,
   Quantity,
   Total,
+  Buttons,
 } from "./Cart.styled";
-import { Button } from "../Button";
 
-export const Cart = () => {
-  const { items, removeFromCart } = useCart();
+type CartProps = {
+  place?: "header" | "checkout";
+};
+
+export const Cart = ({ place = "checkout" }: CartProps) => {
+  const { items, cartTotal, removeFromCart } = useCart();
 
   return (
     <Wrapper>
-      <Heading as="h3">My cart</Heading>
+      {place === "checkout" && <Heading as="h3">My cart</Heading>}
 
       <Items>
         {items.map(({ id, name, image, oldPrice, currentPrice, qty }) => (
@@ -32,7 +39,7 @@ export const Cart = () => {
 
             <Details>
               <Link to={`/products/${id}`} aria-label={`Link to ${name} product details`}>
-                {name} 10 ml
+                {name}
               </Link>
 
               <Price>
@@ -55,12 +62,20 @@ export const Cart = () => {
 
       <Total>
         <p>Total:</p>
-        <p>${items.reduce((acc, val) => acc + val.currentPrice * val.qty, 0)}</p>
+        <p>${cartTotal}</p>
       </Total>
 
-      <Button block variation="secondary">
-        Edit Cart
-      </Button>
+      <Buttons>
+        {place === "header" && (
+          <LinkButton to="/checkout" block>
+            Checkout
+          </LinkButton>
+        )}
+
+        <LinkButton to="/cart" block variation="secondary">
+          Edit Cart
+        </LinkButton>
+      </Buttons>
     </Wrapper>
   );
 };

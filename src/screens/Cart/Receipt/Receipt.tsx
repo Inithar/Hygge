@@ -4,14 +4,8 @@ import { LinkButton } from "../../../components/Button";
 import { Heading } from "../../../components/Heading";
 import { Box, Container, StyledReceipt } from "./Receipt.styled";
 
-const taxPercentage = 15;
-const shippingCost = 8;
-
 export const Receipt = () => {
-  const { items } = useCart();
-
-  const subtotal = items.reduce((acc, val) => acc + val.currentPrice * val.qty, 0);
-  const tax = Number((subtotal * (taxPercentage / 100)).toFixed(2));
+  const { productsTotal, discountTotal, shippingCost, cartTotal } = useCart();
 
   return (
     <StyledReceipt>
@@ -19,12 +13,12 @@ export const Receipt = () => {
 
       <Container>
         <Box>
-          <p>Subtotal:</p>
-          <p>${subtotal}</p>
+          <p>Products:</p>
+          <p>${productsTotal}</p>
         </Box>
         <Box>
-          <p>Tax:</p>
-          <p>${tax}</p>
+          <p>Discount:</p>
+          <p>${discountTotal}</p>
         </Box>
         <Box>
           <p>Shipping:</p>
@@ -32,7 +26,7 @@ export const Receipt = () => {
         </Box>
         <Box>
           <p>Total:</p>
-          <p>${subtotal + tax + shippingCost}</p>
+          <p>${cartTotal}</p>
         </Box>
       </Container>
 

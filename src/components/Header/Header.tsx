@@ -3,23 +3,35 @@ import { Link, NavLink } from "react-router-dom";
 
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { useDisableBodyScroll } from "../../hooks/useDisableBodyScroll";
+import { useCart } from "../../hooks/useCart";
+import { useUser } from "../../hooks/useUser";
 
-import { StyledHeader, Burger, Icons, Container, Navigation, Wrapper } from "./Header.styled";
 import { Logo } from "../Logo/Logo";
 import { Icon } from "../Icon/Icon";
 import { Search } from "../Search/Search";
+import { Cart } from "../Cart/Cart";
 import { FocusTrap } from "../FocusTrap";
+import { StyledHeader, Burger, Icons, Container, Navigation, Wrapper, CartContainer, Dot } from "./Header.styled";
 
 import { breakpoints } from "../../constants/breakpoints";
 
 import { links } from "../../data/header";
-import { useUser } from "../../hooks/useUser";
 
 export const Header = () => {
-  const { isAuthenticated } = useUser();
-
   const [isNavigationActive, setIsNavigationActive] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
+
+  const { width } = useWindowSize();
+  const isMediumScreen = width >= breakpoints.md;
+  const isLargeScreen = width >= breakpoints.lg;
+
+  const { isAuthenticated } = useUser();
+  const { items } = useCart();
+
+  const containerId = crypto.randomUUID();
+  const isContainerHidden = isMediumScreen ? false : !isNavigationActive;
+
+  useDisableBodyScroll(isNavigationActive);
 
   useEffect(() => {
     const handleScroll = () => setScrollPosition(window.scrollY);
@@ -30,14 +42,6 @@ export const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  useDisableBodyScroll(isNavigationActive);
-
-  const { width } = useWindowSize();
-  const isMediumScreen = width >= breakpoints.md;
-
-  const containerId = crypto.randomUUID();
-  const isContainerHidden = isMediumScreen ? false : !isNavigationActive;
 
   return (
     <FocusTrap active={isNavigationActive} breakpoint="md">
@@ -65,12 +69,22 @@ export const Header = () => {
             </Navigation>
           </Container>
 
-          {/* TODO add functionality to icons */}
           <Icons>
             {isMediumScreen && <Icon src="/icons/search.svg" iconSize="md" />}
-            <Link to="/cart">
-              <Icon src="/icons/cart.svg" iconSize="md" />
-            </Link>
+
+            <div>
+              <Link to="/cart">
+                <Icon src="/icons/cart.svg" iconSize="md" />
+                {items.length ? <Dot /> : null}
+              </Link>
+
+              {isLargeScreen && items.length ? (
+                <CartContainer>
+                  <Cart place="header" />
+                </CartContainer>
+              ) : null}
+            </div>
+
             <Link to={isAuthenticated ? "/account" : "/login"}>
               <Icon src="/icons/user.svg" iconSize="md" />
             </Link>

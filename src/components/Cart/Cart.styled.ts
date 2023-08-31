@@ -5,19 +5,40 @@ import { media, rgba } from "../../styles/helpers";
 
 export const Wrapper = styled.div`
   padding: 2.4rem;
+  background-color: ${({ theme }) => theme.colors.basic.white};
   border: 0.2rem solid ${({ theme }) => theme.colors.accent.one};
   border-radius: ${({ theme }) => theme.borderRadius.md};
+
+  & > h3 {
+    margin-bottom: 4rem;
+  }
+
+  ${media("xs")} {
+    & > h3 {
+      font-size: ${({ theme }) => theme.fontSizes["3xl"]};
+    }
+  }
+
+  ${media("sm")} {
+    padding: 5.6rem;
+  }
 `;
 
 export const Items = styled.div`
   display: grid;
   gap: 4rem;
-  margin-top: 4rem;
 `;
 
 export const Item = styled.div`
   display: grid;
   justify-items: center;
+
+  ${media("xs")} {
+    grid-template-columns: auto 1fr auto;
+    justify-items: start;
+    align-items: center;
+    gap: 2.4rem;
+  }
 `;
 
 export const StyledLink = styled(Link)`
@@ -34,16 +55,15 @@ export const StyledLink = styled(Link)`
     max-height: 6.4rem;
   }
 
-  /* ${media("xs")} {
-    width: 19.2rem;
-    height: 19.2rem;
-    margin: 0;
-    border-radius: ${({ theme }) => theme.borderRadius.md};
+  ${media("xs")} {
+    margin-bottom: 0;
+    width: 12.8rem;
+    height: 12.8rem;
 
     & > img {
-      max-height: 12.8rem;
+      max-height: 8.2rem;
     }
-  } */
+  }
 `;
 
 export const Details = styled.div`
@@ -63,6 +83,10 @@ export const Price = styled.div`
   & > p {
     font-family: ${({ theme }) => theme.fontFamilies.montserrat.semiBold};
   }
+
+  ${media("xs")} {
+    justify-content: start;
+  }
 `;
 
 export const Old = styled.p`
@@ -75,22 +99,6 @@ export const Current = styled.p`
   font-size: ${({ theme }) => theme.fontSizes.sm};
 `;
 
-export const RemoveItemButton = styled.button`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.2rem;
-  background-color: transparent;
-  border: 0.2rem solid ${({ theme }) => theme.colors.accent.one};
-  border-radius: 50%;
-  box-shadow: ${({ theme }) => theme.shadows.md};
-
-  img {
-    width: 2rem;
-    height: 2rem;
-  }
-`;
-
 export const Quantity = styled.div`
   display: flex;
   justify-content: center;
@@ -98,12 +106,42 @@ export const Quantity = styled.div`
   margin-bottom: 4rem;
   font-size: ${({ theme }) => theme.fontSizes.xs};
   font-family: ${({ theme }) => theme.fontFamilies.montserrat.semiBold};
+
+  ${media("xs")} {
+    justify-content: start;
+    margin-bottom: 0;
+  }
+`;
+
+export const RemoveItemButton = styled.button`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.3rem;
+  background-color: transparent;
+  border: 0.2rem solid ${({ theme }) => theme.colors.accent.one};
+  border-radius: 50%;
+  box-shadow: ${({ theme }) => theme.shadows.md};
+
+  img {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
 `;
 
 export const Total = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-block: 4rem 5.6rem;
+  margin-block: 4rem;
   font-size: ${({ theme }) => theme.fontSizes.sm};
   font-family: ${({ theme }) => theme.fontFamilies.montserrat.semiBold};
+
+  ${media("xs")} {
+    font-size: ${({ theme }) => theme.fontSizes["2xl"]};
+  }
+`;
+
+export const Buttons = styled.div`
+  display: flex;
+  gap: 2.4rem;
 `;

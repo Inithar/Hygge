@@ -57,18 +57,17 @@ export const Container = styled.div<ContainerProps>`
   transform: ${({ isActive }) => (isActive ? "translateX(0)" : "translateX(-100%)")};
   transition: transform 0.7s;
   overflow: scroll;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   ${media("md")} {
     position: static;
     transform: none;
     padding: 0;
   }
-`;
-
-export const Icons = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 2.4rem;
 `;
 
 export const Navigation = styled.nav`
@@ -105,6 +104,55 @@ export const Navigation = styled.nav`
 
   ${media("lg")} {
     gap: 3.2rem;
+  }
+`;
+
+export const Icons = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+
+  & > a,
+  & > div {
+    height: 2.4rem;
+    width: 2.4rem;
+  }
+
+  & > div > a:hover + div {
+    display: block;
+  }
+
+  & > div > a {
+    position: relative;
+  }
+`;
+
+export const Dot = styled.div`
+  position: absolute;
+  top: -1.2rem;
+  right: -0.8rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: ${({ theme }) => theme.colors.tertiary.two};
+  border: 0.2rem solid ${({ theme }) => theme.colors.basic.white};
+  border-radius: 50%;
+`;
+
+export const CartContainer = styled.div`
+  display: none;
+  position: absolute;
+  top: 2.2rem;
+  right: 0;
+  padding-top: 3.6rem;
+
+  & > div {
+    padding: 2.4rem;
+    width: 48.8rem;
+  }
+
+  &:hover {
+    display: block;
   }
 `;
 

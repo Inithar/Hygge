@@ -12,6 +12,10 @@ export type Item = {
 
 type CartContextType = {
   items: Item[];
+  shippingCost: number;
+  productsTotal: number;
+  discountTotal: number;
+  cartTotal: number;
   setItemQty: (id: number, qty: number) => void;
   addToCart: (item: Item) => void;
   removeFromCart: (id: number) => void;
@@ -22,6 +26,20 @@ export const CartContext = createContext<CartContextType | undefined>(undefined)
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [items, setItems] = useLocalStorage<Item[]>("shopping-cart", []);
+
+  const shippingCost = 8;
+
+  const productsTotal = items.reduce(
+    (acc, { currentPrice, oldPrice, qty }) => acc + (oldPrice ?? currentPrice) * qty,
+    0
+  );
+
+  const discountTotal = items.reduce(
+    (acc, { currentPrice, oldPrice, qty }) => acc + (oldPrice ? oldPrice - currentPrice : 0) * qty,
+    0
+  );
+
+  const cartTotal = productsTotal - discountTotal + shippingCost;
 
   function setItemQty(id: number, qty: number) {
     setItems((prev) => prev.map((item) => (item.id === id ? { ...item, qty } : item)));
@@ -46,7 +64,19 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   }
 
   return (
-    <CartContext.Provider value={{ items, setItemQty, addToCart, removeFromCart, clearCart }}>
+    <CartContext.Provider
+      value={{
+        items,
+        shippingCost,
+        productsTotal,
+        discountTotal,
+        cartTotal,
+        setItemQty,
+        addToCart,
+        removeFromCart,
+        clearCart,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

@@ -25,6 +25,7 @@ const variations = {
 const styles = css<ButtonProps>`
   display: inline-block;
   padding: 1.2rem 2.4rem;
+  text-align: center;
   font-family: ${({ theme }) => theme.fontFamilies.montserrat.bold};
   text-transform: capitalize;
   border-radius: ${({ theme }) => theme.borderRadius.sm};
