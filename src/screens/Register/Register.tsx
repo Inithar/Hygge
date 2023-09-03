@@ -2,6 +2,8 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
+import { useSignup } from "../../hooks/useSignup";
+
 import { Section } from "../../components/Section";
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
 import { TextField } from "../../components/TextField/TextField";
@@ -9,11 +11,14 @@ import { Button, LinkButton } from "../../components/Button";
 import { CheckboxField } from "../../components/CheckboxField/CheckboxField";
 import { Buttons, Form, StyledLink } from "./Register.styled";
 
-type FormValues = z.infer<typeof FormSchema>;
+export type FormValues = z.infer<typeof FormSchema>;
 
 const FormSchema = z
   .object({
+    name: z.string().min(1, { message: "Your name is required" }),
+    surname: z.string().min(1, { message: "Your surname is required" }),
     email: z.string().min(1, { message: "Email address is required" }).email("Email address is incorrect"),
+    phone: z.string(),
     password: z
       .string()
       .min(8, "Must be at least 8 characters in length")
@@ -32,6 +37,8 @@ const FormSchema = z
   });
 
 export const Register = () => {
+  const { signup, isLoading } = useSignup();
+
   const {
     register,
     handleSubmit,
@@ -42,7 +49,7 @@ export const Register = () => {
   });
 
   function onSubmit(data: FormValues) {
-    console.log(data);
+    signup(data);
   }
 
   return (
@@ -50,6 +57,27 @@ export const Register = () => {
       <SectionTitle title="Create Account" subtitle="Sign Up" margin />
 
       <Form onSubmit={handleSubmit(onSubmit)}>
+        <TextField
+          id="name"
+          label="Name"
+          error={errors.name?.message}
+          inputProps={{ ...register("name"), placeholder: "Simon" }}
+        />
+
+        <TextField
+          id="surname"
+          label="Surname"
+          error={errors.surname?.message}
+          inputProps={{ ...register("surname"), placeholder: "Smith" }}
+        />
+
+        <TextField
+          id="phone"
+          label="Phone Number"
+          error={errors.phone?.message}
+          inputProps={{ ...register("phone"), placeholder: "762-123-123" }}
+        />
+
         <TextField
           id="email"
           label="Email Address"
@@ -86,7 +114,7 @@ export const Register = () => {
         />
 
         <Buttons>
-          <Button>Create Account</Button>
+          <Button disabled={isLoading}>Create Account</Button>
           <LinkButton to="/login" variation="secondary">
             Login
           </LinkButton>

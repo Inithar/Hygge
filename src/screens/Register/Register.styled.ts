@@ -7,10 +7,20 @@ export const Form = styled.form`
   display: grid;
   gap: 1.6rem;
   margin-inline: auto;
-  max-width: 52rem;
+  max-width: 58rem;
 
   ${media("xs")} {
+    grid-template-columns: 1fr 1fr;
     gap: 2.4rem;
+
+    & > div {
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(7),
+      &:nth-child(8) {
+        grid-column: 1 / -1;
+      }
+    }
   }
 `;
 
