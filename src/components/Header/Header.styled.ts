@@ -149,6 +149,10 @@ export const CartContainer = styled.div`
   & > div {
     padding: 2.4rem;
     width: 48.8rem;
+
+    & > div:nth-child(2) {
+      margin-bottom: 3.2rem;
+    }
   }
 
   &:hover {

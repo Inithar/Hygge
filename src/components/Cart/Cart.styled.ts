@@ -14,6 +14,8 @@ export const Wrapper = styled.div`
   }
 
   ${media("xs")} {
+    padding: 4rem;
+
     & > h3 {
       font-size: ${({ theme }) => theme.fontSizes["3xl"]};
     }
@@ -132,7 +134,7 @@ export const RemoveItemButton = styled.button`
 export const Total = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-block: 4rem;
+  margin-block: 4rem 5.6rem;
   font-size: ${({ theme }) => theme.fontSizes.sm};
   font-family: ${({ theme }) => theme.fontFamilies.montserrat.semiBold};
 
