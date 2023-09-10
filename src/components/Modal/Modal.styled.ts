@@ -20,9 +20,16 @@ export const StyledModal = styled.div<{ maxWidth?: string }>`
   padding: 2.6rem 2.8rem;
   width: calc(100% - 2 * 2.4rem);
   max-width: ${({ maxWidth }) => maxWidth ?? "60rem"};
+  max-height: 75vh;
+  overflow-y: scroll;
   background-color: ${({ theme }) => theme.colors.basic.white};
   border-radius: ${({ theme }) => theme.borderRadius.md};
   box-shadow: ${({ theme }) => theme.shadows.lg};
+
+  &::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
 
   ${media("xs")} {
     padding: 3.2rem 4rem;

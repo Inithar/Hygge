@@ -70,7 +70,12 @@ const Open = ({ children, opens: opensWindowName }: OpenProps) => {
 
   const { open } = context;
 
-  return cloneElement(children, { onClick: () => open(opensWindowName) });
+  function handleClick() {
+    children.props?.onClick?.();
+    open(opensWindowName);
+  }
+
+  return cloneElement(children, { onClick: handleClick });
 };
 
 const Window = ({ children, name, maxWidth, header, onClose }: WindowProps) => {
