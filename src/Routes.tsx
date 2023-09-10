@@ -13,6 +13,7 @@ import { Faq } from "./screens/Faq/Faq";
 import { TermsAndConditions } from "./screens/TermsAndConditions/TermsAndConditions";
 
 import { Account } from "./screens/Account/Account";
+import { Addresses } from "./screens/Account/Addresses/Addresses";
 
 import { Register } from "./screens/Register/Register";
 import { Login } from "./screens/Login/Login";
@@ -32,7 +33,9 @@ export const Routes = () => (
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
 
         <Route element={<ProtectedRoute />}>
-          <Route path="/account/" element={<Account />}></Route>
+          <Route path="/account/" element={<Account />}>
+            <Route path="addresses" element={<Addresses />} />
+          </Route>
         </Route>
 
         <Route element={<AuthLayout />}>
