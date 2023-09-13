@@ -1,9 +1,6 @@
-import { useContext } from "react";
-
 import { useModal } from "../../../../hooks/context/useModal";
+import { useAddresses } from "../../../../hooks/context/useAddresses";
 import { useDeleteAddress } from "../../../../hooks/useDeleteAddress";
-
-import { AddressesContext } from "../Addresses";
 
 import { Modal } from "../../../../components/Modal/Modal";
 import { Text } from "../../../../components/Text";
@@ -12,9 +9,9 @@ import { Buttons, Container } from "./DeleteAddressModal.styled";
 
 export const DeleteAddressModal = () => {
   const { closeModal } = useModal();
-  const { deleteAddress, isDeleting } = useDeleteAddress();
+  const { addressToDelete } = useAddresses();
 
-  const { addressToDelete } = useContext(AddressesContext)!;
+  const { deleteAddress, isDeleting } = useDeleteAddress();
 
   if (!addressToDelete) {
     return;

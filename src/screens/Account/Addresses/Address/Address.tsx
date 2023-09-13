@@ -1,6 +1,4 @@
-import { useContext } from "react";
-
-import { AddressesContext } from "../Addresses";
+import { useAddresses } from "../../../../hooks/context/useAddresses";
 
 import { Modal } from "../../../../components/Modal/Modal";
 import { Button } from "../../../../components/Button";
@@ -11,7 +9,8 @@ import { Address as AddressType } from "../../../../types/collection";
 
 export const Address = (address: AddressType) => {
   const { id, street, houseNumber, flatNumber, city, postcode, country } = address;
-  const { setAddressToDelete, setAddressToUpdate } = useContext(AddressesContext)!;
+
+  const { setAddressToDelete, setAddressToUpdate } = useAddresses();
 
   return (
     <StyledAddress key={id}>

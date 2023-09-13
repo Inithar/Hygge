@@ -1,19 +1,17 @@
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
 
 import { useUser } from "../../../../hooks/useUser";
 import { useCreateAddress } from "../../../../hooks/useCreateAddress";
-
-import { AddressesContext } from "../Addresses";
+import { useUpdateAddress } from "../../../../hooks/useUpdateAddress";
+import { useAddresses } from '../../../../hooks/context/useAddresses';
+import { useModal } from "../../../../hooks/context/useModal";
 
 import { Modal } from "../../../../components/Modal/Modal";
 import { TextField } from "../../../../components/TextField/TextField";
 import { Button } from "../../../../components/Button";
 import { Buttons, Form } from "./CreateEditAddressModal.styled";
-import { useModal } from "../../../../hooks/context/useModal";
-import { useUpdateAddress } from "../../../../hooks/useUpdateAddress";
 
 type FormValues = z.infer<typeof FormSchema>;
 type InputProps = { id: keyof FormValues; label: string };
@@ -42,10 +40,11 @@ const inputs: InputProps[] = [
 export const CreateEditAddressModal = () => {
   const { user } = useUser();
   const { closeModal } = useModal();
+  const { addressToUpdate } = useAddresses();
+  
   const { createAddress, isCreating } = useCreateAddress();
   const { updateAddress, isUpdating } = useUpdateAddress();
 
-  const { addressToUpdate } = useContext(AddressesContext)!;
 
   const {
     register,
