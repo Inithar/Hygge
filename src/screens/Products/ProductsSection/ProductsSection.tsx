@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import { useCategories } from "../../../hooks/useCategories";
-import { useBrands } from "../../../hooks/useBrands";
+import { useCategories } from "../../../hooks/api/useCategories";
+import { useBrands } from "../../../hooks/api/useBrands";
 
 import { Section } from "../../../components/Section";
 import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";

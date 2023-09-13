@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 
-import { useUser } from "../../hooks/useUser";
+import { useUser } from "../../hooks/api/useUser";
 
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
 import { Section } from "../../components/Section";

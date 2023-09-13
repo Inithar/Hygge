@@ -1,4 +1,4 @@
-import { useCategories } from "../../../hooks/useCategories";
+import { useCategories } from "../../../hooks/api/useCategories";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 
 import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";

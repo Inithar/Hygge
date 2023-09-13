@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 
-import { useUser } from "../../hooks/useUser";
+import { useUser } from "../../hooks/api/useUser";
 
 import { Spinner } from "../../components/Spinner";
 import { FullPage } from "./RootLayout.styled";
@@ -11,7 +11,7 @@ export const RootLayout = () => {
   if (isLoading) {
     return (
       <FullPage>
-        <Spinner size="lg"/>
+        <Spinner size="lg" />
       </FullPage>
     );
   }

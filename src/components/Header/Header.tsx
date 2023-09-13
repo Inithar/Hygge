@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { useDisableBodyScroll } from "../../hooks/useDisableBodyScroll";
 import { useCart } from "../../hooks/context/useCart";
-import { useUser } from "../../hooks/useUser";
+import { useUser } from "../../hooks/api/useUser";
 
 import { Logo } from "../Logo/Logo";
 import { Icon } from "../Icon/Icon";

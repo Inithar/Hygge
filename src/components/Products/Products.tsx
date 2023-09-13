@@ -1,4 +1,4 @@
-import { useProducts } from "../../hooks/useProducts";
+import { useProducts } from "../../hooks/api/useProducts";
 
 import { ProductsContainer } from "./Products.styled";
 import { ProductItemSkeleton, ProductItem } from "../ProductItem/ProductItem";

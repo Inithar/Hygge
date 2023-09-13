@@ -2,10 +2,10 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
-import { useUser } from "../../../../hooks/useUser";
-import { useCreateAddress } from "../../../../hooks/useCreateAddress";
-import { useUpdateAddress } from "../../../../hooks/useUpdateAddress";
-import { useAddresses } from '../../../../hooks/context/useAddresses';
+import { useUser } from "../../../../hooks/api/useUser";
+import { useCreateAddress } from "../../../../hooks/api/useCreateAddress";
+import { useUpdateAddress } from "../../../../hooks/api/useUpdateAddress";
+import { useAddresses } from "../../../../hooks/context/useAddresses";
 import { useModal } from "../../../../hooks/context/useModal";
 
 import { Modal } from "../../../../components/Modal/Modal";
@@ -41,10 +41,9 @@ export const CreateEditAddressModal = () => {
   const { user } = useUser();
   const { closeModal } = useModal();
   const { addressToUpdate } = useAddresses();
-  
+
   const { createAddress, isCreating } = useCreateAddress();
   const { updateAddress, isUpdating } = useUpdateAddress();
-
 
   const {
     register,

@@ -2,7 +2,7 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
-import { useLogin } from "../../hooks/useLogin";
+import { useLogin } from "../../hooks/api/useLogin";
 
 import { Section } from "../../components/Section";
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";

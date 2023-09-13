@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, createContext, useState } from "react";
 
-import { useUser } from "../../../hooks/useUser";
-import { useUserAddresses } from "../../../hooks/useUserAddresses";
+import { useUser } from "../../../hooks/api/useUser";
+import { useUserAddresses } from "../../../hooks/api/useUserAddresses";
 
 import { Modal } from "../../../components/Modal/Modal";
 import { Button } from "../../../components/Button";

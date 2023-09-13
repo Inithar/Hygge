@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-import { deleteAddress } from "../services/addressesApi";
+import { deleteAddress } from "../../services/addressesApi";
 
 export const useDeleteAddress = () => {
   const queryClient = useQueryClient();

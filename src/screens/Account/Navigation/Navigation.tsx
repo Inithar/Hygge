@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
 
-import { useLogout } from "../../../hooks/useLogout";
+import { useLogout } from "../../../hooks/api/useLogout";
 
 import { StyledNavigation, CategoryTitle, CategoryList, Divider } from "./Navigation.styled";
 

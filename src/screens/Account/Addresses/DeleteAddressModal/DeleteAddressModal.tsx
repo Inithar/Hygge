@@ -1,6 +1,6 @@
 import { useModal } from "../../../../hooks/context/useModal";
 import { useAddresses } from "../../../../hooks/context/useAddresses";
-import { useDeleteAddress } from "../../../../hooks/useDeleteAddress";
+import { useDeleteAddress } from "../../../../hooks/api/useDeleteAddress";
 
 import { Modal } from "../../../../components/Modal/Modal";
 import { Text } from "../../../../components/Text";
