@@ -12,7 +12,7 @@ import { Modal } from "../../../../components/Modal/Modal";
 import { TextField } from "../../../../components/TextField/TextField";
 import { Button } from "../../../../components/Button";
 import { Buttons, Form } from "./CreateEditAddressModal.styled";
-import { useModal } from "../../../../hooks/useModal";
+import { useModal } from "../../../../hooks/context/useModal";
 import { useUpdateAddress } from "../../../../hooks/useUpdateAddress";
 
 type FormValues = z.infer<typeof FormSchema>;

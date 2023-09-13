@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { useDisableBodyScroll } from "../../hooks/useDisableBodyScroll";
-import { useCart } from "../../hooks/useCart";
+import { useCart } from "../../hooks/context/useCart";
 import { useUser } from "../../hooks/useUser";
 
 import { Logo } from "../Logo/Logo";

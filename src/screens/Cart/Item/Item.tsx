@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { Item as ItemType } from "../../../context/cart";
-import { useCart } from "../../../hooks/useCart";
+import { useCart } from "../../../hooks/context/useCart";
 
 import { Counter } from "../../../components/Counter/Counter";
 import { Heading } from "../../../components/Heading";

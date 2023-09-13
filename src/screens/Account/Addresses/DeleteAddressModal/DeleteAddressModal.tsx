@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { useModal } from "../../../../hooks/useModal";
+import { useModal } from "../../../../hooks/context/useModal";
 import { useDeleteAddress } from "../../../../hooks/useDeleteAddress";
 
 import { AddressesContext } from "../Addresses";

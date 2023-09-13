@@ -1,4 +1,4 @@
-import { useCart } from "../../../hooks/useCart";
+import { useCart } from "../../../hooks/context/useCart";
 
 import { Button } from "../../../components/Button";
 import { Section } from "../../../components/Section";
