@@ -47,12 +47,13 @@ const styles = css<ButtonProps>`
 
   ${({ variation }) => variations[variation || "primary"]}
 
-  &:hover {
+  &:hover:enabled {
     transform: scale(1.05);
   }
 
   &:disabled {
     opacity: 0.6;
+    cursor: not-allowed;
   }
 
   ${media("sm")} {

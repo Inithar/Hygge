@@ -12,6 +12,8 @@ import { Cart } from "./screens/Cart/Cart";
 import { Faq } from "./screens/Faq/Faq";
 import { TermsAndConditions } from "./screens/TermsAndConditions/TermsAndConditions";
 
+import { Checkout } from "./screens/Checkout/Checkout";
+
 import { Account } from "./screens/Account/Account";
 import { Addresses } from "./screens/Account/Addresses/Addresses";
 
@@ -33,8 +35,9 @@ export const Routes = () => (
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
 
         <Route element={<ProtectedRoute />}>
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/account/" element={<Account />}>
-            <Route path="addresses" element={<Addresses />} />
+            <Route path="addresses" element={<Addresses />} />R
           </Route>
         </Route>
 
