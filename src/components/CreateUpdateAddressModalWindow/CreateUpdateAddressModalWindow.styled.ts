@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { media } from "../../../../styles/helpers";
+import { media } from "../../styles/helpers";
 
 export const Form = styled.form`
   display: grid;

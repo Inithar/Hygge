@@ -8,7 +8,7 @@ import { Button } from "../../../components/Button";
 import { Text } from "../../../components/Text";
 import { Spinner } from "../../../components/Spinner";
 import { Wrapper } from "../Wrapper/Wrapper";
-import { CreateEditAddressModal } from "./CreateEditAddressModal/CreateEditAddressModal";
+import { CreateUpdateAddressModalWindow } from "../../../components/CreateUpdateAddressModalWindow/CreateUpdateAddressModalWindow";
 import { DeleteAddressModal } from "./DeleteAddressModal/DeleteAddressModal";
 import { Address } from "./Address/Address";
 import { Container, NoSavedAddresses, SpinnerBox } from "./Addresses.styled";
@@ -63,7 +63,7 @@ export const Addresses = () => {
             )}
           </Container>
 
-          <CreateEditAddressModal />
+          <CreateUpdateAddressModalWindow addressToUpdate={addressToUpdate} />
           <DeleteAddressModal />
         </Modal>
       </AddressesContext.Provider>
