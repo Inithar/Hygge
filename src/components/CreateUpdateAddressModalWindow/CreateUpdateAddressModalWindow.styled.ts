@@ -3,9 +3,10 @@ import { media } from "../../styles/helpers";
 
 export const Form = styled.form`
   display: grid;
-  gap: 0.8rem 1.6rem;
+  gap: 2.8rem 1.6rem;
 
   ${media("xs")} {
+    row-gap: 3.6rem;
     grid-template-columns: repeat(8, 1fr);
 
     & > div {

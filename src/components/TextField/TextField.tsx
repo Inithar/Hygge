@@ -20,6 +20,6 @@ export const TextField = ({ id, label, error, inputProps, dark = false, labelHid
   <StyledTextFiled isDark={dark} isLabelHidden={labelHidden} isError={Boolean(error)}>
     <label htmlFor={id}>{label}</label>
     <input {...inputProps} id={id} />
-    <p>{error}</p>
+    {error && <p>{error}</p>}
   </StyledTextFiled>
 );
