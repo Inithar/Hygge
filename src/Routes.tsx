@@ -21,6 +21,7 @@ import { Register } from "./screens/Register/Register";
 import { Login } from "./screens/Login/Login";
 
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import { Confirmation } from "./screens/Confirmation/Confirmation";
 
 export const Routes = () => (
   <ReactRoutes>
@@ -36,8 +37,10 @@ export const Routes = () => (
 
         <Route element={<ProtectedRoute />}>
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout/confirmation" element={<Confirmation />} />
+
           <Route path="/account/" element={<Account />}>
-            <Route path="addresses" element={<Addresses />} />R
+            <Route path="addresses" element={<Addresses />} />
           </Route>
         </Route>
 
