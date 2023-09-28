@@ -2,7 +2,7 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
-import { useCheckoutForm } from "../../../hooks/context/useCheckoutForm";
+import { useCheckout } from "../../../hooks/context/useCheckout";
 
 import { Button } from "../../../components/Button";
 import { TextField } from "../../../components/TextField/TextField";
@@ -14,11 +14,15 @@ export type FormValues = z.infer<typeof FormSchema>;
 const FormSchema = z.object({
   name: z.string().min(1, { message: "Your name is required" }),
   surname: z.string().min(1, { message: "Your surname is required" }),
-  phone: z.string(),
+  email: z.string().min(1, { message: "Email address is required" }).email("Email address is incorrect"),
+  phone: z
+    .string()
+    .min(1, { message: "Phone number has to have at least 7 digits" })
+    .max(15, { message: "Phone number has to have max 15 digits" }),
 });
 
 export const Personal = () => {
-  const { next, setCheckoutData } = useCheckoutForm();
+  const { next, setOrderData } = useCheckout();
 
   const {
     register,
@@ -31,7 +35,7 @@ export const Personal = () => {
   });
 
   function onSubmit(data: FormValues) {
-    setCheckoutData((prev) => ({ ...prev, ...data }));
+    setOrderData((prev) => ({ ...prev, ...data }));
     next();
   }
 
@@ -50,6 +54,13 @@ export const Personal = () => {
           label="Surname"
           error={errors.surname?.message}
           inputProps={{ ...register("surname"), placeholder: "Smith" }}
+        />
+
+        <TextField
+          id="email"
+          label="Email Address"
+          error={errors.email?.message}
+          inputProps={{ ...register("email"), placeholder: "johnsmith@gmail.com", type: "email" }}
         />
 
         <TextField

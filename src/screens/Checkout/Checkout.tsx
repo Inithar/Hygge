@@ -7,38 +7,38 @@ import { Section } from "../../components/Section";
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
 import { Personal } from "./Personal/Personal";
 import { Shipping } from "./Shipping/Shipping";
+import { Payment } from "./Payment/Payment";
 import { Container } from "./Checkout.styled";
 
 import { FormValues as PersonalData } from "./Personal/Personal";
 
-type CheckoutData = PersonalData & {
-  addressId: number | null;
+type OrderData = PersonalData & {
+  address: number | null;
 };
 
-type CheckoutFormContextType = {
+type CheckoutContextType = {
   next: () => void;
-  checkoutData: CheckoutData;
-  setCheckoutData: Dispatch<SetStateAction<CheckoutData>>;
+  orderData: OrderData;
+  setOrderData: Dispatch<SetStateAction<OrderData>>;
 };
 
-export const CheckoutFormContext = createContext<CheckoutFormContextType | undefined>(undefined);
+export const CheckoutContext = createContext<CheckoutContextType | undefined>(undefined);
 
 export const Checkout = () => {
-  const { step, next } = useMultiStepForm([<Personal />, <Shipping />]);
+  const { step, next } = useMultiStepForm([<Personal />, <Shipping />, <Payment />]);
 
-  const [checkoutData, setCheckoutData] = useState<CheckoutData>({
+  const [orderData, setOrderData] = useState<OrderData>({
     name: "",
     surname: "",
+    email: "",
     phone: "",
-    addressId: null,
+    address: null,
   });
-
-  console.log(checkoutData);
 
   const value = {
     next,
-    checkoutData,
-    setCheckoutData,
+    orderData,
+    setOrderData,
   };
 
   return (
@@ -46,7 +46,7 @@ export const Checkout = () => {
       <SectionTitle title="Checkout" subtitle="Almost there" margin />
 
       <Container>
-        <CheckoutFormContext.Provider value={value}>{step}</CheckoutFormContext.Provider>
+        <CheckoutContext.Provider value={value}>{step}</CheckoutContext.Provider>
         <Cart />
       </Container>
     </Section>

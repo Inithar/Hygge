@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { media } from "../../../styles/helpers";
+
 import { Button } from "../../../components/Button";
+import { media } from "../../../styles/helpers";
 
 export const Container = styled.div`
   position: relative;
@@ -72,4 +73,10 @@ export const NewAddressButton = styled.button`
 
 export const StyledButton = styled(Button)`
   margin-top: 3.2rem;
+`;
+
+export const SpinnerWrapper = styled.div`
+  display: grid;
+  place-items: center;
+  height: 50rem;
 `;
