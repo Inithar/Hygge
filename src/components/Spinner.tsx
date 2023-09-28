@@ -3,6 +3,7 @@ import { rgba } from "../styles/helpers";
 
 type SpinnerTypes = {
   size?: keyof typeof sizes;
+  secondary?: boolean;
 };
 
 const setSize = (dimension: string, borderWidth: string) => css`
@@ -30,8 +31,9 @@ const spin = keyframes`
 export const Spinner = styled.div<SpinnerTypes>`
   margin-inline: auto;
   border-style: solid;
-  border-color: ${({ theme }) => rgba(theme.colors.primary, 0.24)};
-  border-top-color: ${({ theme }) => theme.colors.primary};
+  border-color: ${({ theme: { colors }, secondary }) =>
+    secondary ? rgba(colors.basic.white, 0.64) : rgba(colors.primary, 0.24)};
+  border-top-color: ${({ theme: { colors }, secondary }) => (secondary ? colors.basic.white : colors.primary)};
   border-radius: 50%;
   animation: ${spin} 1.2s linear infinite;
 
