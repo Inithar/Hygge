@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 import { useCart } from "../../hooks/context/useCart";
@@ -46,6 +47,8 @@ export const ProductItem = ({ id, name, image, price, sale, category, isNew }: P
       oldPrice: sale ? price : undefined,
       qty: 1,
     });
+
+    toast.success("Product has been added to the cart");
   }
 
   return (
