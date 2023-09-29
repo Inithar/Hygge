@@ -5,7 +5,7 @@ import { Section } from "../../../components/Section";
 import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import { Item } from "../Item/Item";
 import { Receipt } from "../Receipt/Receipt";
-import { Empty } from "../Empty/Empty";
+import { EmptyCart } from "../../../components/EmptyCart/EmptyCart";
 import { Cart, Container, Items } from "./CartSection.styled";
 
 export const CartSection = () => {
@@ -24,7 +24,7 @@ export const CartSection = () => {
       </Container>
 
       {isCartEmpty ? (
-        <Empty />
+        <EmptyCart />
       ) : (
         <Cart>
           <Items>

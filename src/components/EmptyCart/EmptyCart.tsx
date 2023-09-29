@@ -1,9 +1,9 @@
-import { LinkButton } from "../../../components/Button";
-import { Heading } from "../../../components/Heading";
-import { Text } from "../../../components/Text";
-import { Container } from "./Empty.styled";
+import { LinkButton } from "../Button";
+import { Heading } from "../Heading";
+import { Text } from "../Text";
+import { Container } from "./EmptyCart.styled";
 
-export const Empty = () => (
+export const EmptyCart = () => (
   <Container>
     <img src="/public/icons/cart.svg" alt="Cart icon" />
 
