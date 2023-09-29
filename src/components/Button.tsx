@@ -47,15 +47,6 @@ const styles = css<ButtonProps>`
 
   ${({ variation }) => variations[variation || "primary"]}
 
-  &:hover:enabled {
-    transform: scale(1.05);
-  }
-
-  &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
-
   ${media("sm")} {
     padding: ${({ small }) => (small ? "1.2rem 3.8rem" : "1.6rem 4rem")};
     font-size: ${({ theme: { fontSizes }, small }) => (small ? fontSizes.md : fontSizes.lg)};
@@ -65,8 +56,21 @@ const styles = css<ButtonProps>`
 
 export const Button = styled.button<ButtonProps>`
   ${styles}
+
+  &:hover:enabled {
+    transform: scale(1.05);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 `;
 
 export const LinkButton = styled(Link)<ButtonProps>`
   ${styles}
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;

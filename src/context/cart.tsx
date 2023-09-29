@@ -16,6 +16,7 @@ type CartContextType = {
   productsTotal: number;
   discountTotal: number;
   cartTotal: number;
+  isCartEmpty: boolean;
   setItemQty: (id: number, qty: number) => void;
   addToCart: (item: Item) => void;
   removeFromCart: (id: number) => void;
@@ -40,6 +41,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   );
 
   const cartTotal = productsTotal - discountTotal + shippingCost;
+  const isCartEmpty = items.length === 0;
 
   function setItemQty(id: number, qty: number) {
     setItems((prev) => prev.map((item) => (item.id === id ? { ...item, qty } : item)));
@@ -70,6 +72,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         shippingCost,
         productsTotal,
         discountTotal,
+        isCartEmpty,
         cartTotal,
         setItemQty,
         addToCart,
