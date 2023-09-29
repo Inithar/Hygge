@@ -1,19 +1,19 @@
 import { Dispatch, Fragment, SetStateAction, createContext, useState } from "react";
 
+import { useCart } from "../../hooks/context/useCart";
 import { useUser } from "../../hooks/api/useUser";
 import { useMultiStepForm } from "../../hooks/useMultiStepForm";
 
 import { Cart } from "../../components/Cart/Cart";
 import { Section } from "../../components/Section";
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
+import { EmptyCart } from "../../components/EmptyCart/EmptyCart";
 import { Personal } from "./Personal/Personal";
 import { Shipping } from "./Shipping/Shipping";
 import { Payment } from "./Payment/Payment";
 import { Circle, Container, Line, Steps } from "./Checkout.styled";
 
 import { FormValues as PersonalData } from "./Personal/Personal";
-import { useCart } from "../../hooks/context/useCart";
-import { EmptyCart } from "../../components/EmptyCart/EmptyCart";
 
 type OrderData = Partial<PersonalData> & {
   address: number | null;
