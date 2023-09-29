@@ -42,7 +42,15 @@ export const Shipping = () => {
           <RadioTileGroup>
             {addresses?.map(({ id, street, houseNumber, flatNumber, postcode, city, country }) => (
               <Container key={id}>
-                <Input id={id.toString()} type="radio" name="address" value={id} onChange={onAddressChange} />
+                <Input
+                  id={id.toString()}
+                  type="radio"
+                  name="address"
+                  value={id}
+                  onChange={onAddressChange}
+                  checked={id === orderData.address}
+                />
+
                 <RadioTile>
                   <label htmlFor={id.toString()}>
                     <Text>

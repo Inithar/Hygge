@@ -22,7 +22,11 @@ const FormSchema = z.object({
 });
 
 export const Personal = () => {
-  const { next, setOrderData } = useCheckout();
+  const {
+    next,
+    setOrderData,
+    orderData: { name, surname, phone, email },
+  } = useCheckout();
 
   const {
     register,
@@ -46,28 +50,28 @@ export const Personal = () => {
           id="name"
           label="Name"
           error={errors.name?.message}
-          inputProps={{ ...register("name"), placeholder: "John" }}
+          inputProps={{ ...register("name"), placeholder: "John", defaultValue: name }}
         />
 
         <TextField
           id="surname"
           label="Surname"
           error={errors.surname?.message}
-          inputProps={{ ...register("surname"), placeholder: "Smith" }}
+          inputProps={{ ...register("surname"), placeholder: "Smith", defaultValue: surname }}
         />
 
         <TextField
           id="email"
           label="Email Address"
           error={errors.email?.message}
-          inputProps={{ ...register("email"), placeholder: "johnsmith@gmail.com", type: "email" }}
+          inputProps={{ ...register("email"), placeholder: "johnsmith@gmail.com", type: "email", defaultValue: email }}
         />
 
         <TextField
           id="phone"
           label="Phone Number"
           error={errors.phone?.message}
-          inputProps={{ ...register("phone"), placeholder: "657-232-123" }}
+          inputProps={{ ...register("phone"), placeholder: "657-232-123", defaultValue: phone }}
         />
 
         <Button disabled={!isValid}>Continue</Button>
