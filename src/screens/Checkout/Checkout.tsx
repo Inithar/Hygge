@@ -12,6 +12,8 @@ import { Payment } from "./Payment/Payment";
 import { Circle, Container, Line, Steps } from "./Checkout.styled";
 
 import { FormValues as PersonalData } from "./Personal/Personal";
+import { useCart } from "../../hooks/context/useCart";
+import { EmptyCart } from "../../components/EmptyCart/EmptyCart";
 
 type OrderData = Partial<PersonalData> & {
   address: number | null;
@@ -27,6 +29,7 @@ export const CheckoutContext = createContext<CheckoutContextType | undefined>(un
 
 export const Checkout = () => {
   const { user } = useUser();
+  const { isCartEmpty } = useCart();
 
   const { step, next, goTo, currentStepIndex, numberOfSteps } = useMultiStepForm([
     <Personal />,
@@ -52,21 +55,25 @@ export const Checkout = () => {
     <Section>
       <SectionTitle title="Checkout" subtitle="Almost there" margin />
 
-      <Container>
-        <Steps>
-          {[...Array(numberOfSteps).keys()].map((i) => (
-            <Fragment key={i}>
-              <Circle onClick={() => goTo(i)} disabled={i > currentStepIndex}>
-                {i + 1}
-              </Circle>
-              {i !== numberOfSteps - 1 && <Line disabled={i > currentStepIndex} />}
-            </Fragment>
-          ))}
-        </Steps>
+      {isCartEmpty ? (
+        <EmptyCart />
+      ) : (
+        <Container>
+          <Steps>
+            {[...Array(numberOfSteps).keys()].map((i) => (
+              <Fragment key={i}>
+                <Circle onClick={() => goTo(i)} disabled={i > currentStepIndex}>
+                  {i + 1}
+                </Circle>
+                {i !== numberOfSteps - 1 && <Line disabled={i > currentStepIndex} />}
+              </Fragment>
+            ))}
+          </Steps>
 
-        <CheckoutContext.Provider value={value}>{step}</CheckoutContext.Provider>
-        <Cart />
-      </Container>
+          <CheckoutContext.Provider value={value}>{step}</CheckoutContext.Provider>
+          <Cart />
+        </Container>
+      )}
     </Section>
   );
 };
