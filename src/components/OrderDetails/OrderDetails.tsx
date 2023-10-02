@@ -1,9 +1,13 @@
-import { Text } from "../../../components/Text";
+import { Text } from "../Text";
 import { Container, Detail, Divider } from "./OrderDetails.styled";
 
-import { convertOrderDate } from "../../../utils/convertOrderDate";
+import { convertOrderDate } from "../../utils/convertOrderDate";
 
-import { PopulateOrder } from "../../../types/collection";
+import { PopulateOrder } from "../../types/collection";
+
+type OrderDetailsProps = {
+  smallFontSize?: boolean;
+} & PopulateOrder;
 
 export const OrderDetails = ({
   name,
@@ -13,12 +17,13 @@ export const OrderDetails = ({
   phone,
   email,
   address: { city, country, houseNumber, flatNumber, street, postcode },
-}: PopulateOrder) => {
+  smallFontSize,
+}: OrderDetailsProps) => {
   const { time, date } = convertOrderDate(created_at);
 
   return (
     <Container>
-      <Detail>
+      <Detail smallFontSize={smallFontSize}>
         <Text>Order Number</Text>
         <Divider />
         <div>
@@ -26,7 +31,7 @@ export const OrderDetails = ({
         </div>
       </Detail>
 
-      <Detail>
+      <Detail smallFontSize={smallFontSize}>
         <Text>Order Date</Text>
         <Divider />
         <div>
@@ -35,7 +40,7 @@ export const OrderDetails = ({
         </div>
       </Detail>
 
-      <Detail>
+      <Detail smallFontSize={smallFontSize}>
         <Text>Shipping Address</Text>
         <Divider />
         <div>
@@ -49,7 +54,7 @@ export const OrderDetails = ({
         </div>
       </Detail>
 
-      <Detail>
+      <Detail smallFontSize={smallFontSize}>
         <Text>Personal Information</Text>
         <Divider />
         <div>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import { media, rgba } from "../../../styles/helpers";
+import { media, rgba } from "../../styles/helpers";
 
 export const Container = styled.div`
   margin-top: 5.6rem;

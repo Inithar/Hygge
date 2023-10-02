@@ -1,6 +1,6 @@
-import { useOrderedProducts } from "../../../hooks/api/useOrderedProducts";
+import { useOrderedProducts } from "../../hooks/api/useOrderedProducts";
 
-import { Text } from "../../../components/Text";
+import { Text } from "../Text";
 import { Items, Item, StyledLink, Container } from "./OrderItems.styled";
 
 type OrderedItemsProps = {

@@ -7,8 +7,8 @@ import { useUpdateOrder } from "../../hooks/api/useUpdateOrder";
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
 import { Text } from "../../components/Text";
 import { Spinner } from "../../components/Spinner";
-import { OrderItems } from "./OrderItems/OrderItems";
-import { OrderDetails } from "./OrderDetails/OrderDetails";
+import { OrderItems } from "../../components/OrderItems/OrderItems";
+import { OrderDetails } from "../../components/OrderDetails/OrderDetails";
 import { Container, Description, SpinnerWrapper, StyledSection } from "./Confirmation.styled";
 
 export const Confirmation = () => {
@@ -52,8 +52,8 @@ export const Confirmation = () => {
         <Container>
           <Description>
             <Text>
-              You will find all the details about your order below, and we'll
-              send you a shipping confirmation email as soon as your order ships.
+              You will find all the details about your order below, and we'll send you a shipping confirmation email as
+              soon as your order ships.
             </Text>
             <Text>Questions? Suggestions? Insightful show thoughts? Shoot us an email.</Text>
           </Description>
