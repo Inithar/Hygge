@@ -46,7 +46,7 @@ export const Orders = () => {
       <NoOrdersContainer>
         <img src="/icons/open-box.svg" alt="Empty box icon" />
         <p>You currently have no orders.</p>
-        <Link to="/account/orders">View all orders</Link>
+        {pathname === "/account/home" && <Link to="/account/orders">View all orders</Link>}
         <Link to="/products">Go shopping</Link>
       </NoOrdersContainer>
     );
