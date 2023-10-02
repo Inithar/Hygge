@@ -168,6 +168,7 @@ export interface Database {
       orders: {
         Row: {
           address: number
+          amount: number
           created_at: string
           email: string
           id: number
@@ -178,6 +179,7 @@ export interface Database {
         }
         Insert: {
           address: number
+          amount: number
           created_at?: string
           email: string
           id?: number
@@ -188,6 +190,7 @@ export interface Database {
         }
         Update: {
           address?: number
+          amount?: number
           created_at?: string
           email?: string
           id?: number
