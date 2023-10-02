@@ -32,11 +32,6 @@ export const links = [
         url: "/account/addresses",
         icon: "/icons/location-pin.svg",
       },
-      {
-        title: "Payment Cards",
-        url: "/account/cards",
-        icon: "/icons/credit-card.svg",
-      },
     ],
   },
   {

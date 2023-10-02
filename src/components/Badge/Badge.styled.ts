@@ -47,6 +47,7 @@ const sizes = {
 
 export const StyledBadge = styled.div<StyledBadgeProps>`
   display: inline-block;
+  text-align: center;
   font-family: ${theme.fontFamilies.montserrat.bold};
   text-transform: uppercase;
   letter-spacing: 0.05rem;

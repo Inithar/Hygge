@@ -1,7 +1,8 @@
+import { ReactNode } from 'react';
 import { StyledBadgeProps, StyledBadge } from "./Badge.styled";
 
 type BadgeProps = StyledBadgeProps & {
-  children: string;
+  children: ReactNode;
 };
 
 export const Badge = ({ children, ...props }: BadgeProps) => (

@@ -5,7 +5,7 @@ import { Container } from "./EmptyCart.styled";
 
 export const EmptyCart = () => (
   <Container>
-    <img src="/public/icons/cart.svg" alt="Cart icon" />
+    <img src="/icons/cart.svg" alt="Cart icon" />
 
     <Heading as="h2">Your cart is currently empty</Heading>
 

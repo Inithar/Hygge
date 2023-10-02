@@ -85,7 +85,7 @@ export const Header = () => {
               ) : null}
             </div>
 
-            <Link to={isAuthenticated ? "/account" : "/login"}>
+            <Link to={isAuthenticated ? "/account/home" : "/login"}>
               <Icon src="/icons/user.svg" iconSize="md" />
             </Link>
           </Icons>

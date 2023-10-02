@@ -13,15 +13,18 @@ import { Faq } from "./screens/Faq/Faq";
 import { TermsAndConditions } from "./screens/TermsAndConditions/TermsAndConditions";
 
 import { Checkout } from "./screens/Checkout/Checkout";
+import { Confirmation } from "./screens/Confirmation/Confirmation";
 
 import { Account } from "./screens/Account/Account";
+import { Home as AccountHome } from "./screens/Account/Home/Home";
+import { Orders } from "./screens/Account/Orders/Orders";
+import { Order } from "./screens/Account/Order/Order";
 import { Addresses } from "./screens/Account/Addresses/Addresses";
 
 import { Register } from "./screens/Register/Register";
 import { Login } from "./screens/Login/Login";
 
 import { ProtectedRoute } from "./components/ProtectedRoute";
-import { Confirmation } from "./screens/Confirmation/Confirmation";
 
 export const Routes = () => (
   <ReactRoutes>
@@ -40,6 +43,9 @@ export const Routes = () => (
           <Route path="/checkout/confirmation" element={<Confirmation />} />
 
           <Route path="/account/" element={<Account />}>
+            <Route path="home" element={<AccountHome />} />
+            <Route path="orders" element={<Orders />} />
+            <Route path="orders/:id" element={<Order />} />
             <Route path="addresses" element={<Addresses />} />
           </Route>
         </Route>
