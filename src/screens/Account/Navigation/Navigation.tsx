@@ -35,7 +35,7 @@ export const Navigation = () => {
 
       <button onClick={() => logout()}>
         <img src="/icons/logout.svg" alt="log out icon" />
-        Log Out
+        <span>Log Out</span>
       </button>
     </StyledNavigation>
   );
