@@ -26,6 +26,8 @@ import { Login } from "./screens/Login/Login";
 
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
+import { UnderConstruction } from "./screens/UnderConstruction/UnderConstruction";
+
 export const Routes = () => (
   <ReactRoutes>
     <Route element={<RootLayout />}>
@@ -41,7 +43,6 @@ export const Routes = () => (
         <Route element={<ProtectedRoute />}>
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/checkout/confirmation" element={<Confirmation />} />
-
           <Route path="/account/" element={<Account />}>
             <Route path="home" element={<AccountHome />} />
             <Route path="orders" element={<Orders />} />
@@ -55,6 +56,8 @@ export const Routes = () => (
           <Route path="/login" element={<Login />} />
         </Route>
       </Route>
+
+      <Route path="/under-construction" element={<UnderConstruction />} />
     </Route>
   </ReactRoutes>
 );

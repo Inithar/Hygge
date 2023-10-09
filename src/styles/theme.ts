@@ -27,6 +27,7 @@ const fontSizes = {
   "2xl": "2.4rem",
   "3xl": "3.2rem",
   "4xl": "4rem",
+  "5xl": "5.2rem",
 };
 
 const colors = {
