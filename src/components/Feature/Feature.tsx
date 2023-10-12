@@ -18,9 +18,7 @@ export const Feature = ({ icon, name, description, align = "start" }: FeaturePro
 
     <Container align={align}>
       <Heading as="h4">{name}</Heading>
-      <Text fontSize="lg" align={align}>
-        {description}
-      </Text>
+      <Text align={align}>{description}</Text>
     </Container>
   </StyledFeature>
 );

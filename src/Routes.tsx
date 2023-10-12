@@ -6,6 +6,7 @@ import { AuthLayout } from "./layouts/AuthLayout/AuthLayout";
 
 import { Home } from "./screens/Home/Home";
 import { Products } from "./screens/Products/Products";
+import { Product } from "./screens/Product/Product";
 import { About } from "./screens/About/About";
 import { Contact } from "./screens/Contact/Contact";
 import { Cart } from "./screens/Cart/Cart";
@@ -34,6 +35,7 @@ export const Routes = () => (
       <Route element={<PageLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<Product />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />

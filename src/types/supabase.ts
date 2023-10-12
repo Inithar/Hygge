@@ -128,6 +128,30 @@ export interface Database {
           }
         ]
       }
+      features: {
+        Row: {
+          created_at: string
+          description: string
+          icon: string
+          id: number
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          icon: string
+          id?: number
+          name: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          icon?: string
+          id?: number
+          name?: string
+        }
+        Relationships: []
+      }
       orderedProducts: {
         Row: {
           created_at: string
@@ -256,6 +280,34 @@ export interface Database {
             foreignKeyName: "products_category_fkey"
             columns: ["category"]
             referencedRelation: "categories"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      products_features: {
+        Row: {
+          feature: number
+          product: number
+        }
+        Insert: {
+          feature: number
+          product: number
+        }
+        Update: {
+          feature?: number
+          product?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "products_features_feature_fkey"
+            columns: ["feature"]
+            referencedRelation: "features"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "products_features_product_fkey"
+            columns: ["product"]
+            referencedRelation: "products"
             referencedColumns: ["id"]
           }
         ]

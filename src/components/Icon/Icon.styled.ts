@@ -30,6 +30,7 @@ const variations = {
 
 export const IconBox = styled.div<IconBoxProps>`
   display: inline-flex;
+  flex-shrink: 0;
   padding: ${({ paddingSize }) => (paddingSize ? paddingSizes[paddingSize] : 0)};
   border-radius: 50%;
 

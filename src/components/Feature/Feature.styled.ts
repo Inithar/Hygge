@@ -26,4 +26,8 @@ export const Container = styled.div<ContainerProps>`
   & > h4 {
     margin-bottom: 1.6rem;
   }
+
+  & > p {
+    font-size: ${({ theme }) => theme.fontSizes.lg};
+  }
 `;
