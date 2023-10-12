@@ -1,4 +1,5 @@
 import { Database } from "./supabase";
+import { BadgeColor } from "../components/Badge/Badge.styled";
 
 export type Category = Database["public"]["Tables"]["categories"]["Row"];
 export type Brand = Database["public"]["Tables"]["brands"]["Row"];
@@ -15,3 +16,18 @@ export interface PopulateProduct extends Omit<Product, "category" | "brand"> {
 export interface PopulateOrder extends Omit<Order, "address"> {
   address: Address;
 }
+
+export type BlogPost = {
+  id: string;
+  title: string;
+  url: string;
+  img: string;
+  tag?: {
+    title: string;
+    color: BadgeColor;
+  };
+  category: {
+    title: string;
+    color: BadgeColor;
+  };
+};
