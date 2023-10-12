@@ -312,6 +312,43 @@ export interface Database {
           }
         ]
       }
+      products_reviews: {
+        Row: {
+          content: string
+          created_at: string
+          id: number
+          name: string
+          product: number
+          profile_image: string
+          surname: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: number
+          name: string
+          product: number
+          profile_image: string
+          surname: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: number
+          name?: string
+          product?: number
+          profile_image?: string
+          surname?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "products_reviews_product_fkey"
+            columns: ["product"]
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
     }
     Views: {
       [_ in never]: never

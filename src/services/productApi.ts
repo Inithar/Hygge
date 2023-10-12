@@ -14,3 +14,13 @@ export const getProductFeatures = async (id: number) => {
 
   return features;
 };
+
+export const getProductReviews = async (id: number) => {
+  const { data: reviews, error } = await supabase.from("products_reviews").select("*").eq("product", id);
+
+  if (error) {
+    throw new Error("Product reviews could not be loaded");
+  }
+
+  return reviews;
+};
