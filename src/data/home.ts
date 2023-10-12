@@ -3,18 +3,18 @@ import { BlogPost } from "../types/collection";
 export const features = [
   {
     icon: "/icons/box.svg",
-    title: "Easy Returns",
-    text: "Our return policy is simple and that is why customers love our shop.",
+    name: "Easy Returns",
+    description: "Our return policy is simple and that is why customers love our shop.",
   },
   {
     icon: "/icons/user.svg",
-    title: "Customer Service",
-    text: "We offer amazing customer service no matter what happens.",
+    name: "Customer Service",
+    description: "We offer amazing customer service no matter what happens.",
   },
   {
     icon: "/icons/star.svg",
-    title: "High Quality",
-    text: "All of our products go through very strict inspection before we dispatch them.",
+    name: "High Quality",
+    description: "All of our products go through very strict inspection before we dispatch them.",
   },
 ];
 

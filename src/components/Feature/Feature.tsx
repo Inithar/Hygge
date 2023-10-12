@@ -7,19 +7,19 @@ export type AlignOption = "start" | "center";
 
 type FeatureProps = {
   icon: string;
-  title: string;
-  text: string;
+  name: string;
+  description: string;
   align?: AlignOption;
 };
 
-export const Feature = ({ icon, title, text, align = "start" }: FeatureProps) => (
+export const Feature = ({ icon, name, description, align = "start" }: FeatureProps) => (
   <StyledFeature align={align}>
     <Icon src={icon} iconSize="lg" paddingSize="md" variation="fill" />
 
     <Container align={align}>
-      <Heading as="h4">{title}</Heading>
+      <Heading as="h4">{name}</Heading>
       <Text fontSize="lg" align={align}>
-        {text}
+        {description}
       </Text>
     </Container>
   </StyledFeature>
