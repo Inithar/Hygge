@@ -22,6 +22,8 @@ export const StyledSection = styled(Section)`
   }
 
   ${media("sm")} {
+    padding-bottom: 0;
+
     .slider-controls {
       top: -5.5rem;
       right: -4rem;
