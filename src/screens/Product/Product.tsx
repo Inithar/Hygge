@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom";
 import { useProductReviews } from "../../hooks/api/useProductReviews";
 
 import { Features } from "./Features/Features";
-
 import { Reviews } from "../../components/Reviews/Reviews";
+import { RelatedProducts } from "./RelatedProducts/RelatedProducts";
+
 import { Spinner } from "../../components/Spinner";
 import { SpinnerContainer } from "./Product.styled";
 
@@ -30,6 +31,8 @@ export const Product = () => {
       ) : (
         reviews && <Reviews reviews={reviews} />
       )}
+
+      <RelatedProducts />
     </>
   );
 };

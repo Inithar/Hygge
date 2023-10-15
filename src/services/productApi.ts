@@ -1,5 +1,5 @@
 import { supabase } from "../lib/supabase";
-import { PopulateProductFeatures } from "../types/collection";
+import { PopulateProductFeatures, PopulateRelatedProducts } from "../types/collection";
 
 export const getProductFeatures = async (id: number) => {
   const { data: features, error } = await supabase
@@ -23,4 +23,18 @@ export const getProductReviews = async (id: number) => {
   }
 
   return reviews;
+};
+
+export const getRelatedProducts = async (id: number) => {
+  const { data: relatedProducts, error } = await supabase
+    .from("related_products")
+    .select(`*, related_product(*, category("name", "color"), brand("name"))`)
+    .eq("product", id)
+    .returns<PopulateRelatedProducts[]>();
+
+  if (error) {
+    throw new Error("Related products could not be loaded");
+  }
+
+  return relatedProducts;
 };

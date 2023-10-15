@@ -349,6 +349,34 @@ export interface Database {
           }
         ]
       }
+      related_products: {
+        Row: {
+          product: number
+          related_product: number
+        }
+        Insert: {
+          product: number
+          related_product?: number
+        }
+        Update: {
+          product?: number
+          related_product?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "related_products_product_fkey"
+            columns: ["product"]
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "related_products_related_product_fkey"
+            columns: ["related_product"]
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
     }
     Views: {
       [_ in never]: never
