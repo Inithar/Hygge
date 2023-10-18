@@ -76,7 +76,7 @@ export interface Database {
       categories: {
         Row: {
           active: boolean | null
-          color: string
+          color: Database["public"]["Enums"]["color"]
           created_at: string
           icon: string
           id: number
@@ -84,7 +84,7 @@ export interface Database {
         }
         Insert: {
           active?: boolean | null
-          color: string
+          color: Database["public"]["Enums"]["color"]
           created_at?: string
           icon: string
           id?: number
@@ -92,7 +92,7 @@ export interface Database {
         }
         Update: {
           active?: boolean | null
-          color?: string
+          color?: Database["public"]["Enums"]["color"]
           created_at?: string
           icon?: string
           id?: number
@@ -390,6 +390,7 @@ export interface Database {
       }
     }
     Enums: {
+      color: "green" | "blue" | "yellow" | "pink" | "red"
       order_status:
         | "pending payment"
         | "processing"

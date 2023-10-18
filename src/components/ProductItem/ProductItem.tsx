@@ -29,7 +29,7 @@ type ProductProps = {
   isNew: boolean;
   category: {
     name: string;
-    color: string;
+    color: BadgeColor;
   };
 };
 
@@ -79,7 +79,7 @@ export const ProductItem = ({ id, name, image, price, sale, category, isNew }: P
         </Link>
 
         <Details>
-          <Badge color={category.color as BadgeColor}>{category.name}</Badge>
+          <Badge color={category.color}>{category.name}</Badge>
           <Price>
             <Old isDisplay={Boolean(sale)}>${price}</Old>
             <Current>${currentPrice}</Current>

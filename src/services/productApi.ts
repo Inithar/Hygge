@@ -1,5 +1,19 @@
 import { supabase } from "../lib/supabase";
-import { PopulateProductFeatures, PopulateRelatedProducts } from "../types/collection";
+import { PopulateProduct, PopulateProductFeatures, PopulateRelatedProducts } from "../types/collection";
+
+export const getProduct = async (id: number) => {
+  const { data: product, error } = await supabase
+    .from("products")
+    .select(`*, category("name", "color"), brand("name")`)
+    .eq("id", id)
+    .single<PopulateProduct>();
+
+  if (error) {
+    throw new Error("Product could not be loaded");
+  }
+
+  return product;
+};
 
 export const getProductFeatures = async (id: number) => {
   const { data: features, error } = await supabase

@@ -9,6 +9,7 @@ import { Newsletter } from "../../components/Newsletter/Newsletter";
 
 import { Spinner } from "../../components/Spinner";
 import { SpinnerContainer } from "./Product.styled";
+import { Details } from "./Details/Details";
 
 export const Product = () => {
   const { id } = useParams();
@@ -23,6 +24,7 @@ export const Product = () => {
 
   return (
     <>
+      <Details />
       <Features />
 
       {isLoading ? (
