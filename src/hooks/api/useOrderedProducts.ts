@@ -7,7 +7,7 @@ export const useOrderedProducts = (orderId: number) => {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["orderedProducts"],
+    queryKey: ["orderedProducts", orderId],
     queryFn: () => getOrderedProducts(orderId),
   });
 

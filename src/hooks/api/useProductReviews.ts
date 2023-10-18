@@ -7,7 +7,7 @@ export const useProductReviews = (id: number) => {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["productReviews"],
+    queryKey: ["productReviews", id],
     queryFn: () => getProductReviews(id),
   });
 

@@ -3,7 +3,7 @@ import { getRelatedProducts } from "../../services/productApi";
 
 export const useRelatedProducts = (id: number) => {
   const { data, isLoading, error } = useQuery({
-    queryKey: ["relatedProducts"],
+    queryKey: ["relatedProducts", id],
     queryFn: () => getRelatedProducts(id),
   });
 

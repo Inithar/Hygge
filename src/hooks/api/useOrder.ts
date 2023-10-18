@@ -3,7 +3,7 @@ import { getOrder } from "../../services/ordersApi";
 
 export const useOrder = (id: number) => {
   const { data, isLoading, error } = useQuery({
-    queryKey: ["order"],
+    queryKey: ["order", id],
     queryFn: () => getOrder(id),
   });
 

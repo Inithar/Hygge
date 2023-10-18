@@ -7,7 +7,7 @@ export const useUserAddresses = (userId: string) => {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["userAddresses"],
+    queryKey: ["userAddresses", userId],
     queryFn: () => getUserAddresses(userId),
   });
 
