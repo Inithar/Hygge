@@ -73,11 +73,12 @@ export const Controls = styled.div`
   }
 `;
 
-export const Icon = styled.div`
+export const Icon = styled.button`
   display: flex;
   align-content: center;
   justify-content: center;
   padding: 1.2rem;
+  background-color: transparent;
   border-radius: 50%;
   border: 0.2rem solid ${({ theme }) => theme.colors.accent.one};
 

@@ -1,8 +1,10 @@
 import toast from "react-hot-toast";
 import { useState } from "react";
 
+import { useUser } from "../../../hooks/api/useUser";
 import { useCart } from "../../../hooks/context/useCart";
 import { useWindowSize } from "../../../hooks/useWindowSize";
+import { useAddFavoriteProduct } from "../../../hooks/api/useAddFavoriteProduct";
 
 import { Counter } from "../../../components/Counter/Counter";
 import { Button } from "../../../components/Button";
@@ -16,6 +18,8 @@ import { breakpoints } from "../../../constants/breakpoints";
 export const Information = ({ id, name, category, sale, price, images }: PopulateProduct) => {
   const { width } = useWindowSize();
   const { addToCart } = useCart();
+  const { addFavoriteProduct } = useAddFavoriteProduct();
+  const { user } = useUser();
 
   const [qty, setQty] = useState(1);
 
@@ -47,7 +51,7 @@ export const Information = ({ id, name, category, sale, price, images }: Populat
 
         <div>
           <Button onClick={handleAddToCart}>Add to Cart</Button>
-          <Icon>
+          <Icon onClick={() => addFavoriteProduct({ customerId: user!.id, productId: id })}>
             <img src="/icons/heart.svg" alt="Heart icon" />
           </Icon>
         </div>

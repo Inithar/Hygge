@@ -128,6 +128,34 @@ export interface Database {
           }
         ]
       }
+      favorite_products: {
+        Row: {
+          customer: string
+          product: number
+        }
+        Insert: {
+          customer: string
+          product: number
+        }
+        Update: {
+          customer?: string
+          product?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "favorite_products_customer_fkey"
+            columns: ["customer"]
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "favorite_products_product_fkey"
+            columns: ["product"]
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       features: {
         Row: {
           created_at: string
