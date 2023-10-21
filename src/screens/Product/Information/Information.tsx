@@ -51,7 +51,7 @@ export const Information = ({ id, name, category, sale, price, images }: Populat
 
         <div>
           <Button onClick={handleAddToCart}>Add to Cart</Button>
-          <Icon onClick={() => addFavoriteProduct({ customerId: user!.id, productId: id })}>
+          <Icon onClick={() => addFavoriteProduct({ userId: user!.id, productId: id })}>
             <img src="/icons/heart.svg" alt="Heart icon" />
           </Icon>
         </div>

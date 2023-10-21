@@ -10,6 +10,7 @@ export type OrderedProduct = Database["public"]["Tables"]["orderedProducts"]["Ro
 export type Feature = Database["public"]["Tables"]["features"]["Row"];
 export type ProductFeatures = Database["public"]["Tables"]["products_features"]["Row"];
 export type RelatedProducts = Database["public"]["Tables"]["related_products"]["Row"];
+export type FavoriteProducts = Database["public"]["Tables"]["favorite_products"]["Row"];
 
 export interface PopulateProduct extends Omit<Product, "category" | "brand"> {
   category: Pick<Category, "name" | "color">;
@@ -26,6 +27,10 @@ export interface PopulateProductFeatures extends Omit<ProductFeatures, "feature"
 
 export interface PopulateRelatedProducts extends Omit<RelatedProducts, "related_product"> {
   ["related_product"]: PopulateProduct;
+}
+
+export interface PopulateFavoriteProducts extends Omit<FavoriteProducts, "product"> {
+  product: PopulateProduct;
 }
 
 export type BlogPost = {

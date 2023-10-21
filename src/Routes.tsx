@@ -20,6 +20,7 @@ import { Account } from "./screens/Account/Account";
 import { Home as AccountHome } from "./screens/Account/Home/Home";
 import { Orders } from "./screens/Account/Orders/Orders";
 import { Order } from "./screens/Account/Order/Order";
+import { Wishlist } from "./screens/Account/Wishlist/Wishlist";
 import { Addresses } from "./screens/Account/Addresses/Addresses";
 
 import { Register } from "./screens/Register/Register";
@@ -49,6 +50,7 @@ export const Routes = () => (
             <Route path="home" element={<AccountHome />} />
             <Route path="orders" element={<Orders />} />
             <Route path="orders/:id" element={<Order />} />
+            <Route path="wishlist" element={<Wishlist />} />
             <Route path="addresses" element={<Addresses />} />
           </Route>
         </Route>
