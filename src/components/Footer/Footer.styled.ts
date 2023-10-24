@@ -32,7 +32,26 @@ export const Socials = styled.div`
   margin-top: 0.8rem;
 
   & > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
+
+    svg {
+      font-size: ${({ theme }) => theme.fontSizes["2xl"]};
+      transition: color 0.3s;
+    }
+  }
+
+  & > a:hover > svg {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+
+  ${media("md")} {
+    & > a {
+      padding: 1.2rem;
+      background-color: ${({ theme }) => theme.colors.accent.one};
+    }
   }
 `;
 

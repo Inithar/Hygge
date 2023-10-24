@@ -64,10 +64,9 @@ export const NewAddressButton = styled.button`
   height: 13.3rem;
   width: 100%;
 
-  & > img {
-    width: 4rem;
-    height: 4rem;
-    opacity: 0.4;
+  & > svg {
+    font-size: 4.6rem;
+    opacity: 0.5;
   }
 `;
 

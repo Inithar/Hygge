@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react";
+import { CiSquarePlus as Plus } from "react-icons/ci";
 
 import { useUserAddresses } from "../../../hooks/api/useUserAddresses";
 import { useCheckout } from "../../../hooks/context/useCheckout";
@@ -69,7 +70,7 @@ export const Shipping = () => {
           <Modal>
             <Modal.Open opens="address">
               <NewAddressButton aria-label="Create new address">
-                <img src="/icons/plus-square.svg" alt="Plus icon" />
+                <Plus />
               </NewAddressButton>
             </Modal.Open>
 

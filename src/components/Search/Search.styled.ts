@@ -39,12 +39,11 @@ export const Form = styled.form`
     }
   }
 
-  & > div:last-of-type {
+  & > svg {
     position: absolute;
     top: 50%;
     left: 1.6rem;
-    width: 2.4rem;
-    height: 2.4rem;
+    font-size: 2.8rem;
     transform: translateY(-50%);
   }
 `;

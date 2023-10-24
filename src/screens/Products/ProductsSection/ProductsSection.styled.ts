@@ -51,7 +51,8 @@ export const FiltersButton = styled.button<{ isActive: boolean }>`
     box-shadow: ${shadows.md};
   `}
 
-  & > img {
+  & > svg {
+    font-size: ${({ theme }) => theme.fontSizes["2xl"]};
     transition: transform 0.3s;
     transform: rotate(${({ isActive }) => (isActive ? "180deg" : "0deg")});
   }
@@ -61,6 +62,10 @@ export const FiltersButton = styled.button<{ isActive: boolean }>`
     padding: 1.6rem 2.2rem;
     font-size: ${({ theme }) => theme.fontSizes.lg};
     border-radius: ${({ theme }) => theme.borderRadius.md};
+
+    & > svg {
+      font-size: ${({ theme }) => theme.fontSizes["3xl"]};
+    }
   }
 
   ${media("md")} {

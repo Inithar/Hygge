@@ -1,5 +1,6 @@
 import toast from "react-hot-toast";
 import { useState } from "react";
+import { FiHeart as Heart } from "react-icons/fi";
 
 import { useUser } from "../../../hooks/api/useUser";
 import { useCart } from "../../../hooks/context/useCart";
@@ -7,10 +8,9 @@ import { useWindowSize } from "../../../hooks/useWindowSize";
 import { useAddFavoriteProduct } from "../../../hooks/api/useAddFavoriteProduct";
 
 import { Counter } from "../../../components/Counter/Counter";
-import { Button } from "../../../components/Button";
 import { Badge } from "../../../components/Badge/Badge";
 import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
-import { Box, Container, Price, Old, Current, Controls, Icon } from "./Information.styled";
+import { Box, Container, Price, Old, Current, Controls, Icon, StyledButton } from "./Information.styled";
 
 import { PopulateProduct } from "../../../types/collection";
 import { breakpoints } from "../../../constants/breakpoints";
@@ -50,9 +50,9 @@ export const Information = ({ id, name, category, sale, price, images }: Populat
         <Counter value={qty} onChange={(value) => setQty(value)} min={1} max={99} />
 
         <div>
-          <Button onClick={handleAddToCart}>Add to Cart</Button>
+          <StyledButton onClick={handleAddToCart}>Add to Cart</StyledButton>
           <Icon onClick={() => addFavoriteProduct({ userId: user!.id, productId: id })}>
-            <img src="/icons/heart.svg" alt="Heart icon" />
+            <Heart />
           </Icon>
         </div>
       </Controls>

@@ -1,4 +1,7 @@
 import { useState, MouseEvent, useRef } from "react";
+import { MdOutlineKeyboardArrowDown as ArrowDown } from "react-icons/md";
+import { FiCheck as Checked} from "react-icons/fi";
+
 import { Body, Container, Head, Label, Option } from "./Select.styled";
 
 export type SelectOption = {
@@ -64,7 +67,7 @@ export const Select = ({ multiple, selected, options, placeholder, label, onChan
       >
         <Head>
           <span>{multiple ? placeholder : options.find((o) => isOptionSelected(o))?.label ?? placeholder}</span>
-          <img src="/icons/arrow-down.svg" alt="arrow icon" />
+          <ArrowDown />
         </Head>
 
         <Body>
@@ -75,7 +78,7 @@ export const Select = ({ multiple, selected, options, placeholder, label, onChan
               key={option.value}
             >
               <span>{option.label}</span>
-              <img src="/icons/checkmark.svg" alt="checkmark icon" />
+              <Checked />
             </Option>
           ))}
         </Body>

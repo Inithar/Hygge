@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { AiOutlineClose as CloseIcon } from "react-icons/ai";
 
 import { useCart } from "../../hooks/context/useCart";
 
@@ -54,7 +55,7 @@ export const Cart = ({ place = "checkout" }: CartProps) => {
             </Details>
 
             <RemoveItemButton onClick={() => removeFromCart(id)} aria-label={`Remove ${name} from cart`}>
-              <img src="/icons/delete.svg" alt="delete icon" />
+              <CloseIcon />
             </RemoveItemButton>
           </Item>
         ))}

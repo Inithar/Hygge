@@ -14,9 +14,17 @@ export const StyledCounter = styled.div`
   & > button {
     display: grid;
     place-items: center;
-    height: 2rem;
     background-color: transparent;
     border: none;
+
+    svg {
+      font-size: ${({ theme }) => theme.fontSizes["3xl"]};
+      transition: color 0.3s;
+    }
+  }
+
+  & > button:hover > svg {
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   & > input {

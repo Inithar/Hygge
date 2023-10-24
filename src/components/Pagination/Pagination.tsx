@@ -1,4 +1,6 @@
 import { useSearchParams } from "react-router-dom";
+import { MdOutlineKeyboardArrowRight as ArrowNext, MdOutlineKeyboardArrowLeft as ArrowPrev } from "react-icons/md";
+
 import { Button, Buttons, Container, Text } from "./Pagination.styled";
 
 type PaginationProps = {
@@ -39,13 +41,13 @@ export const Pagination = ({ count, pageSize }: PaginationProps) => {
 
       <Buttons>
         <Button onClick={handlePrevClick} disabled={currentPage === 1}>
-          <img src="/icons/arrow-prev.svg" alt="Arrow pointing to the left" />
+          <ArrowPrev />
           <span>Previous</span>
         </Button>
 
         <Button onClick={handleNextClick} disabled={currentPage === pageCount}>
           <span>Next</span>
-          <img src="/icons/arrow-next.svg" alt="Arrow pointing to the right" />
+          <ArrowNext />
         </Button>
       </Buttons>
     </Container>

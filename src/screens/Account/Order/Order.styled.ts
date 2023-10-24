@@ -23,16 +23,22 @@ export const Container = styled.div`
 export const BackButton = styled(Link)`
   display: inline-flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 0.6rem;
   font-size: ${({ theme }) => theme.fontSizes.md};
+  transition: color 0.3s;
 
-  & > img {
-    width: 2.2rem;
-    height: 2.2rem;
+  & > svg {
+    font-size: ${({ theme }) => theme.fontSizes["4xl"]};
+    transition: color 0.25s;
   }
 
   & > span {
     line-height: 1;
+  }
+
+  &:hover,
+  &:hover > svg {
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 

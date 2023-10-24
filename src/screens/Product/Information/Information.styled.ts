@@ -1,4 +1,6 @@
 import styled, { css } from "styled-components";
+
+import { Button } from "../../../components/Button";
 import { media, rgba } from "../../../styles/helpers";
 
 export const Container = styled.div`
@@ -82,17 +84,21 @@ export const Icon = styled.button`
   border-radius: 50%;
   border: 0.2rem solid ${({ theme }) => theme.colors.accent.one};
 
-  img {
-    width: 2.4rem;
-    height: 2.4rem;
+  svg {
+    font-size: ${({ theme }) => theme.fontSizes["2xl"]};
   }
 
   ${media("sm")} {
     padding: 1.6rem;
 
-    img {
-      width: 3.2rem;
-      height: 3.2rem;
+    svg {
+      font-size: ${({ theme }) => theme.fontSizes["3xl"]};
     }
+  }
+`;
+
+export const StyledButton = styled(Button)`
+  ${media("xl")} {
+    padding: 1.6rem 3.2rem;
   }
 `;

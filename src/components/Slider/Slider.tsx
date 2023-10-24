@@ -1,11 +1,11 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { ReactNode, useRef, useState } from "react";
 import SlickSlider, { Settings } from "react-slick";
+import { ReactNode, useRef, useState } from "react";
+import { MdOutlineKeyboardArrowRight as ArrowNext, MdOutlineKeyboardArrowLeft as ArrowPrev } from "react-icons/md";
 
-import { Icon } from "../Icon/Icon";
-import { Container } from "./Slider.styled";
+import { Container, IconBox } from "./Slider.styled";
 
 type SliderProps = {
   children: ReactNode;
@@ -38,10 +38,14 @@ export const Slider = ({ settings, children, gap }: SliderProps) => {
       {settings.arrows && (
         <div className="slider-controls">
           <button onClick={sliderRef?.slickPrev} aria-label="Previous slide">
-            <Icon src="/icons/arrow-prev.svg" paddingSize="md" variation="fill" />
+            <IconBox>
+              <ArrowPrev />
+            </IconBox>
           </button>
           <button onClick={sliderRef?.slickNext} aria-label="Next slide">
-            <Icon src="/icons/arrow-next.svg" paddingSize="md" variation="fill" />
+            <IconBox>
+              <ArrowNext />
+            </IconBox>
           </button>
         </div>
       )}

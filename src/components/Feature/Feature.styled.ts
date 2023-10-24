@@ -31,3 +31,18 @@ export const Container = styled.div<ContainerProps>`
     font-size: ${({ theme }) => theme.fontSizes.lg};
   }
 `;
+
+export const IconBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.6rem;
+  background-color: ${({ theme }) => theme.colors.accent.one};
+  border-radius: 50%;
+
+  & > img {
+    max-width: unset;
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+`;

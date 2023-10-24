@@ -119,10 +119,9 @@ export const NoOrdersContainer = styled.div`
   place-items: center;
   gap: 2.4rem;
 
-  & > img {
+  & > svg {
     margin-top: 2.4rem;
-    width: 8rem;
-    height: 8rem;
+    font-size: 8rem;
   }
 
   & > p {

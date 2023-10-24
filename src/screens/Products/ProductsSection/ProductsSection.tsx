@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { MdOutlineKeyboardArrowDown as ArrowDown } from "react-icons/md";
 
 import { useCategories } from "../../../hooks/api/useCategories";
 import { useBrands } from "../../../hooks/api/useBrands";
@@ -94,7 +95,7 @@ export const ProductsSection = () => {
       <Container>
         <FiltersButton isActive={isFiltersOpen} onClick={() => setIsFiltersOpen((prev) => !prev)}>
           <span>Filter by</span>
-          <img src="/icons/arrow-down.svg" alt="arrow icon" />
+          <ArrowDown />
         </FiltersButton>
 
         <Filters isActive={isFiltersOpen}>
@@ -116,7 +117,7 @@ export const ProductsSection = () => {
 
           <Select
             multiple
-            placeholder="Price Range"
+            placeholder="Price"
             selected={filters.price}
             options={priceRangeOptions}
             onChange={(value) => handleFilterChange("price", value)}

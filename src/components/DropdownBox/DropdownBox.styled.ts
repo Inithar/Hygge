@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
-import { media } from "../../styles/helpers";
+
 import { Text } from "../Text";
+import { media } from "../../styles/helpers";
 
 export const StyledDropdownBox = styled.div`
   overflow: hidden;
@@ -24,7 +25,7 @@ export const Button = styled.button<{ isOpen: boolean }>`
   & > div {
     border-color: ${({ theme }) => theme.colors.accent.one};
 
-    img {
+    svg {
       transform: rotate(${({ isOpen }) => (isOpen ? "180deg" : "0deg")});
       transition: transform 0.3s;
     }
@@ -56,5 +57,20 @@ export const Content = styled(Text)<{ height: number }>`
   ${media("md")} {
     margin-right: 12rem;
     font-size: ${({ theme }) => theme.fontSizes.md};
+  }
+`;
+
+export const ArrowIconBox = styled.div`
+  display: inline-flex;
+  padding: 0.8rem;
+  border: 0.2rem solid ${({ theme }) => theme.colors.basic.black};
+  border-radius: 50%;
+
+  & > svg {
+    font-size: ${({ theme }) => theme.fontSizes["3xl"]};
+  }
+
+  ${media("xs")} {
+    padding: 1.2rem;
   }
 `;

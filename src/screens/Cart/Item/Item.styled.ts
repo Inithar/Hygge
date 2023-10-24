@@ -126,9 +126,8 @@ export const Controls = styled.div`
     border-radius: 50%;
     box-shadow: ${({ theme }) => theme.shadows.md};
 
-    img {
-      width: 2rem;
-      height: 2rem;
+    svg {
+      font-size: ${({ theme }) => theme.fontSizes["2xl"]};
     }
   }
 
@@ -138,9 +137,8 @@ export const Controls = styled.div`
       width: 6.4rem;
       height: 6.4rem;
 
-      img {
-        width: 2.4rem;
-        height: 2.4rem;
+      svg {
+        font-size: ${({ theme }) => theme.fontSizes["3xl"]};
       }
     }
   }

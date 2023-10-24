@@ -1,3 +1,8 @@
+import { FiBox as Box, FiFacebook as Facebook, FiInstagram as Instagram, FiTwitter as Twitter, FiHeart as Heart } from "react-icons/fi";
+import { MdOutlineAttachEmail as Email, MdOutlineInfo as Info, MdOutlineLocationOn as Location } from "react-icons/md";
+import { PiIdentificationCard as IdentificationCard } from "react-icons/pi";
+import { GoHome as Home } from "react-icons/go";
+
 export const links = [
   {
     category: "My Account",
@@ -5,17 +10,17 @@ export const links = [
       {
         title: "Account Home",
         url: "/account/home",
-        icon: "/icons/home.svg",
+        Icon: Home,
       },
       {
         title: "Your Orders",
         url: "/account/orders",
-        icon: "/icons/box.svg",
+        Icon: Box,
       },
       {
         title: "Your Wishlist",
         url: "/account/wishlist",
-        icon: "/icons/heart.svg",
+        Icon: Heart,
       },
     ],
   },
@@ -25,12 +30,12 @@ export const links = [
       {
         title: "Account Details",
         url: "/account/details",
-        icon: "/icons/id-card.svg",
+        Icon: IdentificationCard,
       },
       {
         title: "Addresses",
         url: "/account/addresses",
-        icon: "/icons/location-pin.svg",
+        Icon: Location,
       },
     ],
   },
@@ -40,27 +45,27 @@ export const links = [
       {
         title: "Contact Us",
         url: "/contact",
-        icon: "/icons/email.svg",
+        Icon: Email,
       },
       {
         title: "Faq",
         url: "/faq",
-        icon: "/icons/info-circle.svg",
+        Icon: Info,
       },
       {
         title: "Facebook",
         url: "https://www.facebook.com/",
-        icon: "/icons/facebook.svg",
+        Icon: Facebook,
       },
       {
         title: "Twitter",
         url: "https://www.twitter.com/",
-        icon: "/icons/twitter.svg",
+        Icon: Twitter,
       },
       {
         title: "Instagram",
         url: "https://www.instagram.com/s",
-        icon: "/icons/instagram.svg",
+        Icon: Instagram,
       },
     ],
   },

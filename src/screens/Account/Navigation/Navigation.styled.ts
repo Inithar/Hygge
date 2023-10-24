@@ -11,16 +11,23 @@ export const StyledNavigation = styled.nav`
 
   & > button {
     display: flex;
+    align-items: center;
     gap: 1.6rem;
     font-size: ${({ theme }) => theme.fontSizes.sm};
     text-transform: uppercase;
     background-color: transparent;
     border: none;
+    transition: color 0.3s;
 
-    & > img {
-      width: 2.4rem;
-      height: 2.4rem;
+    & > svg {
+      font-size: 2.8rem;
+      transition: color 0.25s;
     }
+  }
+
+  & > button:hover,
+  & > button:hover > svg {
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   ${media("xs")} {
@@ -43,12 +50,18 @@ export const CategoryList = styled.ul`
     display: flex;
     align-items: center;
     gap: 1.6rem;
+    transition: color 0.3s;
 
-    & > span {
-      display: grid;
-      place-items: center;
-      height: 2.4rem;
-      width: 2.4rem;
+    svg {
+      font-size: ${({ theme }) => theme.fontSizes["2xl"]};
+      transition: color 0.25s;
+    }
+  }
+
+  & > li:hover {
+    a,
+    svg {
+      color: ${({ theme }) => theme.colors.primary};
     }
   }
 `;
@@ -59,4 +72,3 @@ export const Divider = styled.div`
   width: 100%;
   background-color: ${({ theme }) => rgba(theme.colors.basic.black, 0.1)};
 `;
-

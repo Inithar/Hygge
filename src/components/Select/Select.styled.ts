@@ -30,22 +30,27 @@ export const Container = styled.div<{ isBodyOpen: boolean }>`
 
   ${borderRadiusStyles}
 
-  // Head
   & > div {
     border-bottom-color: ${({ theme, isBodyOpen }) => (isBodyOpen ? "transparent" : theme.colors.accent.one)};
     transition: border-bottom-color 0.3s;
 
     ${borderRadiusStyles}
 
-    & > img {
+    & > svg {
+      font-size: ${({ theme }) => theme.fontSizes["2xl"]};
       transition: transform 0.3s;
       transform: rotate(${({ isBodyOpen }) => (isBodyOpen ? "180deg" : "0deg")});
     }
   }
 
-  // Body
   & > ul {
     visibility: ${({ isBodyOpen }) => (isBodyOpen ? "visible" : "hidden")};
+  }
+
+  ${media("sm")} {
+    & > div > svg {
+      font-size: ${({ theme }) => theme.fontSizes["3xl"]};
+    }
   }
 `;
 
@@ -110,7 +115,7 @@ export const Option = styled.li<{ isSelected: boolean }>`
     padding-bottom: 1.6rem;
   }
 
-  img {
+  svg {
     opacity: ${({ isSelected }) => (isSelected ? 1 : 0)};
     transition: opacity 0.3s;
   }

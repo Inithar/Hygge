@@ -2,17 +2,17 @@ import { BlogPost } from "../types/collection";
 
 export const features = [
   {
-    icon: "/icons/box.svg",
+    icon: "https://xtvkltvzbtkdsixwpjdr.supabase.co/storage/v1/object/public/features-icons/box.svg",
     name: "Easy Returns",
     description: "Our return policy is simple and that is why customers love our shop.",
   },
   {
-    icon: "/icons/user.svg",
+    icon: "https://xtvkltvzbtkdsixwpjdr.supabase.co/storage/v1/object/public/features-icons/user.svg",
     name: "Customer Service",
     description: "We offer amazing customer service no matter what happens.",
   },
   {
-    icon: "/icons/star.svg",
+    icon: "https://xtvkltvzbtkdsixwpjdr.supabase.co/storage/v1/object/public/features-icons/star.svg",
     name: "High Quality",
     description: "All of our products go through very strict inspection before we dispatch them.",
   },

@@ -1,6 +1,6 @@
 import { FormEvent } from "react";
+import { FiSearch as SearchIcon } from "react-icons/fi";
 
-import { Icon } from "../Icon/Icon";
 import { Form } from "./Search.styled";
 
 export const Search = () => {
@@ -14,10 +14,8 @@ export const Search = () => {
         <label htmlFor="search">Search</label>
         <input id="search" placeholder="Search" />
       </div>
-
-      <div>
-        <Icon src="/icons/search.svg" iconSize="md" />
-      </div>
+      
+      <SearchIcon />
     </Form>
   );
 };

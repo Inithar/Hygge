@@ -6,10 +6,9 @@ export const Container = styled.div`
   place-items: center;
   gap: 4rem;
 
-  & > img {
-    width: 6rem;
-    height: 6rem;
-    opacity: 0.8;
+  & > svg {
+    font-size: 12rem;
+    opacity: 0.85;
   }
 
   & > h2 {

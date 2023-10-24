@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { GrClose as CloseIcon } from "react-icons/gr";
 
 import { Item as ItemType } from "../../../context/cart";
 import { useCart } from "../../../hooks/context/useCart";
@@ -32,7 +33,8 @@ export const Item = ({ id, image, name, oldPrice, currentPrice, qty }: ItemType)
           <Counter value={qty} onChange={(value) => setItemQty(id, value)} min={1} max={99} />
 
           <button onClick={() => removeFromCart(id)} aria-label={`Remove ${name} from cart`}>
-            <img src="/icons/delete.svg" alt="delete icon" />
+            {/* <img src="/icons/delete.svg" alt="delete icon" /> */}
+            <CloseIcon />
           </button>
         </Controls>
       </Details>

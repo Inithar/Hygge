@@ -77,3 +77,19 @@ export const Container = styled.div<{ gap?: string }>`
     }
   }
 `;
+
+export const IconBox = styled.div`
+  display: inline-flex;
+  padding: 1.6rem;
+  background-color: ${({ theme }) => theme.colors.accent.one};
+  border-radius: 50%;
+
+  & > svg {
+    font-size: ${({ theme }) => theme.fontSizes["2xl"]};
+    transition: color 0.3s;
+  }
+
+  &:hover > svg {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+`;

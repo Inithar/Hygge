@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import { HiOutlineArchiveBoxXMark as Box } from "react-icons/hi2";
 
 import { useOrders } from "../../hooks/api/useOrders";
 
@@ -44,7 +45,7 @@ export const Orders = () => {
   if (!count) {
     return (
       <NoOrdersContainer>
-        <img src="/icons/open-box.svg" alt="Empty box icon" />
+        <Box />
         <p>You currently have no orders.</p>
         {pathname === "/account/home" && <Link to="/account/orders">View all orders</Link>}
         <Link to="/products">Go shopping</Link>

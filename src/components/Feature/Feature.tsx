@@ -1,7 +1,6 @@
-import { Icon } from "../Icon/Icon";
 import { Heading } from "../Heading";
 import { Text } from "../Text";
-import { StyledFeature, Container } from "./Feature.styled";
+import { StyledFeature, Container, IconBox } from "./Feature.styled";
 
 export type AlignOption = "start" | "center";
 
@@ -14,7 +13,9 @@ type FeatureProps = {
 
 export const Feature = ({ icon, name, description, align = "start" }: FeatureProps) => (
   <StyledFeature align={align}>
-    <Icon src={icon} iconSize="lg" paddingSize="md" variation="fill" />
+    <IconBox>
+      <img src={icon} alt="icon" />
+    </IconBox>
 
     <Container align={align}>
       <Heading as="h4">{name}</Heading>

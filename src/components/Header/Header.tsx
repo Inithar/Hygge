@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { FiShoppingCart as CartIcon, FiUser as UserIcon, FiSearch as SearchIcon } from "react-icons/fi";
 
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { useDisableBodyScroll } from "../../hooks/useDisableBodyScroll";
@@ -7,7 +8,6 @@ import { useCart } from "../../hooks/context/useCart";
 import { useUser } from "../../hooks/api/useUser";
 
 import { Logo } from "../Logo/Logo";
-import { Icon } from "../Icon/Icon";
 import { Search } from "../Search/Search";
 import { Cart } from "../Cart/Cart";
 import { FocusTrap } from "../FocusTrap";
@@ -70,11 +70,11 @@ export const Header = () => {
           </Container>
 
           <Icons>
-            {isMediumScreen && <Icon src="/icons/search.svg" iconSize="md" />}
+            {isMediumScreen && <SearchIcon />}
 
             <div>
               <Link to="/cart">
-                <Icon src="/icons/cart.svg" iconSize="md" />
+                <CartIcon />
                 {items.length ? <Dot /> : null}
               </Link>
 
@@ -86,7 +86,7 @@ export const Header = () => {
             </div>
 
             <Link to={isAuthenticated ? "/account/home" : "/login"}>
-              <Icon src="/icons/user.svg" iconSize="md" />
+              <UserIcon />
             </Link>
           </Icons>
 

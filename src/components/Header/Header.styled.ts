@@ -113,6 +113,10 @@ export const Icons = styled.div`
   align-items: center;
   gap: 2.4rem;
 
+  svg {
+    font-size: 2.8rem;
+  }
+
   & > a,
   & > div {
     height: 2.4rem;
@@ -130,7 +134,7 @@ export const Icons = styled.div`
 
 export const Dot = styled.div`
   position: absolute;
-  top: -1.2rem;
+  top: -1.4rem;
   right: -0.8rem;
   width: 1.6rem;
   height: 1.6rem;

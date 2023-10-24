@@ -13,22 +13,20 @@ export const NoSavedAddresses = styled.div`
   gap: 2.4rem;
   margin-top: 1.6rem;
 
-  & > img {
-    width: 6rem;
-    height: 6rem;
+  & > svg {
+    font-size: 6rem;
     opacity: 0.6;
   }
 
   & > p {
     font-size: ${({ theme }) => theme.fontSizes.md};
     font-family: ${({ theme }) => theme.fontFamilies.montserrat.medium};
-    opacity: 0.7;
+    opacity: 0.8;
   }
 
   ${media("xs")} {
-    & > img {
-      width: 8rem;
-      height: 8rem;
+    & > svg {
+      font-size: 8rem;
     }
   }
 `;

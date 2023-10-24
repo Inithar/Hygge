@@ -1,3 +1,5 @@
+import { FiShoppingCart as CartIcon } from "react-icons/fi";
+
 import { LinkButton } from "../Button";
 import { Heading } from "../Heading";
 import { Text } from "../Text";
@@ -5,7 +7,7 @@ import { Container } from "./EmptyCart.styled";
 
 export const EmptyCart = () => (
   <Container>
-    <img src="/icons/cart.svg" alt="Cart icon" />
+    <CartIcon />
 
     <Heading as="h2">Your cart is currently empty</Heading>
 

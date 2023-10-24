@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { BiLogOut as LogOut } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 import { useLogout } from "../../../hooks/api/useLogout";
@@ -17,12 +18,10 @@ export const Navigation = () => {
           <CategoryTitle>{category}</CategoryTitle>
 
           <CategoryList>
-            {links.map(({ title, url, icon }) => (
+            {links.map(({ title, url, Icon }) => (
               <li key={crypto.randomUUID()}>
                 <Link to={url}>
-                  <span>
-                    <img src={icon} alt="icon" />
-                  </span>
+                  <Icon />
                   {title}
                 </Link>
               </li>
@@ -34,7 +33,7 @@ export const Navigation = () => {
       ))}
 
       <button onClick={() => logout()}>
-        <img src="/icons/logout.svg" alt="log out icon" />
+        <LogOut />
         <span>Log Out</span>
       </button>
     </StyledNavigation>

@@ -1,5 +1,6 @@
 import { ChangeEvent } from "react";
-import { Icon } from "../Icon/Icon";
+import { MdOutlineKeyboardArrowRight as ArrowNext, MdOutlineKeyboardArrowLeft as ArrowPrev } from "react-icons/md";
+
 import { StyledCounter } from "./Counter.styled";
 
 type CounterProps = {
@@ -39,11 +40,11 @@ export const Counter = ({ value, max, min, onChange }: CounterProps) => {
   return (
     <StyledCounter>
       <button onClick={handleDecrement} aria-label="decrement">
-        <Icon src="/icons/arrow-prev.svg" alt="previous arrow icon" />
+        <ArrowPrev />
       </button>
       <input value={value} size={value.toString().length} onChange={handleInputChange} />
       <button onClick={handleIncrement} aria-label="increment">
-        <Icon src="/icons/arrow-next.svg" alt="next arrow icon" />
+        <ArrowNext />
       </button>
     </StyledCounter>
   );

@@ -52,15 +52,14 @@ export const ModalHeader = styled.div`
     place-items: center;
     background-color: transparent;
     border: none;
+
+    svg {
+      font-size: 2.8rem;
+    }
   }
 
   ${media("xs")} {
     font-size: ${({ theme }) => theme.fontSizes.xl};
-
-    & > button > img {
-      width: 2rem;
-      height: 2rem;
-    }
   }
 `;
 

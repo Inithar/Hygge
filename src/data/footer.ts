@@ -1,14 +1,16 @@
+import { FiFacebook as Facebook, FiInstagram as Instagram, FiTwitter as Twitter } from "react-icons/fi";
+
 export const socials = [
   {
-    icon: "/icons/instagram.svg",
+    Icon: Instagram,
     href: "https://www.instagram.com/",
   },
   {
-    icon: "/icons/twitter.svg",
+    Icon: Twitter,
     href: "https://www.twitter.com/",
   },
   {
-    icon: "/icons/facebook.svg",
+    Icon: Facebook,
     href: "https://www.facebook.com/",
   },
 ];

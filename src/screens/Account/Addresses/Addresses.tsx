@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction, createContext, useState } from "react";
+import { GrHomeRounded as Home } from "react-icons/gr";
 
 import { useUser } from "../../../hooks/api/useUser";
 import { useUserAddresses } from "../../../hooks/api/useUserAddresses";
@@ -57,7 +58,7 @@ export const Addresses = () => {
               addresses.map((address) => <Address key={address.id} {...address} />)
             ) : (
               <NoSavedAddresses>
-                <img src="/icons/home.svg" alt="home icon" />
+                <Home />
                 <Text>You have no saved addresses.</Text>
               </NoSavedAddresses>
             )}

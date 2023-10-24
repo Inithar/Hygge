@@ -31,9 +31,8 @@ export const Button = styled.button`
   background-color: transparent;
   border: none;
 
-  & > img {
-    width: 1.8rem;
-    height: 1.8rem;
+  & > svg {
+    font-size: ${({ theme }) => theme.fontSizes["3xl"]};
   }
 
   & > span {

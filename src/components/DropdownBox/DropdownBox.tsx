@@ -1,9 +1,8 @@
 import { useRef, useState } from "react";
+import { MdOutlineKeyboardArrowDown as ArrowDown } from "react-icons/md";
 
-import { StyledDropdownBox, Button } from "./DropdownBox.styled";
 import { Heading } from "../Heading";
-import { Icon } from "../Icon/Icon";
-import { Content } from "./DropdownBox.styled";
+import { StyledDropdownBox, Button, ArrowIconBox, Content } from "./DropdownBox.styled";
 
 interface DropdownBoxProps {
   heading: string;
@@ -26,7 +25,9 @@ export function DropdownBox({ heading, content }: DropdownBoxProps) {
       <Heading as="h4">
         <Button type="button" isOpen={isOpen} onClick={handleToggle} aria-expanded={isOpen} aria-controls={id}>
           <span>{heading}</span>
-          <Icon src="/icons/arrow-down.svg" alt="arrow icon" variation="outline" paddingSize="md" />
+          <ArrowIconBox>
+            <ArrowDown />
+          </ArrowIconBox>
         </Button>
       </Heading>
 

@@ -1,4 +1,5 @@
 import { createPortal } from "react-dom";
+import { AiOutlineClose as CloseIcon } from "react-icons/ai";
 import {
   ReactElement,
   ReactNode,
@@ -106,7 +107,7 @@ const Window = ({ children, name, maxWidth, header, onClose }: WindowProps) => {
               <ModalHeader>
                 <p>{header}</p>
                 <button type="button" onClick={close} aria-label="Close modal">
-                  <img src="/icons/delete.svg" alt="close modal icon" />
+                  <CloseIcon />
                 </button>
               </ModalHeader>
 

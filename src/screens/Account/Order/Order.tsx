@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { MdOutlineKeyboardArrowLeft as ArrowLeft } from "react-icons/md";
 
 import { useOrder } from "../../../hooks/api/useOrder";
 
@@ -26,7 +27,7 @@ export const Order = () => {
   return (
     <Container>
       <BackButton to={"/account/orders"}>
-        <img src="/icons/arrow-prev.svg" alt="Arrow pointing to the left" />
+        <ArrowLeft />
         <span>Back to orders</span>
       </BackButton>
       <OrderDetails {...order} smallFontSize />
