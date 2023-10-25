@@ -5,7 +5,7 @@ import { SectionTitle } from "../SectionTitle/SectionTitle";
 import { StyledSection, Review, ProfileImg } from "./Reviews.styled";
 import { Text } from "../Text";
 
-import { breakpoints } from "../../constants/breakpoints";
+import { BREAKPOINTS } from "../../constants/breakpoints";
 
 type ReviewsProps = {
   reviews: {
@@ -27,7 +27,7 @@ const settings = {
 
 export const Reviews = ({ reviews }: ReviewsProps) => {
   const { width } = useWindowSize();
-  const isMobile = width < breakpoints.md;
+  const isMobile = width < BREAKPOINTS.md;
 
   return (
     <StyledSection>

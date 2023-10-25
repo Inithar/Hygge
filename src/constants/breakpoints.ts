@@ -1,4 +1,4 @@
-export const breakpoints = {
+export const BREAKPOINTS = {
   xs: 576,
   sm: 768,
   md: 1024,
@@ -6,4 +6,4 @@ export const breakpoints = {
   xl: 1440,
 };
 
-export type Breakpoint = keyof typeof breakpoints;
+export type Breakpoint = keyof typeof BREAKPOINTS;

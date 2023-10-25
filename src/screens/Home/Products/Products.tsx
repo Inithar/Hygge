@@ -6,11 +6,11 @@ import { LinkButton } from "../../../components/Button";
 import { Products as ProductsGrid } from "../../../components/Products/Products";
 import { Container } from "./Products.styled";
 
-import { breakpoints } from "../../../constants/breakpoints";
+import { BREAKPOINTS } from "../../../constants/breakpoints";
 
 export const Products = () => {
   const { width } = useWindowSize();
-  const isMobile = width < breakpoints.xs;
+  const isMobile = width < BREAKPOINTS.xs;
 
   return (
     <Section>

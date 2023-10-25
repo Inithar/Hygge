@@ -13,7 +13,7 @@ import { Spinner } from "../../../components/Spinner";
 import { PaymentForm } from "../PaymentForm/PaymentForm";
 import { SpinnerWrapper } from "./Payment.styled";
 
-import { breakpoints } from "../../../constants/breakpoints";
+import { BREAKPOINTS } from "../../../constants/breakpoints";
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY, { locale: "en" });
 
@@ -28,7 +28,7 @@ export const Payment = () => {
     createStripeCheckout(items);
   }, [createStripeCheckout, items]);
 
-  const isMobile = width < breakpoints.xs;
+  const isMobile = width < BREAKPOINTS.xs;
   const queryData = queryClient.getQueryData<{ clientSecret: string | undefined }>(["clientSecret"]);
 
   const options = {

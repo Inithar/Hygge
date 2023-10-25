@@ -10,7 +10,7 @@ import { Spinner } from "../../../components/Spinner";
 import { Slider } from "../../../components/Slider/Slider";
 import { Container, Images, StyledSection, Button, Figure } from "./Details.styled";
 
-import { breakpoints } from "../../../constants/breakpoints";
+import { BREAKPOINTS } from "../../../constants/breakpoints";
 
 const settings = {
   slidesToShow: 1,
@@ -25,7 +25,7 @@ export const Details = () => {
   const { product, isLoading } = useProduct(Number(id));
 
   const { width } = useWindowSize();
-  const isMobile = width < breakpoints.xs;
+  const isMobile = width < BREAKPOINTS.xs;
 
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 

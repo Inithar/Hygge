@@ -13,7 +13,7 @@ import { Cart } from "../Cart/Cart";
 import { FocusTrap } from "../FocusTrap";
 import { StyledHeader, Burger, Icons, Container, Navigation, Wrapper, CartContainer, Dot } from "./Header.styled";
 
-import { breakpoints } from "../../constants/breakpoints";
+import { BREAKPOINTS } from "../../constants/breakpoints";
 
 import { links } from "../../data/header";
 
@@ -22,8 +22,8 @@ export const Header = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const { width } = useWindowSize();
-  const isMediumScreen = width >= breakpoints.md;
-  const isLargeScreen = width >= breakpoints.lg;
+  const isMediumScreen = width >= BREAKPOINTS.md;
+  const isLargeScreen = width >= BREAKPOINTS.lg;
 
   const { isAuthenticated } = useUser();
   const { items } = useCart();

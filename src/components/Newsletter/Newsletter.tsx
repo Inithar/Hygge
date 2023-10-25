@@ -9,7 +9,7 @@ import { Button } from "../Button";
 import { SectionTitle } from "../SectionTitle/SectionTitle";
 import { Form, StyledSection } from "./Newsletter.styled";
 
-import { breakpoints } from "../../constants/breakpoints";
+import { BREAKPOINTS } from "../../constants/breakpoints";
 
 export type FormValues = z.infer<typeof FormSchema>;
 
@@ -43,7 +43,7 @@ export const Newsletter = () => {
           label="email"
           labelHidden
           error={errors.email?.message}
-          dark={width < breakpoints.md}
+          dark={width < BREAKPOINTS.md}
           inputProps={{
             ...register("email"),
             placeholder: "Your Email",

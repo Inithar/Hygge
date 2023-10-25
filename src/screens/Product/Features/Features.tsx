@@ -9,14 +9,14 @@ import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import { Feature } from "../../../components/Feature/Feature";
 import { Container, StyledSection } from "./Features.styled";
 
-import { breakpoints } from "../../../constants/breakpoints";
+import { BREAKPOINTS } from "../../../constants/breakpoints";
 
 export const Features = () => {
   const { id } = useParams();
   const { features, isLoading } = useProductFeatures(Number(id));
 
   const { width } = useWindowSize();
-  const isDesktop = width >= breakpoints.lg;
+  const isDesktop = width >= BREAKPOINTS.lg;
 
   if (isLoading) {
     return (

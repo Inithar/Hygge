@@ -10,7 +10,7 @@ import { Spinner } from "../../../components/Spinner";
 import { SpinnerContainer } from "../Product.styled";
 import { ProductContainer, StyledSection } from "./RelatedProducts.styled";
 
-import { breakpoints } from "../../../constants/breakpoints";
+import { BREAKPOINTS } from "../../../constants/breakpoints";
 
 const sliderSettings = {
   className: "slider variable-width",
@@ -29,7 +29,7 @@ export const RelatedProducts = () => {
   const { relatedProducts, isLoading } = useRelatedProducts(Number(id));
 
   const { width } = useWindowSize();
-  const isMobile = width < breakpoints.xs;
+  const isMobile = width < BREAKPOINTS.xs;
 
   if (isLoading) {
     return (

@@ -7,7 +7,7 @@ import { Category } from "../Category/Category";
 import { CategorySkeleton } from "../Category/Category.styled";
 import { StyledSection } from "./Categories.styled";
 
-import { breakpoints } from "../../../constants/breakpoints";
+import { BREAKPOINTS } from "../../../constants/breakpoints";
 
 const sliderSettings = {
   className: "slider variable-width",
@@ -25,7 +25,7 @@ export const Categories = () => {
   const { categories, isLoading } = useCategories();
   const { width } = useWindowSize();
 
-  const isMobile = width < breakpoints.xs;
+  const isMobile = width < BREAKPOINTS.xs;
 
   return (
     <StyledSection>

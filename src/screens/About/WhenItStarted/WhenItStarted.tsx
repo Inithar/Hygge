@@ -5,7 +5,7 @@ import { Text } from "../../../components/Text";
 import { Picture } from "../../../components/Picture";
 import { Box, Container, Dot, Left, Right, StyledSection, TextContainer } from "./WhenItStarted.styled";
 
-import { breakpoints } from "../../../constants/breakpoints";
+import { BREAKPOINTS } from "../../../constants/breakpoints";
 import { reasons } from "../../../data/about";
 
 export const WhenItStarted = () => {
@@ -17,7 +17,7 @@ export const WhenItStarted = () => {
         <SectionTitle
           title="How and When it has All Started"
           subtitle="How it has Started"
-          align={width < breakpoints.lg ? "center" : "start"}
+          align={width < BREAKPOINTS.lg ? "center" : "start"}
           margin
         />
 

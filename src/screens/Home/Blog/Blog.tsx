@@ -7,7 +7,7 @@ import { LinkButton } from "../../../components/Button";
 import { ButtonContainer, Container, StyledSection } from "./Blog.styled";
 
 import { posts } from "../../../data/home";
-import { breakpoints } from "../../../constants/breakpoints";
+import { BREAKPOINTS } from "../../../constants/breakpoints";
 
 const settings = {
   slidesToShow: 1,
@@ -20,8 +20,8 @@ const settings = {
 
 export const Blog = () => {
   const { width } = useWindowSize();
-  const isMobile = width < breakpoints.xs;
-  const isTablet = width < breakpoints.md;
+  const isMobile = width < BREAKPOINTS.xs;
+  const isTablet = width < BREAKPOINTS.md;
 
   const blogPosts = posts.map((post) => <BlogPost {...post} key={post.id} />);
 

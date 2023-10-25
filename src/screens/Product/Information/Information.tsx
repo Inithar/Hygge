@@ -13,7 +13,7 @@ import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import { Box, Container, Price, Old, Current, Controls, Icon, StyledButton } from "./Information.styled";
 
 import { PopulateProduct } from "../../../types/collection";
-import { breakpoints } from "../../../constants/breakpoints";
+import { BREAKPOINTS } from "../../../constants/breakpoints";
 
 export const Information = ({ id, name, category, sale, price, images }: PopulateProduct) => {
   const { width } = useWindowSize();
@@ -34,7 +34,7 @@ export const Information = ({ id, name, category, sale, price, images }: Populat
 
   return (
     <Container>
-      <SectionTitle title={name} subtitle="Selling fast" align={width < breakpoints.xl ? "center" : "start"} />
+      <SectionTitle title={name} subtitle="Selling fast" align={width < BREAKPOINTS.xl ? "center" : "start"} />
 
       <Box>
         <Badge color={category.color} size="lg">

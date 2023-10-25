@@ -3,7 +3,7 @@ import ReactFocusTrap from "focus-trap-react";
 
 import { useWindowSize } from "../hooks/useWindowSize";
 
-import { breakpoints, Breakpoint } from "../constants/breakpoints";
+import { BREAKPOINTS, Breakpoint } from "../constants/breakpoints";
 
 type FocusTrapProps = {
   breakpoint?: Breakpoint;
@@ -15,7 +15,7 @@ export const FocusTrap = ({ breakpoint, children, active }: FocusTrapProps) => {
   const { width } = useWindowSize();
 
   if (breakpoint) {
-    return width < breakpoints[breakpoint] ? (
+    return width < BREAKPOINTS[breakpoint] ? (
       <ReactFocusTrap active={active}>{children}</ReactFocusTrap>
     ) : (
       <>{children}</>
