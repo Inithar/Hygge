@@ -269,7 +269,6 @@ export interface Database {
           id: number
           images: string[]
           name: string
-          new: boolean
           price: number
           sale: number | null
         }
@@ -281,7 +280,6 @@ export interface Database {
           id?: number
           images: string[]
           name: string
-          new?: boolean
           price: number
           sale?: number | null
         }
@@ -293,7 +291,6 @@ export interface Database {
           id?: number
           images?: string[]
           name?: string
-          new?: boolean
           price?: number
           sale?: number | null
         }

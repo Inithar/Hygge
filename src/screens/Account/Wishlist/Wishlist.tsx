@@ -25,7 +25,7 @@ export const Wishlist = () => {
         <>
           <Products>
             {favoriteProducts?.map((product) => (
-              <ProductItem {...product} isNew={product.new} image={product.images[0]} />
+              <ProductItem {...product} createdAt={product.created_at} image={product.images[0]} />
             ))}
           </Products>
 

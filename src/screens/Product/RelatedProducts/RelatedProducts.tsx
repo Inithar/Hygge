@@ -46,7 +46,7 @@ export const RelatedProducts = () => {
       <Slider settings={sliderSettings} gap="4rem">
         {relatedProducts?.map((product) => (
           <ProductContainer key={product.id}>
-            <ProductItem {...product} isNew={product.new} image={product.images[0]} />
+            <ProductItem {...product} createdAt={product.created_at} image={product.images[0]} />
           </ProductContainer>
         ))}
       </Slider>

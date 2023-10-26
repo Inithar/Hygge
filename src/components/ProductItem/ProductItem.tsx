@@ -20,23 +20,34 @@ import {
   DetailsSkeleton,
 } from "./ProductItem.styled";
 
+import { DAYS_TO_PRODUCT_CONSIDER_NEW } from "../../constants/settings";
+
 type ProductProps = {
   id: number;
   name: string;
   image: string;
   price: number;
   sale: number | null;
-  isNew: boolean;
+  createdAt: string;
   category: {
     name: string;
     color: BadgeColor;
   };
 };
 
-export const ProductItem = ({ id, name, image, price, sale, category, isNew }: ProductProps) => {
+export const ProductItem = ({ id, name, image, price, sale, category, createdAt }: ProductProps) => {
   const { addToCart } = useCart();
 
   const currentPrice = sale ? Math.floor(((100 - sale) / 100) * price) : price;
+
+  const currentDate = new Date();
+  const createdAtDate = new Date(createdAt);
+  const millisecondsPerDay = 1000 * 60 * 60 * 24;
+
+  const timeDifferenceInMilliseconds = currentDate.getTime() - createdAtDate.getTime();
+  const daysSinceCreation = timeDifferenceInMilliseconds / millisecondsPerDay;
+
+  const isNew = daysSinceCreation < DAYS_TO_PRODUCT_CONSIDER_NEW;
 
   function handleAddToCart() {
     addToCart({

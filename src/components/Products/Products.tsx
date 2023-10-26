@@ -77,7 +77,9 @@ export const Products = ({ numberOfProductSkeletons }: ProductsProps) => {
     <ProductsContainer>
       {filteredProducts?.map(
         (product) =>
-          product.display && <ProductItem {...product} isNew={product.new} image={product.images[0]} key={product.id} />
+          product.display && (
+            <ProductItem {...product} createdAt={product.created_at} image={product.images[0]} key={product.id} />
+          )
       )}
     </ProductsContainer>
   );
