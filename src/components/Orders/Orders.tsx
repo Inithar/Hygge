@@ -24,11 +24,22 @@ import {
 import { convertOrderDate } from "../../utils/convertOrderDate";
 import { ORDERS_PAGE_SIZE } from "../../constants/settings";
 
+import { OrderStatus } from "../../types/collection";
+import { BadgeColor } from "../Badge/Badge.styled";
+
 const options = [
   { label: "Last 30 days", value: "30" },
   { label: "Past 3 months", value: "90" },
   { label: "Archived", value: "from-the-beginning" },
 ];
+
+const statusColors: Record<OrderStatus, BadgeColor> = {
+  "pending payment": "yellow",
+  processing: "blue",
+  completed: "green",
+  cancelled: "red",
+  refunded: "pink",
+};
 
 export const Orders = () => {
   const { orders, count, isLoading, error } = useOrders();
@@ -93,7 +104,7 @@ export const Orders = () => {
             <Detail>
               <Text>Status</Text>
               <Divider />
-              <Badge color="blue">{status}</Badge>
+              <Badge color={statusColors[status]}>{status}</Badge>
             </Detail>
           </Order>
         ))}

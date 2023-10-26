@@ -12,6 +12,8 @@ export type ProductFeatures = Database["public"]["Tables"]["products_features"][
 export type RelatedProducts = Database["public"]["Tables"]["related_products"]["Row"];
 export type FavoriteProducts = Database["public"]["Tables"]["favorite_products"]["Row"];
 
+export type OrderStatus = Database["public"]["Tables"]["orders"]["Row"]["status"];
+
 export interface PopulateProduct extends Omit<Product, "category" | "brand"> {
   category: Pick<Category, "name" | "color">;
   brand: Pick<Brand, "name">;

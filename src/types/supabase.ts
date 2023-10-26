@@ -226,7 +226,7 @@ export interface Database {
           id: number
           name: string
           phone: string
-          status: Database["public"]["Enums"]["order_status"] | null
+          status: Database["public"]["Enums"]["order_status"]
           surname: string
         }
         Insert: {
@@ -237,7 +237,7 @@ export interface Database {
           id?: number
           name: string
           phone: string
-          status?: Database["public"]["Enums"]["order_status"] | null
+          status?: Database["public"]["Enums"]["order_status"]
           surname: string
         }
         Update: {
@@ -248,7 +248,7 @@ export interface Database {
           id?: number
           name?: string
           phone?: string
-          status?: Database["public"]["Enums"]["order_status"] | null
+          status?: Database["public"]["Enums"]["order_status"]
           surname?: string
         }
         Relationships: [
