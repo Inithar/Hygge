@@ -10,7 +10,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
 
-  & > div:last-of-type > div > span {
+  & > div:last-of-type > div > div > span {
     width: 10rem;
     white-space: nowrap;
     overflow: hidden;
@@ -25,7 +25,7 @@ export const Container = styled.div`
     }
 
     ${media("md")} {
-      width: 12rem;
+      width: 11rem;
     }
 
     ${media("lg")} {
@@ -98,7 +98,7 @@ export const Filters = styled.div<FiltersProps>`
     width: auto;
 
     & > div {
-      width: 22rem;
+      width: 21.5rem;
     }
   }
 

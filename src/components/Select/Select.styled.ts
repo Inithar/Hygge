@@ -101,7 +101,7 @@ export const Option = styled.li<{ isSelected: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1.6rem;
+  gap: 2rem;
   font-size: ${({ theme }) => theme.fontSizes.sm};
   font-family: ${({ isSelected }) => setFontFamily(isSelected ? "montserratSemiBold" : "montserratRegular")};
   cursor: pointer;
@@ -116,6 +116,8 @@ export const Option = styled.li<{ isSelected: boolean }>`
   }
 
   svg {
+    flex-shrink: 0;
+    font-size: ${({ theme }) => theme.fontSizes["xl"]};
     opacity: ${({ isSelected }) => (isSelected ? 1 : 0)};
     transition: opacity 0.3s;
   }
