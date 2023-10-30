@@ -1,8 +1,10 @@
+import { useSearchParams } from "react-router-dom";
+
 import { useProducts } from "../../hooks/api/useProducts";
+import { isProductNew } from "../../utils/isProductNew";
 
 import { ProductsContainer } from "./Products.styled";
 import { ProductItemSkeleton, ProductItem } from "../ProductItem/ProductItem";
-import { useSearchParams } from "react-router-dom";
 
 type ProductsProps = {
   numberOfProductSkeletons?: number;
@@ -32,9 +34,12 @@ export const Products = ({ numberOfProductSkeletons }: ProductsProps) => {
 
   let filteredProducts = products;
 
-  if (searchParams.get("brand")) {
-    const selectedBrands = searchParams.get("brand")?.split(",");
-    filteredProducts = filteredProducts?.filter((product) => selectedBrands?.includes(product.brand.name));
+  if (searchParams.get("sale")) {
+    filteredProducts = filteredProducts?.filter((product) => Boolean(product.sale));
+  }
+
+  if (searchParams.get("new")) {
+    filteredProducts = filteredProducts?.filter((product) => isProductNew(product.created_at));
   }
 
   if (searchParams.get("category")) {

@@ -2,6 +2,7 @@ import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 import { useCart } from "../../hooks/context/useCart";
+import { isProductNew } from "../../utils/isProductNew";
 
 import { Badge } from "../Badge/Badge";
 import { BadgeColor } from "../Badge/Badge.styled";
@@ -19,8 +20,6 @@ import {
   BadgeContainer,
   DetailsSkeleton,
 } from "./ProductItem.styled";
-
-import { DAYS_TO_PRODUCT_CONSIDER_NEW } from "../../constants/settings";
 
 type ProductProps = {
   id: number;
@@ -40,15 +39,6 @@ export const ProductItem = ({ id, name, image, price, sale, category, createdAt 
 
   const currentPrice = sale ? Math.floor(((100 - sale) / 100) * price) : price;
 
-  const currentDate = new Date();
-  const createdAtDate = new Date(createdAt);
-  const millisecondsPerDay = 1000 * 60 * 60 * 24;
-
-  const timeDifferenceInMilliseconds = currentDate.getTime() - createdAtDate.getTime();
-  const daysSinceCreation = timeDifferenceInMilliseconds / millisecondsPerDay;
-
-  const isNew = daysSinceCreation < DAYS_TO_PRODUCT_CONSIDER_NEW;
-
   function handleAddToCart() {
     addToCart({
       id,
@@ -65,7 +55,7 @@ export const ProductItem = ({ id, name, image, price, sale, category, createdAt 
   return (
     <StyledProductItem>
       <BadgeContainer>
-        {isNew && (
+        {isProductNew(createdAt) && (
           <Badge solid color="green">
             NEW IN
           </Badge>

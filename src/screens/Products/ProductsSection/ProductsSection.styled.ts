@@ -24,11 +24,11 @@ export const Container = styled.div`
       width: 19rem;
     }
 
-    ${media("md")} {
+    ${media("lg")} {
       width: 11rem;
     }
 
-    ${media("lg")} {
+    ${media("xl")} {
       width: 19rem;
     }
   }
@@ -68,7 +68,7 @@ export const FiltersButton = styled.button<{ isActive: boolean }>`
     }
   }
 
-  ${media("md")} {
+  ${media("lg")} {
     display: none;
   }
 `;
@@ -79,7 +79,7 @@ export const Filters = styled.div<FiltersProps>`
   display: ${({ isActive }) => (isActive ? "flex" : "none")};
   flex-direction: column;
   gap: 1.6rem;
-  padding: 2.4rem 2.6rem;
+  padding: 2.4rem 2.6rem 4rem;
   margin-left: -2.4rem;
   width: calc(100% + 2.4rem * 2);
   background-color: white;
@@ -89,21 +89,30 @@ export const Filters = styled.div<FiltersProps>`
     top: 6.6rem;
   }
 
-  ${media("md")} {
+  ${media("lg")} {
     position: static;
     display: flex;
+    gap: 5.6rem;
     flex-direction: row;
     padding: 0;
     margin: 0;
     width: auto;
 
-    & > div {
+    & > :not(:first-child) {
       width: 21.5rem;
     }
   }
+`;
+
+export const Checkboxes = styled.div`
+  display: flex;
+  gap: 5.6rem;
+  margin-block: 1.6rem;
+  margin-left: 0.8rem;
 
   ${media("lg")} {
-    gap: 3.2rem;
+    margin-left: 0;
+    order: 2;
   }
 `;
 

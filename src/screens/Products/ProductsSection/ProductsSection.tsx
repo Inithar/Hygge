@@ -3,40 +3,39 @@ import { useSearchParams } from "react-router-dom";
 import { MdOutlineKeyboardArrowDown as ArrowDown } from "react-icons/md";
 
 import { useCategories } from "../../../hooks/api/useCategories";
-import { useBrands } from "../../../hooks/api/useBrands";
 
 import { Section } from "../../../components/Section";
 import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import { Select } from "../../../components/Select/Select";
 import { Products as ProductsGrid } from "../../../components/Products/Products";
 import { SelectTag } from "../../../components/SelectTag/SelectTag";
-import { Filters, FiltersButton, Container, SelectTags } from "./ProductsSection.styled";
+import { CheckboxField } from "../../../components/CheckboxField/CheckboxField";
+import { Filters, FiltersButton, Container, SelectTags, Checkboxes } from "./ProductsSection.styled";
 
 import { sortByOptions, priceRangeOptions } from "../../../data/products";
-
-type Filter<T> = T extends "sort" ? string | undefined : string[];
 
 type FilterName = keyof Filters;
 
 type Filters = {
+  sale: string | undefined;
+  new: string | undefined;
   sort: string | undefined;
   price: string[];
   category: string[];
-  brand: string[];
 };
 
 export const ProductsSection = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const { categories, isLoading: isLoadingCategories } = useCategories();
-  const { brands, isLoading: isLoadingBrands } = useBrands();
 
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   const [filters, setFilters] = useState<Filters>({
-    sort: setDefaultFilter("sort"),
-    brand: setDefaultFilter("brand"),
-    category: setDefaultFilter("category"),
-    price: setDefaultFilter("price"),
+    sale: searchParams.get("sale") ?? undefined,
+    new: searchParams.get("new") ?? undefined,
+    sort: searchParams.get("sort") ?? undefined,
+    category: searchParams.get("category")?.split(",") ?? [],
+    price: searchParams.get("price")?.split(",") ?? [],
   });
 
   function setOptionsArr(values: { name: string }[] | undefined, isLoading: boolean) {
@@ -44,13 +43,9 @@ export const ProductsSection = () => {
     return optionsArr!.sort((a, b) => a.label.localeCompare(b.label));
   }
 
-  function setDefaultFilter<T extends FilterName>(key: T): Filter<T> {
-    return (key === "sort" ? searchParams.get(key) ?? undefined : searchParams.get(key)?.split(",") ?? []) as Filter<T>;
-  }
-
   function updateUrl(key: FilterName, value: string | string[]) {
     const updatedValue = Array.isArray(value) ? value.join(",") : value;
-    value.length ? searchParams.set(key, updatedValue) : searchParams.delete(key);
+    value === "false" || !value.length ? searchParams.delete(key) : searchParams.set(key, updatedValue);
     setSearchParams(searchParams);
   }
 
@@ -59,34 +54,11 @@ export const ProductsSection = () => {
     setFilters((prev) => ({ ...prev, [key]: value }));
   }
 
-  function handleFilterDelete(key: FilterName, valueToDelete: string) {
-    if (key === "sort") return;
-
-    const updatedValue: string[] = filters[key].filter((value) => value !== valueToDelete);
+  function handleFilterDelete(key: "price" | "category", valueToDelete: string) {
+    const updatedValue = filters[key].filter((value) => value !== valueToDelete);
     setFilters({ ...filters, [key]: updatedValue });
     updateUrl(key, updatedValue);
   }
-
-  const selectTagsArr = Object.keys(filters)
-    .filter((key) => Array.isArray(filters[key as FilterName]))
-    .map((key) =>
-      (filters[key as FilterName] as Array<string>).map((v) => {
-        let value = v;
-
-        if (key === "price") {
-          const [min, max] = v.split("-");
-          value = max ? `$${min} - $${max}` : `$${min}+`;
-        }
-
-        return (
-          <SelectTag
-            value={value}
-            onDelete={() => handleFilterDelete(key as FilterName, v)}
-            key={crypto.randomUUID()}
-          />
-        );
-      })
-    );
 
   return (
     <Section>
@@ -99,13 +71,23 @@ export const ProductsSection = () => {
         </FiltersButton>
 
         <Filters isActive={isFiltersOpen}>
-          <Select
-            multiple
-            placeholder="Brand"
-            selected={filters.brand}
-            options={setOptionsArr(brands, isLoadingBrands)}
-            onChange={(value) => handleFilterChange("brand", value)}
-          />
+          <Checkboxes>
+            <CheckboxField
+              id="sale"
+              label="On Sale"
+              inputProps={{
+                onChange: (e) => handleFilterChange("sale", String(e.target.checked)),
+              }}
+            />
+
+            <CheckboxField
+              id="new"
+              label="New"
+              inputProps={{
+                onChange: (e) => handleFilterChange("new", String(e.target.checked)),
+              }}
+            />
+          </Checkboxes>
 
           <Select
             multiple
@@ -132,7 +114,29 @@ export const ProductsSection = () => {
         />
       </Container>
 
-      <SelectTags>{selectTagsArr.flat()}</SelectTags>
+      <SelectTags>
+        {Object.keys(filters)
+          .filter((key) => Array.isArray(filters[key as FilterName]))
+          .map((key) =>
+            (filters[key as FilterName] as Array<string>).map((v) => {
+              let value = v;
+
+              if (key === "price") {
+                const [min, max] = v.split("-");
+                value = max ? `$${min} - $${max}` : `$${min}+`;
+              }
+
+              return (
+                <SelectTag
+                  value={value}
+                  onDelete={() => handleFilterDelete(key as "price" | "category", v)}
+                  key={crypto.randomUUID()}
+                />
+              );
+            })
+          )
+          .flat()}
+      </SelectTags>
 
       <ProductsGrid numberOfProductSkeletons={12} />
     </Section>
