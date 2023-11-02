@@ -16,7 +16,7 @@ export const Products = () => {
     <Section>
       <SectionTitle title="Explore our Products" subtitle="Our Products" align={isMobile ? "center" : "start"} margin />
 
-      <ProductsGrid />
+      <ProductsGrid maxNumberOfProducts={8} />
 
       <Container>
         <LinkButton to="/products">View All</LinkButton>

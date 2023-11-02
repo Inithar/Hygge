@@ -8,9 +8,10 @@ import { ProductItemSkeleton, ProductItem } from "../ProductItem/ProductItem";
 
 type ProductsProps = {
   numberOfProductSkeletons?: number;
+  maxNumberOfProducts?: number;
 };
 
-export const Products = ({ numberOfProductSkeletons }: ProductsProps) => {
+export const Products = ({ numberOfProductSkeletons, maxNumberOfProducts }: ProductsProps) => {
   const { products, isLoading } = useProducts();
   const [searchParams] = useSearchParams();
 
@@ -78,14 +79,17 @@ export const Products = ({ numberOfProductSkeletons }: ProductsProps) => {
     }
   }
 
+  const productToDisplay = filteredProducts?.filter((product) => product.display);
+
   return (
     <ProductsContainer>
-      {filteredProducts?.map(
-        (product) =>
-          product.display && (
-            <ProductItem {...product} createdAt={product.created_at} image={product.images[0]} key={product.id} />
-          )
-      )}
+      {productToDisplay?.map((product, index) => {
+        if (maxNumberOfProducts && index + 1 > maxNumberOfProducts) {
+          return null;
+        }
+
+        return <ProductItem {...product} createdAt={product.created_at} image={product.images[0]} key={product.id} />;
+      })}
     </ProductsContainer>
   );
 };
