@@ -1,6 +1,3 @@
-import { FiUser as User, FiStar as Star } from "react-icons/fi";
-import { BiLineChart as Chart } from "react-icons/bi";
-
 export const reasons = [
   {
     title: "Natural Ingredients Only",
@@ -14,17 +11,17 @@ export const reasons = [
 
 export const values = [
   {
-    Icon: Chart,
+    icon: "https://xtvkltvzbtkdsixwpjdr.supabase.co/storage/v1/object/public/features-icons/trending.svg",
     name: "Great Innovation",
     description: "We are always focusing on making all our products as innovative as possible.",
   },
   {
-    Icon: Star,
+    icon: "https://xtvkltvzbtkdsixwpjdr.supabase.co/storage/v1/object/public/features-icons/star.svg",
     name: "High Quality",
     description: "One of our main values is the quality of the products that we sell to the customers.",
   },
   {
-    Icon: User,
+    icon: "https://xtvkltvzbtkdsixwpjdr.supabase.co/storage/v1/object/public/features-icons/user.svg",
     name: "Teamwork Matters",
     description: "We believe that being a successful company is all about being a team.",
   },
