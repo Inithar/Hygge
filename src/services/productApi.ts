@@ -4,7 +4,7 @@ import { PopulateProduct, PopulateProductFeatures, PopulateRelatedProducts } fro
 export const getProduct = async (id: number) => {
   const { data: product, error } = await supabase
     .from("products")
-    .select(`*, category("name", "color"), brand("name")`)
+    .select(`*, category("name", "color")`)
     .eq("id", id)
     .single<PopulateProduct>();
 
@@ -42,7 +42,7 @@ export const getProductReviews = async (id: number) => {
 export const getRelatedProducts = async (id: number) => {
   const { data: relatedProducts, error } = await supabase
     .from("related_products")
-    .select(`*, related_product(*, category("name", "color"), brand("name"))`)
+    .select(`*, related_product(*, category("name", "color"))`)
     .eq("product", id)
     .returns<PopulateRelatedProducts[]>();
 
