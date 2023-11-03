@@ -9,7 +9,7 @@ export const links = [
   },
   {
     title: "Blog",
-    url: "/blog",
+    url: "/under-construction",
   },
   {
     title: "About",

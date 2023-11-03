@@ -5,6 +5,7 @@ export const getProducts = async () => {
   const { data: products, error } = await supabase
     .from("products")
     .select(`*, category("name", "color")`)
+    .eq("display", "TRUE")
     .returns<PopulateProduct[]>();
 
   if (error) {

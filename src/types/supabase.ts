@@ -50,28 +50,11 @@ export interface Database {
           {
             foreignKeyName: "addresses_user_id_fkey"
             columns: ["user_id"]
+            isOneToOne: false
             referencedRelation: "users"
             referencedColumns: ["id"]
           }
         ]
-      }
-      brands: {
-        Row: {
-          created_at: string
-          id: number
-          name: string
-        }
-        Insert: {
-          created_at?: string
-          id?: number
-          name: string
-        }
-        Update: {
-          created_at?: string
-          id?: number
-          name?: string
-        }
-        Relationships: []
       }
       categories: {
         Row: {
@@ -123,6 +106,7 @@ export interface Database {
           {
             foreignKeyName: "customers_id_fkey"
             columns: ["id"]
+            isOneToOne: true
             referencedRelation: "users"
             referencedColumns: ["id"]
           }
@@ -145,12 +129,14 @@ export interface Database {
           {
             foreignKeyName: "favorite_products_customer_fkey"
             columns: ["customer"]
+            isOneToOne: false
             referencedRelation: "customers"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "favorite_products_product_fkey"
             columns: ["product"]
+            isOneToOne: false
             referencedRelation: "products"
             referencedColumns: ["id"]
           }
@@ -212,6 +198,7 @@ export interface Database {
           {
             foreignKeyName: "orderedProducts_order_fkey"
             columns: ["order"]
+            isOneToOne: false
             referencedRelation: "orders"
             referencedColumns: ["id"]
           }
@@ -255,6 +242,7 @@ export interface Database {
           {
             foreignKeyName: "orders_address_fkey"
             columns: ["address"]
+            isOneToOne: false
             referencedRelation: "addresses"
             referencedColumns: ["id"]
           }
@@ -262,7 +250,6 @@ export interface Database {
       }
       products: {
         Row: {
-          brand: number
           category: number
           created_at: string
           display: boolean | null
@@ -273,7 +260,6 @@ export interface Database {
           sale: number | null
         }
         Insert: {
-          brand?: number
           category: number
           created_at?: string
           display?: boolean | null
@@ -284,7 +270,6 @@ export interface Database {
           sale?: number | null
         }
         Update: {
-          brand?: number
           category?: number
           created_at?: string
           display?: boolean | null
@@ -296,14 +281,9 @@ export interface Database {
         }
         Relationships: [
           {
-            foreignKeyName: "products_brand_fkey"
-            columns: ["brand"]
-            referencedRelation: "brands"
-            referencedColumns: ["id"]
-          },
-          {
             foreignKeyName: "products_category_fkey"
             columns: ["category"]
+            isOneToOne: false
             referencedRelation: "categories"
             referencedColumns: ["id"]
           }
@@ -326,12 +306,14 @@ export interface Database {
           {
             foreignKeyName: "products_features_feature_fkey"
             columns: ["feature"]
+            isOneToOne: false
             referencedRelation: "features"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "products_features_product_fkey"
             columns: ["product"]
+            isOneToOne: false
             referencedRelation: "products"
             referencedColumns: ["id"]
           }
@@ -369,6 +351,7 @@ export interface Database {
           {
             foreignKeyName: "products_reviews_product_fkey"
             columns: ["product"]
+            isOneToOne: false
             referencedRelation: "products"
             referencedColumns: ["id"]
           }
@@ -391,12 +374,14 @@ export interface Database {
           {
             foreignKeyName: "related_products_product_fkey"
             columns: ["product"]
+            isOneToOne: false
             referencedRelation: "products"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "related_products_related_product_fkey"
             columns: ["related_product"]
+            isOneToOne: false
             referencedRelation: "products"
             referencedColumns: ["id"]
           }
