@@ -3,6 +3,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
+import { useSendContactEmail } from "../../../hooks/api/useSendContactEmail";
+
 import { Select } from "../../../components/Select/Select";
 import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import { TextField } from "../../../components/TextField/TextField";
@@ -27,16 +29,27 @@ export const Form = () => {
     handleSubmit,
     watch,
     setValue,
+    reset,
     formState: { errors },
   } = useForm<FormValues>({
     resolver: zodResolver(FormSchema),
     shouldFocusError: false,
+    defaultValues: {
+      fullName: "",
+      email: "",
+      subject: subjectOptions[0].value,
+      message: "",
+    },
   });
 
-  useEffect(() => setValue("subject", subjectOptions[0].value), [setValue]);
+  const { sendContactEmail, isSending, error } = useSendContactEmail();
+
+  useEffect(() => {
+    if (!error && !isSending) reset();
+  }, [error, isSending, reset]);
 
   function onSubmit(data: FormValues) {
-    console.log(data);
+    sendContactEmail(data);
   }
 
   return (
@@ -76,7 +89,7 @@ export const Form = () => {
           }}
         />
 
-        <Button>Send</Button>
+        <Button disabled={isSending}>Send</Button>
       </StyledForm>
     </StyledSection>
   );

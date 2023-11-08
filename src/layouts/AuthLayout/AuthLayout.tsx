@@ -1,15 +1,19 @@
 import { useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 import { useUser } from "../../hooks/api/useUser";
 
 export const AuthLayout = () => {
-  const { isAuthenticated } = useUser();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const { isAuthenticated } = useUser();
 
   useEffect(() => {
-    if (isAuthenticated) return navigate(-1);
-  }, [isAuthenticated, navigate]);
+    if (isAuthenticated) {
+      location.key === "default" ? navigate("/") : navigate(location.pathname === "/register" ? -2 : -1);
+    }
+  }, [isAuthenticated, navigate, location]);
 
   return <Outlet />;
 };
