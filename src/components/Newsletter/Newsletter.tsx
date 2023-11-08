@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
 import { useWindowSize } from "../../hooks/useWindowSize";
+import { useAddUserToNewsletter } from "../../hooks/api/useAddUserToNewsletter";
 
 import { TextField } from "../TextField/TextField";
 import { Button } from "../Button";
@@ -19,18 +20,21 @@ const FormSchema = z.object({
 
 export const Newsletter = () => {
   const { width } = useWindowSize();
+  const { addUserToNewsletter } = useAddUserToNewsletter();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm<FormValues>({
     resolver: zodResolver(FormSchema),
     shouldFocusError: false,
   });
 
   function onSubmit(data: FormValues) {
-    console.log(data);
+    addUserToNewsletter(data.email);
+    setValue("email", "");
   }
 
   return (

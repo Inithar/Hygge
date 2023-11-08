@@ -166,6 +166,21 @@ export interface Database {
         }
         Relationships: []
       }
+      newsletter: {
+        Row: {
+          created_at: string
+          email: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+        }
+        Relationships: []
+      }
       orderedProducts: {
         Row: {
           created_at: string

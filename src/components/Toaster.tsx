@@ -14,6 +14,7 @@ export const Toaster = () => (
         fontSize: "1.6rem",
         maxWidth: "50rem",
         padding: "1.6rem 2.4rem",
+        textAlign: "center",
         gap: "1.2rem",
         color: "#1A202C",
       },
