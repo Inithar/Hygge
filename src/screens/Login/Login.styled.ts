@@ -17,6 +17,7 @@ export const Form = styled.form`
 export const Buttons = styled.div`
   display: grid;
   gap: 2.4rem;
+  margin-top: 2.4rem;
 
   & > a {
     text-align: center;

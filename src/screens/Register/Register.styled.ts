@@ -5,9 +5,13 @@ import { media } from "../../styles/helpers";
 
 export const Form = styled.form`
   display: grid;
-  gap: 1.6rem;
+  gap: 2.4rem;
   margin-inline: auto;
   max-width: 58rem;
+
+  & > div:nth-child(7) {
+    margin-top: 2.4rem;
+  }
 
   ${media("xs")} {
     grid-template-columns: 1fr 1fr;
@@ -21,6 +25,10 @@ export const Form = styled.form`
         grid-column: 1 / -1;
       }
     }
+  }
+
+  ${media("sm")} {
+    gap: 3.6rem;
   }
 `;
 
