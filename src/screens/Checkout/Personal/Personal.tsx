@@ -17,7 +17,7 @@ const FormSchema = z.object({
   email: z.string().min(1, { message: "Email address is required" }).email("Email address is incorrect"),
   phone: z
     .string()
-    .min(1, { message: "Phone number has to have at least 7 digits" })
+    .min(8, { message: "Phone number has to have at least 8 digits" })
     .max(15, { message: "Phone number has to have max 15 digits" }),
 });
 
@@ -71,7 +71,7 @@ export const Personal = () => {
           id="phone"
           label="Phone Number"
           error={errors.phone?.message}
-          inputProps={{ ...register("phone"), placeholder: "657-232-123", defaultValue: phone }}
+          inputProps={{ ...register("phone"), placeholder: "577243123", defaultValue: phone, type: "number" }}
         />
 
         <Button disabled={!isValid}>Continue</Button>

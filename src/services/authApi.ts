@@ -11,11 +11,11 @@ export const signup = async ({ name, surname, phone, email, password }: SignupFo
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
-    phone,
     options: {
       data: {
         name,
         surname,
+        phone,
       },
     },
   });

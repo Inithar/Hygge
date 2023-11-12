@@ -41,7 +41,7 @@ export const Checkout = () => {
     name: user?.user_metadata.name,
     surname: user?.user_metadata.surname,
     email: user?.email,
-    phone: user?.phone,
+    phone: user?.user_metadata.phone,
     address: null,
   });
 

@@ -18,7 +18,10 @@ const FormSchema = z
     name: z.string().min(1, { message: "Your name is required" }),
     surname: z.string().min(1, { message: "Your surname is required" }),
     email: z.string().min(1, { message: "Email address is required" }).email("Email address is incorrect"),
-    phone: z.string(),
+    phone: z
+      .string()
+      .min(8, { message: "Phone number has to have at least 8 digits" })
+      .max(15, { message: "Phone number has to have max 15 digits" }),
     password: z
       .string()
       .min(8, "Must be at least 8 characters in length")
@@ -75,7 +78,7 @@ export const Register = () => {
           id="phone"
           label="Phone Number"
           error={errors.phone?.message}
-          inputProps={{ ...register("phone"), placeholder: "762-123-123" }}
+          inputProps={{ ...register("phone"), placeholder: "577232812", type: "number" }}
         />
 
         <TextField
