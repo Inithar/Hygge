@@ -19,8 +19,8 @@ type InputProps = { id: keyof FormValues; label: string };
 
 const FormSchema = z.object({
   postcode: z.string().min(1, { message: "Postcode is required" }),
-  houseNumber: z.string().min(1, { message: "House name / number  is required" }),
-  flatNumber: z.string(),
+  house_number: z.string().min(1, { message: "House name / number  is required" }),
+  flat_number: z.string(),
   street: z.string().min(1, { message: "Street name is required" }),
   city: z.string().min(1, { message: "City name is required" }),
   country: z
@@ -31,8 +31,8 @@ const FormSchema = z.object({
 
 const inputs: InputProps[] = [
   { id: "street", label: "Street" },
-  { id: "houseNumber", label: "House name / number" },
-  { id: "flatNumber", label: "Flat Number" },
+  { id: "house_number", label: "House name / number" },
+  { id: "flat_number", label: "Flat Number" },
   { id: "city", label: "City" },
   { id: "postcode", label: "Postcode" },
   { id: "country", label: "Country" },

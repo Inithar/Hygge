@@ -1,7 +1,7 @@
 import { supabase } from "../lib/supabase";
 import { Address } from "../types/collection";
 
-type NewAddress = Omit<Address, "id" | "created_at">;
+type NewAddress = Omit<Address, "id" | "created_at" | "updated_at">;
 type UpdateAddressData = { newAddressData: Partial<NewAddress>; id: number };
 
 export const getUserAddresses = async (userId: string) => {
