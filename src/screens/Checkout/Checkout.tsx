@@ -14,9 +14,10 @@ import { Payment } from "./Payment/Payment";
 import { Circle, Container, Line, Steps } from "./Checkout.styled";
 
 import { FormValues as PersonalData } from "./Personal/Personal";
+import { OrderAddress } from "../../types/collection";
 
 type OrderData = Partial<PersonalData> & {
-  address: number | null;
+  address: Omit<OrderAddress, "created_at"> | null;
 };
 
 type CheckoutContextType = {

@@ -10,6 +10,7 @@ export type Feature = Database["public"]["Tables"]["features"]["Row"];
 export type ProductFeatures = Database["public"]["Tables"]["products_features"]["Row"];
 export type RelatedProducts = Database["public"]["Tables"]["related_products"]["Row"];
 export type FavoriteProducts = Database["public"]["Tables"]["favorite_products"]["Row"];
+export type OrderAddress = Database["public"]["Tables"]["orders_addresses"]["Row"]
 
 export type OrderStatus = Database["public"]["Tables"]["orders"]["Row"]["status"];
 

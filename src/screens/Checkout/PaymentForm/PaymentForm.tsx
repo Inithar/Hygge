@@ -9,7 +9,7 @@ import { Spinner } from "../../../components/Spinner";
 import { Button } from "../../../components/Button";
 import { Form } from "./PaymentForm.styled";
 
-import { NewOrder } from "../../../services/ordersApi";
+import { NewOrderData } from "../../../services/ordersApi";
 
 export const PaymentForm = () => {
   const stripe = useStripe();
@@ -21,7 +21,7 @@ export const PaymentForm = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    createOrder({ ...orderData, amount: cartTotal } as NewOrder);
+    createOrder({ ...orderData, amount: cartTotal } as NewOrderData);
   };
 
   return (

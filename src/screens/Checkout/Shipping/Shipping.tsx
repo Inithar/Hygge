@@ -1,4 +1,3 @@
-import { ChangeEvent } from "react";
 import { CiSquarePlus as Plus } from "react-icons/ci";
 
 import { useUserAddresses } from "../../../hooks/api/useUserAddresses";
@@ -20,14 +19,16 @@ import {
   SpinnerWrapper,
 } from "./Shipping.styled";
 
+import { OrderAddress } from "../../../types/collection";
+
 export const Shipping = () => {
   const { user } = useUser();
   const { addresses, isLoading } = useUserAddresses(user!.id);
 
   const { orderData, setOrderData, next } = useCheckout();
 
-  function onAddressChange(e: ChangeEvent<HTMLInputElement>) {
-    setOrderData((prev) => ({ ...prev, address: parseInt(e.target.value) }));
+  function onAddressChange(address: Omit<OrderAddress, "created_at">) {
+    setOrderData((prev) => ({ ...prev, address }));
   }
 
   return (
@@ -41,21 +42,20 @@ export const Shipping = () => {
       ) : (
         <>
           <RadioTileGroup>
-            {addresses?.map(({ id, street, houseNumber, flatNumber, postcode, city, country }) => (
+            {addresses?.map(({ id, street, house_number, flat_number, postcode, city, country }) => (
               <Container key={id}>
                 <Input
                   id={id.toString()}
                   type="radio"
                   name="address"
-                  value={id}
-                  onChange={onAddressChange}
-                  checked={id === orderData.address}
+                  onChange={() => onAddressChange({ id, street, house_number, flat_number, postcode, city, country })}
+                  checked={id === orderData.address?.id}
                 />
 
                 <RadioTile>
                   <label htmlFor={id.toString()}>
                     <Text>
-                      {street} {houseNumber} / {flatNumber}
+                      {street} {house_number} / {flat_number}
                     </Text>
                     <Text>
                       {postcode}, {city}

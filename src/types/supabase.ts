@@ -14,8 +14,8 @@ export interface Database {
           city: string
           country: string
           created_at: string
-          flatNumber: string | null
-          houseNumber: string
+          flat_number: string | null
+          house_number: string
           id: number
           postcode: string
           street: string
@@ -26,8 +26,8 @@ export interface Database {
           city: string
           country: string
           created_at?: string
-          flatNumber?: string | null
-          houseNumber: string
+          flat_number?: string | null
+          house_number: string
           id?: number
           postcode: string
           street: string
@@ -38,8 +38,8 @@ export interface Database {
           city?: string
           country?: string
           created_at?: string
-          flatNumber?: string | null
-          houseNumber?: string
+          flat_number?: string | null
+          house_number?: string
           id?: number
           postcode?: string
           street?: string
@@ -258,10 +258,43 @@ export interface Database {
             foreignKeyName: "orders_address_fkey"
             columns: ["address"]
             isOneToOne: false
-            referencedRelation: "addresses"
+            referencedRelation: "orders_addresses"
             referencedColumns: ["id"]
           }
         ]
+      }
+      orders_addresses: {
+        Row: {
+          city: string
+          country: string
+          created_at: string
+          flat_number: string | null
+          house_number: string
+          id: number
+          postcode: string
+          street: string
+        }
+        Insert: {
+          city: string
+          country: string
+          created_at?: string
+          flat_number?: string | null
+          house_number: string
+          id?: number
+          postcode: string
+          street: string
+        }
+        Update: {
+          city?: string
+          country?: string
+          created_at?: string
+          flat_number?: string | null
+          house_number?: string
+          id?: number
+          postcode?: string
+          street?: string
+        }
+        Relationships: []
       }
       products: {
         Row: {

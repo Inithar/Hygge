@@ -8,7 +8,7 @@ import { StyledAddress, Details, Buttons } from "./Address.styled";
 import { Address as AddressType } from "../../../../types/collection";
 
 export const Address = (address: AddressType) => {
-  const { id, street, houseNumber, flatNumber, city, postcode, country } = address;
+  const { id, street, house_number, flat_number, city, postcode, country } = address;
 
   const { setAddressToDelete, setAddressToUpdate } = useAddresses();
 
@@ -16,7 +16,7 @@ export const Address = (address: AddressType) => {
     <StyledAddress key={id}>
       <Details>
         <Text>
-          {street} {houseNumber} {flatNumber && `/ ${flatNumber}`}
+          {street} {house_number} {flat_number && `/ ${flat_number}`}
         </Text>
         <Text>
           {city}, {postcode}

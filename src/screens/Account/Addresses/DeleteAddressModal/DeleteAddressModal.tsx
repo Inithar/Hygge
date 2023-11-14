@@ -17,7 +17,7 @@ export const DeleteAddressModal = () => {
     return;
   }
 
-  const { street, houseNumber, flatNumber, city, postcode, country } = addressToDelete;
+  const { street, house_number, flat_number, city, postcode, country } = addressToDelete;
 
   function handleDelete() {
     deleteAddress(addressToDelete!.id, { onSuccess: closeModal });
@@ -30,7 +30,7 @@ export const DeleteAddressModal = () => {
           <Text>Are you sure you want to delete this address:</Text>
 
           <Text>
-            {street} {houseNumber} {flatNumber && `/ ${flatNumber}`}
+            {street} {house_number} {flat_number && `/ ${flat_number}`}
           </Text>
           <Text>
             {city}, {postcode}

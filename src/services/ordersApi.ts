@@ -2,12 +2,14 @@ import { supabase } from "../lib/supabase";
 import { Item } from "../context/cart";
 
 import { ORDERS_PAGE_SIZE } from "../constants/settings";
-import { Order, PopulateOrder } from "../types/collection";
+import { Order, PopulateOrder, OrderAddress } from "../types/collection";
 
-export type NewOrder = Omit<Order, "id" | "created_at" | "status">;
+export type NewOrderData = Omit<Order, "id" | "created_at" | "status" | "address"> & {
+  address: Omit<OrderAddress, "created_at">;
+};
 
 type UpdateOrder = {
-  newOrderData: Partial<Order>;
+  newOrderData: Partial<Omit<Order, "id">>;
   id: number;
 };
 
@@ -52,10 +54,27 @@ export const getOrder = async (orderId: number) => {
   return order;
 };
 
-export const createOrder = async (order: NewOrder) => {
-  const { data: createdOrder, error } = await supabase.from("orders").insert([order]).select().single();
+export const createOrder = async (order: NewOrderData) => {
+  const { address, amount, name, surname, phone, email } = order;
+  const { id, ...addressData } = address;
 
-  if (error) {
+  const { data: orderAddress, error: orderAddressError } = await supabase
+    .from("orders_addresses")
+    .insert([addressData])
+    .select()
+    .single();
+
+  if (orderAddressError) {
+    throw new Error("Order address could not be created");
+  }
+
+  const { data: createdOrder, error: orderError } = await supabase
+    .from("orders")
+    .insert([{ address: orderAddress.id, amount, name, surname, phone, email }])
+    .select()
+    .single();
+
+  if (orderError) {
     throw new Error("Order could not be created");
   }
 
