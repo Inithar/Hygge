@@ -12,6 +12,22 @@ type UpdateCurrentUserData = {
   currentPassword?: string;
 };
 
+export const getCurrentUser = async () => {
+  const { data: session } = await supabase.auth.getSession();
+
+  if (!session.session) {
+    return null;
+  }
+
+  const { data, error } = await supabase.auth.getUser();
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data?.user;
+};
+
 export const updateCurrentUser = async ({ fieldsToUpdate, currentPassword }: UpdateCurrentUserData) => {
   if (currentPassword) {
     const { data: isPasswordCorrect, error } = await supabase.rpc("verify_user_password", {
