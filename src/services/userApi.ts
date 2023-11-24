@@ -5,6 +5,7 @@ type FieldsToUpdate = {
   surname?: string;
   password?: string;
   phone?: string;
+  email?: string;
 };
 
 type UpdateCurrentUserData = {
@@ -43,11 +44,11 @@ export const updateCurrentUser = async ({ fieldsToUpdate, currentPassword }: Upd
     }
   }
 
-  const { name, surname, password, phone } = fieldsToUpdate;
+  const { name, surname, password, phone, email } = fieldsToUpdate;
 
   let updateData;
 
-  if (password) updateData = { password };
+  if (password || email) updateData = { password, email };
   if (name || surname || phone) updateData = { data: { name, surname, phone } };
 
   if (!updateData) {

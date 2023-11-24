@@ -8,6 +8,7 @@ import { EditPhoneModal } from "./Modals/EditPhoneModal";
 import { Wrapper } from "../Wrapper/Wrapper";
 import { DetailField } from "./DetailField/DetailField";
 import { CategoryName, DetailsContainer, Divider } from "./Details.styled";
+import { EditEmailModal } from "./Modals/EditEmailModal";
 
 export const Details = () => {
   const { user } = useUser();
@@ -32,13 +33,14 @@ export const Details = () => {
         <CategoryName>Login Details</CategoryName>
 
         <DetailsContainer>
-          <DetailField label="Email Address" value={user?.email} />
+          <DetailField label="Email Address" value={user?.email} modalName="email" />
           <DetailField label="Password" value="**********" modalName="password" />
         </DetailsContainer>
       </Wrapper>
 
       <EditFullNameModal />
       <EditPhoneModal />
+      <EditEmailModal />
       <EditPasswordModal />
     </Modal>
   );
