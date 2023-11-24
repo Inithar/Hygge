@@ -4,11 +4,11 @@ import { Modal } from "../../../components/Modal/Modal";
 import { EditFullNameModal } from "./Modals/EditFullNameModal";
 import { EditPasswordModal } from "./Modals/EditPasswordModal";
 import { EditPhoneModal } from "./Modals/EditPhoneModal";
+import { EditEmailModal } from "./Modals/EditEmailModal";
 
 import { Wrapper } from "../Wrapper/Wrapper";
 import { DetailField } from "./DetailField/DetailField";
 import { CategoryName, DetailsContainer, Divider } from "./Details.styled";
-import { EditEmailModal } from "./Modals/EditEmailModal";
 
 export const Details = () => {
   const { user } = useUser();
