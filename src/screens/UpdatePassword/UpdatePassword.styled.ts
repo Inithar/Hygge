@@ -5,7 +5,6 @@ export const Form = styled.form`
   display: grid;
   gap: 1.6rem;
   margin: 5.6rem auto 9.6rem;
-  padding-inline: 2.4rem;
   max-width: 52rem;
   width: 100%;
 

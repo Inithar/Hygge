@@ -13,6 +13,11 @@ export const Form = styled.form`
     margin-top: 2.4rem;
   }
 
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
   ${media("xs")} {
     grid-template-columns: 1fr 1fr;
     gap: 2.4rem;
