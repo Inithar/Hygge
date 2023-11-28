@@ -44,3 +44,13 @@ export async function logout() {
     throw new Error(error.message);
   }
 }
+
+export const sendRecoverPasswordEmail = async (email: string) => {
+  const { data, error } = await supabase.auth.resetPasswordForEmail(email);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data;
+};

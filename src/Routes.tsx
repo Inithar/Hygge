@@ -26,6 +26,8 @@ import { Addresses } from "./screens/Account/Addresses/Addresses";
 
 import { Register } from "./screens/Register/Register";
 import { Login } from "./screens/Login/Login";
+import { Recover } from "./screens/Recover/Recover";
+import { UpdatePassword } from "./screens/UpdatePassword/UpdatePassword";
 
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
@@ -60,7 +62,10 @@ export const Routes = () => (
         <Route element={<AuthLayout />}>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/recover-password" element={<Recover />} />
         </Route>
+
+        <Route path="/update-password" element={<UpdatePassword />} />
       </Route>
 
       <Route path="/under-construction" element={<UnderConstruction />} />
