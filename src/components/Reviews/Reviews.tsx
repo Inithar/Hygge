@@ -1,9 +1,9 @@
 import { useWindowSize } from "../../hooks/useWindowSize";
 
+import { Text } from "../Text";
 import { Slider } from "../Slider/Slider";
 import { SectionTitle } from "../SectionTitle/SectionTitle";
 import { StyledSection, Review, ProfileImg } from "./Reviews.styled";
-import { Text } from "../Text";
 
 import { BREAKPOINTS } from "../../constants/breakpoints";
 
@@ -22,7 +22,6 @@ const settings = {
   arrows: true,
   dots: true,
   speed: 600,
-  adaptiveHeight: true,
 };
 
 export const Reviews = ({ reviews }: ReviewsProps) => {

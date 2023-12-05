@@ -65,7 +65,7 @@ export const ProductItem = ({ id, name, image, price, sale, category, createdAt 
       </BadgeContainer>
 
       <Container>
-        <Link to={`/products/${id}`} aria-label={`Link to ${name} product details`}>
+        <Link to={`/products/${id}`} aria-label={`Link to ${name} product details`} draggable="false">
           <img src={image} alt={`Picture of ${name} product`} />
         </Link>
 
@@ -75,7 +75,7 @@ export const ProductItem = ({ id, name, image, price, sale, category, createdAt 
       </Container>
 
       <ProductData>
-        <Link to={`/products/${id}`}>
+        <Link to={`/products/${id}`} draggable="false">
           <Name>{name}</Name>
         </Link>
 

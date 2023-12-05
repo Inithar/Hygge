@@ -20,6 +20,10 @@ export const Container = styled.div`
     border-radius: ${({ theme }) => theme.borderRadius.lg};
   }
 
+  img {
+    max-height: 100%;
+  }
+
   ${media("md")} {
     a {
       height: 27.2rem;
