@@ -4,8 +4,10 @@ import { LinkButton } from "../../../components/Button";
 import { Heading } from "../../../components/Heading";
 import { Box, Container, StyledReceipt } from "./Receipt.styled";
 
+import { SHIPPING_COST } from "../../../constants/settings";
+
 export const Receipt = () => {
-  const { productsTotal, discountTotal, shippingCost, cartTotal } = useCart();
+  const { productsTotal, discountTotal, cartTotal } = useCart();
 
   return (
     <StyledReceipt>
@@ -22,7 +24,7 @@ export const Receipt = () => {
         </Box>
         <Box>
           <p>Shipping:</p>
-          <p>${shippingCost}</p>
+          <p>${SHIPPING_COST}</p>
         </Box>
         <Box>
           <p>Total:</p>

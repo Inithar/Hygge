@@ -3,7 +3,7 @@ import { ReactNode, createContext } from "react";
 
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
-import { MAXIMUM_QUANTITY_OF_PRODUCTS_IN_CART } from "../constants/settings";
+import { MAXIMUM_QUANTITY_OF_PRODUCTS_IN_CART, SHIPPING_COST } from "../constants/settings";
 
 export type Item = {
   id: number;
@@ -16,7 +16,6 @@ export type Item = {
 
 type CartContextType = {
   items: Item[];
-  shippingCost: number;
   productsTotal: number;
   discountTotal: number;
   cartTotal: number;
@@ -32,8 +31,6 @@ export const CartContext = createContext<CartContextType | undefined>(undefined)
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [items, setItems] = useLocalStorage<Item[]>("shopping-cart", []);
 
-  const shippingCost = 8;
-
   const productsTotal = items.reduce(
     (acc, { currentPrice, oldPrice, qty }) => acc + (oldPrice ?? currentPrice) * qty,
     0
@@ -44,7 +41,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     0
   );
 
-  const cartTotal = productsTotal - discountTotal + shippingCost;
+  const cartTotal = productsTotal - discountTotal + SHIPPING_COST;
   const isCartEmpty = items.length === 0;
 
   function setItemQty(id: number, qty: number) {
@@ -89,7 +86,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     <CartContext.Provider
       value={{
         items,
-        shippingCost,
         productsTotal,
         discountTotal,
         isCartEmpty,

@@ -6,3 +6,4 @@ export const FAVORITE_PRODUCTS_PAGE_SIZE = 4;
 export const DAYS_TO_PRODUCT_CONSIDER_NEW = 7;
 
 export const MAXIMUM_QUANTITY_OF_PRODUCTS_IN_CART = 99;
+export const SHIPPING_COST = 8; 
