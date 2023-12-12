@@ -22,7 +22,7 @@ export const StyledSection = styled(Section)`
   ${media("xl")} {
     display: flex;
     align-items: center;
-    gap: 7.2rem;
+    gap: 6rem;
   }
 `;
 
