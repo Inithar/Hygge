@@ -1,4 +1,3 @@
-import toast from "react-hot-toast";
 import { useState } from "react";
 import { IoMdHeart as Heart, IoIosHeartEmpty as HeartEmpty } from "react-icons/io";
 
@@ -35,8 +34,6 @@ export const Information = ({ id, name, category, sale, price, images, isProduct
   function handleAddToCart() {
     addToCart({ id, name, image: images[0], currentPrice, oldPrice: sale ? price : undefined, qty });
     setQty(1);
-
-    toast.success("Product has been added to the cart");
   }
 
   function handleFavoriteButtonClick() {
