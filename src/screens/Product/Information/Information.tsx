@@ -1,25 +1,32 @@
 import toast from "react-hot-toast";
 import { useState } from "react";
-import { FiHeart as Heart } from "react-icons/fi";
+import { IoMdHeart as Heart, IoIosHeartEmpty as HeartEmpty } from "react-icons/io";
 
 import { useUser } from "../../../hooks/api/useUser";
 import { useCart } from "../../../hooks/context/useCart";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import { useAddFavoriteProduct } from "../../../hooks/api/useAddFavoriteProduct";
+import { useDeleteFavoriteProduct } from "../../../hooks/api/useDeleteFavoriteProduct";
 
 import { Counter } from "../../../components/Counter/Counter";
 import { Badge } from "../../../components/Badge/Badge";
 import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
-import { Box, Container, Price, Old, Current, Controls, Icon, StyledButton } from "./Information.styled";
+import { Box, Container, Price, Old, Current, Controls, FavoriteButton, StyledButton } from "./Information.styled";
 
 import { PopulateProduct } from "../../../types/collection";
 import { BREAKPOINTS } from "../../../constants/breakpoints";
 
-export const Information = ({ id, name, category, sale, price, images }: PopulateProduct) => {
+type InformationProps = PopulateProduct & {
+  isProductFavorite: boolean;
+};
+
+export const Information = ({ id, name, category, sale, price, images, isProductFavorite }: InformationProps) => {
   const { width } = useWindowSize();
   const { addToCart } = useCart();
-  const { addFavoriteProduct } = useAddFavoriteProduct();
+
   const { user } = useUser();
+  const { addFavoriteProduct, isAdding } = useAddFavoriteProduct();
+  const { deleteFavoriteProduct, isDeleting } = useDeleteFavoriteProduct();
 
   const [qty, setQty] = useState(1);
 
@@ -30,6 +37,11 @@ export const Information = ({ id, name, category, sale, price, images }: Populat
     setQty(1);
 
     toast.success("Product has been added to the cart");
+  }
+
+  function handleFavoriteButtonClick() {
+    const data = { userId: user!.id, productId: id };
+    isProductFavorite ? deleteFavoriteProduct(data) : addFavoriteProduct(data);
   }
 
   return (
@@ -51,9 +63,14 @@ export const Information = ({ id, name, category, sale, price, images }: Populat
 
         <div>
           <StyledButton onClick={handleAddToCart}>Add to Cart</StyledButton>
-          <Icon onClick={() => addFavoriteProduct({ userId: user!.id, productId: id })}>
-            <Heart />
-          </Icon>
+
+          <FavoriteButton
+            onClick={handleFavoriteButtonClick}
+            disabled={isAdding || isDeleting}
+            isFavorite={isProductFavorite}
+          >
+            {isProductFavorite ? <Heart /> : <HeartEmpty />}
+          </FavoriteButton>
         </div>
       </Controls>
     </Container>

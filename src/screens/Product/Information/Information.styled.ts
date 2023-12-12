@@ -75,7 +75,7 @@ export const Controls = styled.div`
   }
 `;
 
-export const Icon = styled.button`
+export const FavoriteButton = styled.button<{ isFavorite: boolean }>`
   display: flex;
   align-content: center;
   justify-content: center;
@@ -86,6 +86,12 @@ export const Icon = styled.button`
 
   svg {
     font-size: ${({ theme }) => theme.fontSizes["2xl"]};
+
+    ${({ isFavorite }) =>
+      isFavorite &&
+      css`
+        color: #e31b23;
+      `}
   }
 
   ${media("sm")} {

@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
+import { useUser } from "../../../hooks/api/useUser";
 import { useProduct } from "../../../hooks/api/useProduct";
 import { useWindowSize } from "../../../hooks/useWindowSize";
+import { useUserFavoriteProducts } from "../../../hooks/api/useUserFavoriteProducts";
 
 import { SpinnerContainer } from "../Product.styled";
 import { Information } from "../Information/Information";
@@ -22,14 +24,15 @@ const settings = {
 
 export const Details = () => {
   const { id } = useParams();
-  const { product, isLoading } = useProduct(Number(id));
-
   const { width } = useWindowSize();
-  const isMobile = width < BREAKPOINTS.xs;
+
+  const { user } = useUser();
+  const { product, isLoading: isProductDataLoading } = useProduct(Number(id));
+  const { favoriteProducts, isLoading: isUserFavoriteProductsLoading } = useUserFavoriteProducts(user!.id);
 
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
-  if (isLoading) {
+  if (isProductDataLoading || isUserFavoriteProductsLoading) {
     return (
       <SpinnerContainer>
         <Spinner size="lg" />
@@ -37,7 +40,7 @@ export const Details = () => {
     );
   }
 
-  if (!product) {
+  if (!product || !favoriteProducts) {
     return <div>error</div>;
   }
 
@@ -75,9 +78,12 @@ export const Details = () => {
 
   return (
     <StyledSection>
-      {isMobile ? mobileImageSection : desktopImageSection}
+      {width < BREAKPOINTS.xs ? mobileImageSection : desktopImageSection}
 
-      <Information {...product} />
+      <Information
+        {...product}
+        isProductFavorite={Boolean(favoriteProducts.find((favoriteProduct) => favoriteProduct.id === product.id))}
+      />
     </StyledSection>
   );
 };

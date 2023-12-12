@@ -10,7 +10,7 @@ export const useAddFavoriteProduct = () => {
     mutationFn: addFavoriteProduct,
     onSuccess: () => {
       toast.success("Product successfully added to favorite products");
-      queryClient.invalidateQueries({ queryKey: ["favoriteProducts"] });
+      queryClient.invalidateQueries({ queryKey: ["userFavoriteProducts"] });
     },
     onError: (error: Error) => toast.error(error.message),
   });

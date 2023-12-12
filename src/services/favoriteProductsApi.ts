@@ -17,10 +17,24 @@ export const addFavoriteProduct = async ({ userId, productId }: { userId: string
   return data;
 };
 
+export const deleteFavoriteProduct = async ({ userId, productId }: { userId: string; productId: number }) => {
+  const { data, error } = await supabase
+    .from("favorite_products")
+    .delete()
+    .eq("customer", userId)
+    .eq("product", productId);
+
+  if (error) {
+    throw new Error("Product could not be removed");
+  }
+
+  return data;
+};
+
 export const getUserFavoriteProducts = async ({ userId, page }: { userId: string; page: number }) => {
   let query = supabase
     .from("favorite_products")
-    .select(`*, product(*, category("name", "color"), brand("name"))`, { count: "exact" })
+    .select(`*, product(*, category("name", "color"))`, { count: "exact" })
     .eq("customer", userId)
     .returns<PopulateFavoriteProducts[]>();
 
