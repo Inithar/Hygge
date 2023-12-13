@@ -18,7 +18,7 @@ export const Footer = () => {
 
         <Socials>
           {socials.map(({ Icon, href }) => (
-            <Link to={href} key={crypto.randomUUID()}>
+            <Link to={href} key={crypto.randomUUID()} target="_blank">
               <Icon />
             </Link>
           ))}

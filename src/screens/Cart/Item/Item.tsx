@@ -20,7 +20,7 @@ export const Item = ({ id, image, name, oldPrice, currentPrice, qty }: ItemType)
       <Details>
         <Heading as="h3">
           <Link to={`/products/${id}`} aria-label={`Link to ${name} product details`}>
-            {name} <span>10g</span>
+            {name}
           </Link>
         </Heading>
 
@@ -33,7 +33,6 @@ export const Item = ({ id, image, name, oldPrice, currentPrice, qty }: ItemType)
           <Counter value={qty} onChange={(value) => setItemQty(id, value)} min={1} max={99} />
 
           <button onClick={() => removeFromCart(id)} aria-label={`Remove ${name} from cart`}>
-            {/* <img src="/icons/delete.svg" alt="delete icon" /> */}
             <CloseIcon />
           </button>
         </Controls>

@@ -153,6 +153,12 @@ export const CartContainer = styled.div`
   & > div {
     padding: 2.4rem;
     width: 48.8rem;
+    max-height: 45rem;
+    overflow: hidden scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     & > div:nth-child(2) {
       margin-bottom: 3.2rem;

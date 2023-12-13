@@ -38,6 +38,11 @@ export const Cart = styled.div`
   ${media("lg")} {
     grid-template-columns: 2fr 1fr;
     align-items: start;
+
+    & > div:last-child {
+      position: sticky;
+      top: 12rem;
+    }
   }
 `;
 
