@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-
 import { media, rgba } from "../../styles/helpers";
 
 export const Container = styled.div`
@@ -91,7 +89,7 @@ export const Item = styled.div`
   }
 `;
 
-export const StyledLink = styled(Link)`
+export const ImageContainer = styled.div`
   display: grid;
   place-items: center;
   width: 9.6rem;
@@ -111,5 +109,13 @@ export const StyledLink = styled(Link)`
     & > img {
       max-width: 9.6rem;
     }
+  }
+`;
+
+export const SpinnerWrapper = styled.div`
+  margin-top: 5.6rem;
+
+  ${media("xs")} {
+    margin-top: 6.4rem;
   }
 `;

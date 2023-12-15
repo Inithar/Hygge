@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import { useCart } from "../../hooks/context/useCart";
 import { useOrder } from "../../hooks/api/useOrder";
@@ -55,7 +56,9 @@ export const Confirmation = () => {
               You will find all the details about your order below, and we'll send you a shipping confirmation email as
               soon as your order ships.
             </Text>
-            <Text>Questions? Suggestions? Insightful show thoughts? Shoot us an email.</Text>
+            <Text>
+              Questions? Suggestions? Insightful show thoughts? Shoot us an <Link to="/contact">email</Link>.
+            </Text>
           </Description>
 
           <OrderDetails {...order} />

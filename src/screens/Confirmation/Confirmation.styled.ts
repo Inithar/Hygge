@@ -15,6 +15,14 @@ export const Description = styled.div`
     font-size: ${({ theme }) => theme.fontSizes.sm};
   }
 
+  & > p > a {
+    transition: color 0.3s;
+  }
+
+  & > p > a:hover {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+
   ${media("sm")} {
     & > p {
       font-size: ${({ theme }) => theme.fontSizes.md};

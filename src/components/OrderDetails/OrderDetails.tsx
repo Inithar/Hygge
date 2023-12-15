@@ -16,7 +16,7 @@ export const OrderDetails = ({
   created_at,
   phone,
   email,
-  address: { city, country, houseNumber, flatNumber, street, postcode },
+  address: { city, country, house_number: houseNumber, flat_number: flatNumber, street, postcode },
   smallFontSize,
 }: OrderDetailsProps) => {
   const { time, date } = convertOrderDate(created_at);
