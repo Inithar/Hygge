@@ -64,7 +64,12 @@ export const Personal = () => {
           id="email"
           label="Email Address"
           error={errors.email?.message}
-          inputProps={{ ...register("email"), placeholder: "johnsmith@gmail.com", type: "email", defaultValue: email }}
+          inputProps={{
+            ...register("email"),
+            placeholder: "johnsmith@gmail.com",
+            type: "email",
+            defaultValue: email,
+          }}
         />
 
         <TextField

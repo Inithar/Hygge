@@ -224,6 +224,7 @@ export interface Database {
           address: number
           amount: number
           created_at: string
+          customer: string
           email: string
           id: number
           name: string
@@ -235,6 +236,7 @@ export interface Database {
           address: number
           amount: number
           created_at?: string
+          customer: string
           email: string
           id?: number
           name: string
@@ -246,6 +248,7 @@ export interface Database {
           address?: number
           amount?: number
           created_at?: string
+          customer?: string
           email?: string
           id?: number
           name?: string
@@ -259,6 +262,13 @@ export interface Database {
             columns: ["address"]
             isOneToOne: false
             referencedRelation: "orders_addresses"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "orders_customer_fkey"
+            columns: ["customer"]
+            isOneToOne: false
+            referencedRelation: "customers"
             referencedColumns: ["id"]
           }
         ]

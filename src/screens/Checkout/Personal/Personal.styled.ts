@@ -7,4 +7,9 @@ export const Form = styled.form`
   & > button {
     margin-top: 3.2rem;
   }
+
+  & > div > input::-webkit-outer-spin-button,
+  & > div > input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
 `;

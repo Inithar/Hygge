@@ -10,18 +10,20 @@ import { Button } from "../../../components/Button";
 import { Form } from "./PaymentForm.styled";
 
 import { NewOrderData } from "../../../services/ordersApi";
+import { useUser } from "../../../hooks/api/useUser";
 
 export const PaymentForm = () => {
   const stripe = useStripe();
   const elements = useElements();
 
+  const { user } = useUser();
   const { cartTotal } = useCart();
   const { orderData } = useCheckout();
   const { createOrder, isCreating: isCreatingOrder } = useCreateOrder(stripe, elements);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    createOrder({ ...orderData, amount: cartTotal } as NewOrderData);
+    createOrder({ ...orderData, amount: cartTotal, customer: user!.id } as NewOrderData);
   };
 
   return (

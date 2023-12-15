@@ -35,21 +35,29 @@ export const Payment = () => {
     clientSecret: queryData?.clientSecret,
     appearance: {
       variables: {
-        borderRadius: "3.2rem",
+        borderRadius: "32px",
         fontSizeBase: "16px",
         spacingUnit: isMobile ? "10px" : "12px",
         fontFamily: "Montserrat, sans-serif",
+        focusOutline: "rgb(0, 204, 150)",
+        focusBoxShadow: "rgb(0, 204, 150)",
       },
       rules: {
         ".Input": {
           padding: isMobile ? "13px 24px" : "20px 24px",
           fontSize: isMobile ? "16px" : "20px",
+          borderWidth: "2px",
         },
 
         ".Input::placeholder": {
           fontFamily: "Montserrat, sans-serif",
           color: "rgb(26, 32, 44, 0.4)",
           fontWeight: "400",
+        },
+
+        ".Input:focus": {
+          borderColor: "rgb(0, 204, 150)",
+          borderWidth: "2px",
         },
 
         ".Label": {

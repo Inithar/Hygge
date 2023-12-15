@@ -5,7 +5,7 @@ import { getOrders } from "../../services/ordersApi";
 
 import { subtractDays } from "../../utils/subtractDays";
 
-export const useOrders = () => {
+export const useOrders = (customer?: string) => {
   const [searchParams] = useSearchParams();
 
   const period = searchParams.get("period");
@@ -18,8 +18,8 @@ export const useOrders = () => {
   const page = !searchParams.get("page") ? 1 : Number(searchParams.get("page"));
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ["orders", filter, page],
-    queryFn: () => getOrders({ filter, page }),
+    queryKey: ["orders", filter, page, customer],
+    queryFn: () => getOrders({ filter, page, customer }),
   });
 
   return { orders: data?.orders, count: data?.count, isLoading, error };

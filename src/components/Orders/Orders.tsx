@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { HiOutlineArchiveBoxXMark as Box } from "react-icons/hi2";
 
 import { useOrders } from "../../hooks/api/useOrders";
+import { useUser } from "../../hooks/api/useUser";
 
 import { Text } from "../Text";
 import { Badge } from "../Badge/Badge";
@@ -42,7 +43,9 @@ const statusColors: Record<OrderStatus, BadgeColor> = {
 };
 
 export const Orders = () => {
-  const { orders, count, isLoading, error } = useOrders();
+  const { user } = useUser();
+
+  const { orders, count, isLoading, error } = useOrders(user?.id);
   const { pathname } = useLocation();
 
   if (isLoading) {
