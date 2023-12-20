@@ -32,6 +32,7 @@ import { UpdatePassword } from "./screens/UpdatePassword/UpdatePassword";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
 import { UnderConstruction } from "./screens/UnderConstruction/UnderConstruction";
+import { PageNotFound } from './screens/PageNotFound/PageNotFound';
 
 export const Routes = () => (
   <ReactRoutes>
@@ -69,6 +70,7 @@ export const Routes = () => (
       </Route>
 
       <Route path="/under-construction" element={<UnderConstruction />} />
+      <Route path="*" element={<PageNotFound />} />
     </Route>
   </ReactRoutes>
 );
