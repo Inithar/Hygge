@@ -30,6 +30,10 @@ export const Container = styled.div<{ isBodyOpen: boolean }>`
 
   ${borderRadiusStyles}
 
+  &:focus-visible {
+    outline: 0.2rem solid ${({ theme }) => theme.colors.primary};
+  }
+
   & > div {
     border-bottom-color: ${({ theme, isBodyOpen }) => (isBodyOpen ? "transparent" : theme.colors.accent.one)};
     transition: border-bottom-color 0.3s;

@@ -76,6 +76,7 @@ export const ProductsSection = () => {
               id="sale"
               label="On Sale"
               inputProps={{
+                defaultChecked: Boolean(filters.sale),
                 onChange: (e) => handleFilterChange("sale", String(e.target.checked)),
               }}
             />
@@ -84,6 +85,7 @@ export const ProductsSection = () => {
               id="new"
               label="New"
               inputProps={{
+                defaultChecked: Boolean(filters.new),
                 onChange: (e) => handleFilterChange("new", String(e.target.checked)),
               }}
             />
