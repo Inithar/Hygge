@@ -1,14 +1,11 @@
 import { LinkButton } from "../../components/Button";
-import { Heading } from "../../components/Heading";
-import { Section } from "./UnderConstruction.styled";
+import { Heading, Image, Section, Text } from "./UnderConstruction.styled";
 
 export const UnderConstruction = () => (
   <Section>
-    <img src="/images/under-construction.jpg" />
-    <Heading as="h1">
-      <span>Coming soon...</span>
-      Page is under construction
-    </Heading>
+    <Image src="/images/under-construction.png" alt="" />
+    <Heading>This page is under construction</Heading>
+    <Text>We are working on it!</Text>
     <LinkButton to="/">Go to home page</LinkButton>
   </Section>
 );
