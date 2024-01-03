@@ -64,7 +64,7 @@ export const AddToCartBtn = styled.button`
       border-radius: ${theme.borderRadius.md};
     `}
 
-    &:hover, &:focus {
+    &:hover, &:focus-visible {
       outline-color: ${({ theme }) => theme.colors.primary};
     }
 
@@ -77,6 +77,15 @@ export const AddToCartBtn = styled.button`
 export const ProductData = styled.div`
   margin-top: 3.2rem;
   font-family: ${({ theme }) => theme.fontFamilies.montserrat.semiBold};
+
+  & > a {
+    transition: color 0.3s;
+  }
+
+  & > a:hover,
+  & > a:focus-visible {
+    color: ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 export const Name = styled.p`

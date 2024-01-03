@@ -5,9 +5,10 @@ import { isProductNew } from "../../utils/isProductNew";
 
 import { ProductItemSkeleton, ProductItem } from "../ProductItem/ProductItem";
 import { Pagination } from "../Pagination/Pagination";
-import { ProductsContainer } from "./Products.styled";
+import { Message, ProductsContainer } from "./Products.styled";
 
 import { PRODUCTS_PAGE_SIZE } from "../../constants/settings";
+import { Error } from "../Error/Error";
 
 type ProductsProps = {
   numberOfProductSkeletons?: number;
@@ -38,7 +39,7 @@ export const Products = ({ numberOfProductSkeletons, maxNumberOfProducts }: Prod
   }
 
   if (!products || error) {
-    return <div>error</div>;
+    return <Error />;
   }
 
   let filteredProducts = products;
@@ -103,11 +104,15 @@ export const Products = ({ numberOfProductSkeletons, maxNumberOfProducts }: Prod
 
   return (
     <>
-      <ProductsContainer>
-        {filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct).map((product) => (
-          <ProductItem {...product} createdAt={product.created_at} image={product.images[0]} key={product.id} />
-        ))}
-      </ProductsContainer>
+      {filteredProducts.length ? (
+        <ProductsContainer>
+          {filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct).map((product) => (
+            <ProductItem {...product} createdAt={product.created_at} image={product.images[0]} key={product.id} />
+          ))}
+        </ProductsContainer>
+      ) : (
+        <Message>No products found in this category</Message>
+      )}
 
       <Pagination count={filteredProducts.length} pageSize={PRODUCTS_PAGE_SIZE} />
     </>

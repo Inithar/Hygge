@@ -25,3 +25,13 @@ export const ProductsContainer = styled.div`
     grid-template-columns: repeat(4, 1fr);
   }
 `;
+
+export const Message = styled.p`
+  margin-top: 3.2rem;
+  text-align: center;
+  font-size: ${({ theme }) => theme.fontSizes.sm};
+
+  ${media("xs")} {
+    font-size: ${({ theme }) => theme.fontSizes.lg};
+  }
+`;
