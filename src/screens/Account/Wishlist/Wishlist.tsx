@@ -7,13 +7,18 @@ import { Wrapper } from "../Wrapper/Wrapper";
 import { Spinner } from "../../../components/Spinner";
 import { ProductItem } from "../../../components/ProductItem/ProductItem";
 import { Pagination } from "../../../components/Pagination/Pagination";
+import { Error } from "../../../components/Error/Error";
 import { NoItems, Products, SpinnerContainer } from "./Wishlist.styled";
 
 import { FAVORITE_PRODUCTS_PAGE_SIZE } from "../../../constants/settings";
 
 export const Wishlist = () => {
   const { user } = useUser();
-  const { favoriteProducts, count, isLoading } = useUserFavoriteProducts(user!.id);
+  const { favoriteProducts, count, isLoading, error } = useUserFavoriteProducts(user!.id);
+
+  if (error) {
+    return <Error />;
+  }
 
   return (
     <Wrapper title="Your Wishlist">

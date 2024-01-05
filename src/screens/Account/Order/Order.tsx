@@ -6,6 +6,7 @@ import { useOrder } from "../../../hooks/api/useOrder";
 import { OrderDetails } from "../../../components/OrderDetails/OrderDetails";
 import { OrderItems } from "../../../components/OrderItems/OrderItems";
 import { Spinner } from "../../../components/Spinner";
+import { Error } from "../../../components/Error/Error";
 import { BackButton, Container, SpinnerContainer } from "./Order.styled";
 
 export const Order = () => {
@@ -21,7 +22,7 @@ export const Order = () => {
   }
 
   if (error || !order) {
-    return <div>error</div>;
+    return <Error />;
   }
 
   return (

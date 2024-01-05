@@ -6,8 +6,8 @@ import { useRelatedProducts } from "../../../hooks/api/useRelatedProducts";
 import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import { Slider } from "../../../components/Slider/Slider";
 import { ProductItem } from "../../../components/ProductItem/ProductItem";
-import { Spinner } from "../../../components/Spinner";
-import { SpinnerContainer } from "../Product.styled";
+import { Error } from "../../../components/Error/Error";
+import { Loader } from "../Product.styled";
 import { ProductContainer, StyledSection } from "./RelatedProducts.styled";
 
 import { BREAKPOINTS } from "../../../constants/breakpoints";
@@ -26,17 +26,17 @@ const sliderSettings = {
 
 export const RelatedProducts = () => {
   const { id } = useParams();
-  const { relatedProducts, isLoading } = useRelatedProducts(Number(id));
+  const { relatedProducts, isLoading, error } = useRelatedProducts(Number(id));
 
   const { width } = useWindowSize();
   const isMobile = width < BREAKPOINTS.xs;
 
   if (isLoading) {
-    return (
-      <SpinnerContainer>
-        <Spinner size="lg" />
-      </SpinnerContainer>
-    );
+    return <Loader />;
+  }
+
+  if (!relatedProducts || error) {
+    return <Error />;
   }
 
   return (

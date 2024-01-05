@@ -12,6 +12,7 @@ import { Wrapper } from "../Wrapper/Wrapper";
 import { CreateUpdateAddressModalWindow } from "../../../components/CreateUpdateAddressModalWindow/CreateUpdateAddressModalWindow";
 import { DeleteAddressModal } from "./DeleteAddressModal/DeleteAddressModal";
 import { Address } from "./Address/Address";
+import { Error } from "../../../components/Error/Error";
 import { Container, NoSavedAddresses, SpinnerBox } from "./Addresses.styled";
 
 import { Address as AddressType } from "../../../types/collection";
@@ -27,7 +28,7 @@ export const AddressesContext = createContext<AddressesContextType | undefined>(
 
 export const Addresses = () => {
   const { user } = useUser();
-  const { addresses, isLoading } = useUserAddresses(user!.id);
+  const { addresses, isLoading, error } = useUserAddresses(user!.id);
 
   const [addressToUpdate, setAddressToUpdate] = useState<AddressType | null>(null);
   const [addressToDelete, setAddressToDelete] = useState<AddressType | null>(null);
@@ -38,6 +39,10 @@ export const Addresses = () => {
     setAddressToUpdate,
     setAddressToDelete,
   };
+
+  if (error) {
+    return <Error />;
+  }
 
   return (
     <Wrapper title="Addresses">

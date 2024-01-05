@@ -6,13 +6,13 @@ import { useProduct } from "../../../hooks/api/useProduct";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import { useUserFavoriteProducts } from "../../../hooks/api/useUserFavoriteProducts";
 
-import { SpinnerContainer } from "../Product.styled";
+import { Loader } from "../Product.styled";
 import { Information } from "../Information/Information";
-import { Spinner } from "../../../components/Spinner";
 import { Slider } from "../../../components/Slider/Slider";
 import { Container, Images, StyledSection, Button, Figure } from "./Details.styled";
 
 import { BREAKPOINTS } from "../../../constants/breakpoints";
+import { Error } from "../../../components/Error/Error";
 
 const settings = {
   slidesToShow: 1,
@@ -33,15 +33,11 @@ export const Details = () => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
   if (isProductDataLoading || isUserFavoriteProductsLoading) {
-    return (
-      <SpinnerContainer>
-        <Spinner size="lg" />
-      </SpinnerContainer>
-    );
+    return <Loader />;
   }
 
   if (!product || !favoriteProducts) {
-    return <div>error</div>;
+    return <Error />;
   }
 
   const mobileImageSection = (

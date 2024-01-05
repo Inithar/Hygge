@@ -5,6 +5,7 @@ import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import { Slider } from "../../../components/Slider/Slider";
 import { Category } from "../Category/Category";
 import { CategorySkeleton } from "../Category/Category.styled";
+import { Error } from "../../../components/Error/Error";
 import { StyledSection } from "./Categories.styled";
 
 import { BREAKPOINTS } from "../../../constants/breakpoints";
@@ -22,10 +23,14 @@ const sliderSettings = {
 };
 
 export const Categories = () => {
-  const { categories, isLoading } = useCategories();
+  const { categories, isLoading, error } = useCategories();
   const { width } = useWindowSize();
 
   const isMobile = width < BREAKPOINTS.xs;
+
+  if (error) {
+    return <Error />;
+  }
 
   return (
     <StyledSection>

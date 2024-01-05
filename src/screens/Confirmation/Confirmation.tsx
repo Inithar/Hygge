@@ -10,6 +10,7 @@ import { Text } from "../../components/Text";
 import { Spinner } from "../../components/Spinner";
 import { OrderItems } from "../../components/OrderItems/OrderItems";
 import { OrderDetails } from "../../components/OrderDetails/OrderDetails";
+import { Error } from "../../components/Error/Error";
 import { Container, Description, SpinnerWrapper, StyledSection } from "./Confirmation.styled";
 
 export const Confirmation = () => {
@@ -19,7 +20,7 @@ export const Confirmation = () => {
   const orderId = Number(urlParams.get("order"));
 
   const { clearCart } = useCart();
-  const { order, isLoading: isOrderLoading } = useOrder(orderId);
+  const { order, isLoading: isOrderLoading, error } = useOrder(orderId);
   const { updateOrder, isUpdating } = useUpdateOrder();
 
   useEffect(() => {
@@ -41,8 +42,8 @@ export const Confirmation = () => {
     );
   }
 
-  if (!order) {
-    return <div>error</div>;
+  if (!order || error) {
+    return <Error />;
   }
 
   if (status === "succeeded") {

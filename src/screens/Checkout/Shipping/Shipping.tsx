@@ -9,6 +9,7 @@ import { Modal } from "../../../components/Modal/Modal";
 import { Text } from "../../../components/Text";
 import { Spinner } from "../../../components/Spinner";
 import { FormStepWrapper } from "../FormStepWrapper/FormStepWrapper";
+import { Error } from "../../../components/Error/Error";
 import {
   Container,
   Input,
@@ -23,12 +24,16 @@ import { OrderAddress } from "../../../types/collection";
 
 export const Shipping = () => {
   const { user } = useUser();
-  const { addresses, isLoading } = useUserAddresses(user!.id);
+  const { addresses, isLoading, error } = useUserAddresses(user!.id);
 
   const { orderData, setOrderData, next } = useCheckout();
 
   function onAddressChange(address: Omit<OrderAddress, "created_at">) {
     setOrderData((prev) => ({ ...prev, address }));
+  }
+
+  if (error) {
+    return <Error />;
   }
 
   return (
