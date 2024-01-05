@@ -31,7 +31,7 @@ export const useCreateOrder = (stripe: Stripe | null, elements: StripeElements |
       const { error } = await stripe.confirmPayment({
         elements,
         confirmParams: {
-          return_url: `http://localhost:5173/checkout/confirmation?order=${order.id}`,
+          return_url: `https://hygge-inithar.netlify.app/checkout/confirmation?order=${order.id}`,
         },
       });
 
