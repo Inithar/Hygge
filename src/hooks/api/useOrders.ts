@@ -18,8 +18,6 @@ export const useOrders = (customer?: string) => {
       ? null
       : { field: "created_at", value: subtractDays(new Date(), Number(period)).toDateString() };
 
-  console.log(filter);
-
   const page = !searchParams.get("page") ? 1 : Number(searchParams.get("page"));
 
   const { data, isLoading, error } = useQuery({
