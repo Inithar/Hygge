@@ -18,18 +18,18 @@ const handler = async (req: Request): Promise<Response> => {
 
   if (table === "newsletter") {
     body = {
-      from: "Hygge <onboarding@resend.dev>", // team@hygge.com
+      from: "Hygge@hygge-cosmetics.shop",
       subject: "Welcome to Our newsletter",
-      to: "szymon.switala@proton.me", // record.email
+      to: record.email,
       html: newsletter,
     };
   }
 
   if (contactEmail) {
     body = {
-      from: "Hygge <onboarding@resend.dev>", // contactEmail.email
-      subject: `Contact email from ${contactEmail.fullName}`,
-      to: "szymon.switala@proton.me", // contactEmail.receiver
+      from: contactEmail.email,
+      subject: `Email from ${contactEmail.email}`,
+      to: contactEmail.receiver,
       html: contactEmail.message,
     };
   }
