@@ -32,19 +32,11 @@ export const StyledForm = styled.form`
     max-width: 9.1rem;
   }
 
-  & > div:nth-child(3) {
-    margin-bottom: 2.8rem;
-  }
-
   ${media("sm")} {
     gap: 3.2rem;
 
     & > button {
       max-width: 13.4rem;
-    }
-
-    & > div:nth-child(3) {
-      margin-bottom: 3.2rem;
     }
   }
 
