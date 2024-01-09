@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { FiShoppingCart as CartIcon, FiUser as UserIcon, FiSearch as SearchIcon } from "react-icons/fi";
+import { FiShoppingCart as CartIcon, FiUser as UserIcon, FiHeart as HeartIcon } from "react-icons/fi";
 
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { useDisableBodyScroll } from "../../hooks/useDisableBodyScroll";
@@ -8,7 +8,6 @@ import { useCart } from "../../hooks/context/useCart";
 import { useUser } from "../../hooks/api/useUser";
 
 import { Logo } from "../Logo/Logo";
-import { Search } from "../Search/Search";
 import { Cart } from "../Cart/Cart";
 import { FocusTrap } from "../FocusTrap";
 import { StyledHeader, Burger, Icons, Container, Navigation, Wrapper, CartContainer, Dot } from "./Header.styled";
@@ -50,8 +49,6 @@ export const Header = () => {
           <Logo size="md" />
 
           <Container id={containerId} isActive={isNavigationActive} aria-hidden={isContainerHidden}>
-            {!isMediumScreen && <Search />}
-
             <Navigation>
               <ul>
                 {links.map(({ title, url }) => (
@@ -70,7 +67,11 @@ export const Header = () => {
           </Container>
 
           <Icons>
-            {isMediumScreen && <SearchIcon />}
+            {isMediumScreen && (
+              <Link to={isAuthenticated ? "/account/wishlist" : "/login"}>
+                <HeartIcon />
+              </Link>
+            )}
 
             <div>
               <Link to="/cart">
