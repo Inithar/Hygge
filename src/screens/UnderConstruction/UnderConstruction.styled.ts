@@ -6,8 +6,8 @@ export const Section = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-inline: 2.4rem;
-  height: 100vh;
+  padding: 5.6rem 2.4rem;
+  min-height: 100vh;
   text-align: center;
 
   & > a {
