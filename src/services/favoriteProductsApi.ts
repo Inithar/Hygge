@@ -31,7 +31,9 @@ export const deleteFavoriteProduct = async ({ userId, productId }: { userId: str
   return data;
 };
 
-export const getUserFavoriteProducts = async ({ userId, page }: { userId: string; page: number }) => {
+export const getUserFavoriteProducts = async ({ userId, page }: { userId: string | undefined; page: number }) => {
+  if (!userId) return { favoriteProducts: [], count: 0 };
+
   let query = supabase
     .from("favorite_products")
     .select(`*, product(*, category("name", "color"))`, { count: "exact" })

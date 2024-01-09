@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { IoMdHeart as Heart, IoIosHeartEmpty as HeartEmpty } from "react-icons/io";
 
 import { useUser } from "../../../hooks/api/useUser";
@@ -20,6 +21,8 @@ type InformationProps = PopulateProduct & {
 };
 
 export const Information = ({ id, name, category, sale, price, images, isProductFavorite }: InformationProps) => {
+  const navigate = useNavigate();
+
   const { width } = useWindowSize();
   const { addToCart } = useCart();
 
@@ -37,7 +40,9 @@ export const Information = ({ id, name, category, sale, price, images, isProduct
   }
 
   function handleFavoriteButtonClick() {
-    const data = { userId: user!.id, productId: id };
+    if (!user) return navigate("/login");
+
+    const data = { userId: user.id, productId: id };
     isProductFavorite ? deleteFavoriteProduct(data) : addFavoriteProduct(data);
   }
 

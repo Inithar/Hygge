@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 
 import { getUserFavoriteProducts } from "../../services/favoriteProductsApi";
 
-export const useUserFavoriteProducts = (id: string) => {
+export const useUserFavoriteProducts = (id: string | undefined) => {
   const [searchParams] = useSearchParams();
 
   const page = !searchParams.get("page") ? 1 : Number(searchParams.get("page"));

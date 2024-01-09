@@ -27,8 +27,9 @@ export const Details = () => {
   const { width } = useWindowSize();
 
   const { user } = useUser();
+
   const { product, isLoading: isProductDataLoading } = useProduct(Number(id));
-  const { favoriteProducts, isLoading: isUserFavoriteProductsLoading } = useUserFavoriteProducts(user!.id);
+  const { favoriteProducts, isLoading: isUserFavoriteProductsLoading } = useUserFavoriteProducts(user?.id);
 
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
