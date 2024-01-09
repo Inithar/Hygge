@@ -38,7 +38,7 @@ export const getOrders = async ({ filter, page, customer }: GetOrdersParams) => 
     query.eq("customer", customer);
   }
 
-  const { data: orders, error, count } = await query;
+  const { data: orders, error, count } = await query.order("created_at", { ascending: false });
 
   if (error) {
     throw new Error("Orders could not be loaded");
