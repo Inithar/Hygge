@@ -23,19 +23,19 @@ export const reviews = [
     profileImg: "/images/profile-pic.png",
     name: "Amy",
     surname: "Smith",
-    review: "This is the best website I have ordered something from. I highly recommend.",
+    review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit velit ex consequat urna",
   },
   {
-    profileImg: "/images/profile-pic.png",
-    name: "Amy",
-    surname: "Smith",
-    review: "This is the best website I have ordered something from. I highly recommend.",
+    profileImg: "/images/profile-pic-2.png",
+    name: "Isabella",
+    surname: "Müller",
+    review: "Morbi finibus, enim nec euismod tempus, velit ex consequat urna, vitae viverra neque risus",
   },
   {
-    profileImg: "/images/profile-pic.png",
-    name: "Amy",
-    surname: "Smith",
-    review: "This is the best website I have ordered something from. I highly recommend.",
+    profileImg: "/images/profile-pic-3.png",
+    name: "Aisha",
+    surname: "Patel",
+    review: "In odio massa, accumsan at ex et, vehicula maximus nunc ipsum dolor sit amet",
   },
 ];
 
