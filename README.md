@@ -25,11 +25,11 @@ Welcome to the [_Hygge_](https://hygge-inithar.netlify.app/) project repository!
 
 - [Contact](https://hygge-inithar.netlify.app/contact) - The contact form is a generic form that allows users to send a message to the business. Upon successful completion, a success message is displayed, and the email is sent to the site admin's designated email address.
 
-- [Cart](https://hygge-houseplants.herokuapp.com/cart/) - This page displays the items that a user has added to their cart. Users can use the checkout button to proceed to checkout.
+- [Cart](https://hygge-inithar.netlify.app/cart) - This page displays the items that a user has added to their cart. Users can use the checkout button to proceed to checkout.
 
 - [Checkout](https://hygge-inithar.netlify.app/checkout) - This page has two sections: an order summary section and a checkout area that enables the user to enter their details, pay, and complete their order. Upon successful checkout, the user is directed to a success page that displays a concise summary of their order.
 
-- [FAQ](https://hygge-houseplants.herokuapp.com/profiles/) - Contains frequently asked questions by users.
+- [FAQ](https://hygge-inithar.netlify.app/faq) - Contains frequently asked questions by users.
 
 - [Sign In](https://hygge-inithar.netlify.app/login) - This allows users with existing accounts to login and access their account.
 
