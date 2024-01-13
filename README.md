@@ -2,7 +2,7 @@
 
 Welcome to the [_Hygge_](https://hygge-inithar.netlify.app/) project repository! This ecommerce website is created for enthusiasts of cosmetics who are in search of unique products to accentuate their natural beauty. The project was developed solely for educational purposes.
 
-## Technologies Used:
+## Technologies Used
 
 - React
 - TypeScript
