@@ -22,6 +22,7 @@ const sliderSettings = {
   slidesToScroll: 1,
   variableWidth: true,
   swipeToSlide: true,
+  adaptiveHeight: true,
 };
 
 export const RelatedProducts = () => {
