@@ -47,11 +47,11 @@ Welcome to the [_Hygge_](https://hygge-inithar.netlify.app/) project repository!
 ## Mockups
 
 <p align="center">
-  <img src="https://github.com/Inithar/Photosnap/assets/72702964/10f0c1c0-dff9-4ff7-b424-d754e6d8b374" alt="mockup">
+  <img alt="mockup" src="https://github.com/user-attachments/assets/9e2e4665-7a67-4d27-8152-d26d82cdd388" />
 </p>
 
 <p align="center">
-  <img src="https://github.com/Inithar/Photosnap/assets/72702964/77a3901e-37bf-46a5-acdd-4044baff0f96" alt="mockup">
+  <img alt="mockup" src="https://github.com/user-attachments/assets/de29ef8c-ee0c-41cc-994a-df3e3d5907ec" />
 </p>
 
 ## Contact
